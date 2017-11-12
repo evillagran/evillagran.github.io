@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+            <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Gotencool's blog</title>
+
+            <link href="http://blog.gotencool.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Full Atom Feed" />
+            <link href="http://blog.gotencool.com/feeds/misc.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Categories Atom Feed" />
+
+        <!-- Bootstrap Core CSS -->
+        <link href="./theme/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="./theme/css/clean-blog.min.css" rel="stylesheet">
+
+        <!-- Code highlight color scheme -->
+            <link href="./theme/css/code_blocks/darkly.css" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+
+
+        <meta name="tags" contents="Fedora" />
+        <meta name="tags" contents="arduino" />
+
+
+			<meta property="og:locale" content="es">
+		<meta property="og:site_name" content="Gotencool's blog">
+
+	<meta property="og:type" content="article">
+	<meta property="article:author" content="">
+	<meta property="og:url" content="./arduino-en-fedora-12-x86_64.html">
+	<meta property="og:title" content="Arduino en Fedora 12 (x86_64)">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="./">
+	<meta property="article:published_time" content="2010-04-13 00:00:00-04:00">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="./">Gotencool's blog</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+    <header class="intro-header" style="background-image: url('./theme/images/grua.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>Arduino en Fedora 12 (x86_64)</h1>
+                        <span class="meta">Posted on mar 13 abril 2010
+                        </span>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <!-- Post Content -->
+    <article>
+        <p>Finalmente me convenció la idea de comprar un <a href="http://arduino.cc/">Arduino</a> y con éste crear accesorios para mi cámara fotográfica.<br>
+Básicamente, un arduino es una placa que consta de un chip ATMega, unas entradas análogas y otras entardas/salidas digitales, las que permiten crear diversos diseños de circuitos y programar (lenguaje basado en Wiring) la interacción del ATMega mediante programación gracias al entorno de desarrollo (basado en Processing) que posee.  </p>
+<p>En mi caso, adquirí un Arduino USB Duemilanove (ATMega 328, 14 pines digitales I/O, 6 pines análogos Input, ) por $21000 en Olimex.cl aunque lo pueden encontrar por unos $10000 en eBay con despacho a Chile incluido.  </p>
+<p>Para poder conectar el Arduino a Fedora necesitaremos:  </p>
+<ul>
+<li>La última versión del OpenJDK disponible en los repositorios de Fedora  </li>
+</ul>
+<p>yum install java-1.6.0-openjdk /<em> para instalarlo </em>/<br>
+yum update java /<em> para actualizarlo si ya está instalado </em>/</p>
+<ul>
+<li>Instalar los siguientes paquetes:  </li>
+</ul>
+<p>yum install uisp avr-libc avr-gcc-c++ rxtx avrdude</p>
+<ul>
+<li>Bajar el entorno de desarrollo desde <a href="http://arduino.cc/en/Main/Software">http://arduino.cc/en/Main/Software</a> y descomprimirlo a un directorio local (usuario) o global. (Para el ejemplo /opt/)</li>
+<li>Creamos links simbólicos:  </li>
+</ul>
+<p>cd /opt/arduino-<em>/lib <br>
+rm librxtxSerial.so RXTXcomm.jar <br>
+ln -s /usr/share/java/RXTXcomm.jar <br>
+ln -s /usr/lib64/rxtx/librxtxSerial.so<br>
+cd /opt/arduino-</em>/hardware/tools/<br>
+ln -s /usr/bin/avrdude </p>
+<ul>
+<li>Agregamos usuario(s) a los grupos adecuados:<br>
+Vamos a Sistema -&gt; Administración -&gt; Usuarios y Grupos<br>
+En las propiedades de cada usuario que empleará el arduino agregamos los grupos: uucp, lock, dialout.</li>
+<li>Cerramos la sesión si nuestro usuario empleará arduino para refrescar los grupos.</li>
+<li>Ejecutamos el IDE del entorno:  </li>
+</ul>
+<p>/opt/arduino-*/arduino</p>
+<ul>
+<li>Seleccionamos el puerto adecuado:<br>
+Tools -&gt; Serial Port <br>
+Seleccionamos /dev/ttyUSB0 (Sólo aparece una vez que hemos conectado el arduino al USB).</li>
+</ul>
+    </article>
+
+    <hr>
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+		<div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="./tags">
+                                <span class="">
+                                    Tags
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                                <span class=""> - </span>
+                        </li>
+                        <li>
+                            <a href="./categories">
+                                <span class="">
+                                    Categorías
+                                </span>
+                            </a>
+                        </li>
+		   </ul>
+<!--<ul class="list-inline text-center">
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-flickr fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+		    </ul> -->
+                    <p class="copyright text-muted">Blog powered by <a href="http://getpelican.com">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="./theme/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="./theme/js/bootstrap.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="./theme/js/clean-blog.min.js"></script>
+
+</body>
+
+</html>

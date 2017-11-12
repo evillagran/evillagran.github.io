@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Gotencool's blog - mouse</title><link rel="alternate" href="http://blog.gotencool.com/"></link><link rel="self" href="http://blog.gotencool.com/feeds/mouse.tag.atom.xml"></link><id>http://blog.gotencool.com/</id><updated>2013-07-17T00:00:00-04:00</updated><entry><title>Habilitar barra de desplazamiento vertical del touchpad</title><link href="http://blog.gotencool.com/habilitar-barra-de-desplazamiento-vertical-del-touchpad.html" rel="alternate"></link><published>2013-07-17T00:00:00-04:00</published><author><name>Eduardo Villagrán Morales</name></author><id>tag:blog.gotencool.com,2013-07-17:/habilitar-barra-de-desplazamiento-vertical-del-touchpad.html/</id><summary type="html">&lt;p&gt;Luego de actualizar mi Fedora 18 a Fedora 19 con GNOME, el scrolling dejó de funcionar.&lt;br&gt;
+En las opciones de "Ratón y touchpad" no hay forma de activarlo directamente. Buscando en internet llegué hasta el siguiente comando:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;gsettings set org.gnome.settings-daemon.peripherals.touchpad scroll-method &amp;#39;edge-scrolling&amp;#39;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Con ésto se soluciona …&lt;/p&gt;</summary><category term="gnome"></category><category term="Fedora"></category><category term="touchpad"></category><category term="mouse"></category></entry></feed>

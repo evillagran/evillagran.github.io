@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+            <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Gotencool's blog</title>
+
+            <link href="http://blog.gotencool.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Full Atom Feed" />
+            <link href="http://blog.gotencool.com/feeds/misc.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Categories Atom Feed" />
+
+        <!-- Bootstrap Core CSS -->
+        <link href="./theme/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="./theme/css/clean-blog.min.css" rel="stylesheet">
+
+        <!-- Code highlight color scheme -->
+            <link href="./theme/css/code_blocks/darkly.css" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+
+
+        <meta name="tags" contents="Linux" />
+        <meta name="tags" contents="bluetooth" />
+        <meta name="tags" contents="Nexus" />
+        <meta name="tags" contents="One" />
+        <meta name="tags" contents="Fedora" />
+        <meta name="tags" contents="Música" />
+        <meta name="tags" contents="android" />
+
+
+			<meta property="og:locale" content="es">
+		<meta property="og:site_name" content="Gotencool's blog">
+
+	<meta property="og:type" content="article">
+	<meta property="article:author" content="">
+	<meta property="og:url" content="./enviar-audio-desde-android-a-fedora-via-a2dp.html">
+	<meta property="og:title" content="Enviar audio desde Android a Fedora vía A2DP">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="./">
+	<meta property="article:published_time" content="2012-05-26 00:00:00-04:00">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="./">Gotencool's blog</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+    <header class="intro-header" style="background-image: url('./theme/images/grua.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>Enviar audio desde Android a Fedora vía A2DP</h1>
+                        <span class="meta">Posted on sáb 26 mayo 2012
+                        </span>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <!-- Post Content -->
+    <article>
+        <p>El escenario genérico podría ser el siguiente: tenemos un celular o reproductor de audio que soporta el perfil bluetooth <a href="http://es.wikipedia.org/wiki/Perfil_Bluetooth#Advanced_Audio_Distribution_Profile_.28A2DP.29">A2DP</a> y queremos enviar el audio hacia nuestro PC para usarlo como parlantes bluetooth.  </p>
+<p><a href="images/-dNnyN4mU0qsT8D6KUi1OPIAAAAAAAABmkpk9DN7e1_mks1600a2dp.png"><img alt="" src="images/-dNnyN4mU0qsT8D6KUi1OPIAAAAAAAABmkpk9DN7e1_mks1600a2dp.png"></a></p>
+<p>Lo primero que debemos hacer es contar con los paquetes adecuados:  </p>
+<ul>
+<li>pulseaudio-module-bluetooth</li>
+<li>pavucontrol</li>
+</ul>
+<p>Estos pueden ser instalados desde la aplicación Añadir/Quitar software o desde consola con:  </p>
+<p>yum install pulseaudio-module-bluetooth pavucontrol</p>
+<p>Estos pasos sólo deben efectuarse la primera vez (como root):   </p>
+<ol>
+<li>Luego debemos editar o crear el archivo /etc/bluetooth/audio.conf con el siguiente contenido:  </li>
+</ol>
+<p>[General]<br>
+Enable=Sink,Source</p>
+<ol>
+<li>Reiniciamos el servicio bluetooth  </li>
+</ol>
+<p>systemctl restart bluetooth.service</p>
+<p>Estos pasos deberán ser efectuados como usuario normal (no root) cada vez que conectemos un dispositivo de audio vía A2DP:  </p>
+<ol>
+<li>Cargar módulo bluetooth de PulseAudio:  </li>
+</ol>
+<p>pactl load-module module-bluetooth-discover</p>
+<ol>
+<li>Emparejar dispositivos, debemos usar el applet bluetooth:<br>
+<a href="images/-V90RthllxKAT8Boex8o2sIAAAAAAAABl0wuNwXurHhwAs1600Pantallazo+de+2012-05-26+01:12:39.png"><img alt="" src="images/-V90RthllxKAT8Boex8o2sIAAAAAAAABl0wuNwXurHhwAs320Pantallazo+de+2012-05-26+01:12:39.png"></a></li>
+<li>Establecer conexión desde el celular, seleccionar el dispositivo (en este caso el PC) y damos en Establecer conexión:<br>
+<a href="images/-W_Wl6RDftDET8Bo6UV_GCIAAAAAAAABmEwv-yCTu6zFss1600screenshot-1338009201647.png"><img alt="" src="images/-W_Wl6RDftDET8Bo6UV_GCIAAAAAAAABmEwv-yCTu6zFss320screenshot-1338009201647.png"></a></li>
+<li>Una vez establecida la conexión veremos el ícono bluetooth así:<br>
+<a href="images/-DH-9LuuxWbMT8BpZwOYQYIAAAAAAAABmMu8Hn7XBc_yQs1600screenshot-1338009278716.png"><img alt="" src="images/-DH-9LuuxWbMT8BpZwOYQYIAAAAAAAABmMu8Hn7XBc_yQs320screenshot-1338009278716.png"></a></li>
+<li>Buscar la fuente bluetooth:  </li>
+</ol>
+<p>[test@test ~ ]$ pactl list short sources | grep bluez_source |awk '{print $2;}'</p>
+<p>Obtendremos la fuente:  </p>
+<p>bluez_source.38_E7_D8_41_AE_63</p>
+<ol>
+<li>Buscamos la salida de audio del PC:  </li>
+</ol>
+<p>[test@test ~ ]$ pactl list short sinks | grep -v Monitor |grep alsa_output.pci | awk '{ print $2; }'</p>
+<p>Obtendremos algunas salidas:  </p>
+<p>alsa_output.pci-0000_01_05.1.hdmi-stereo<br>
+alsa_output.pci-0000_00_14.2.analog-stereo<br>
+alsa_output.pci-0000_01_05.1.hdmi-stereo.monitor<br>
+alsa_output.pci-0000_00_14.2.analog-stereo.monitor</p>
+<ol>
+<li>Creamos un flujo desde el bluetooth hacia la salida de audio del PC:  </li>
+</ol>
+<p>[test@test ~ ]$ pactl load-module module-loopback source=bluez_source.38_E7_D8_41_AE_63 sink=alsa_output.pci-0000_00_14.2.analog-stereo<br>
+XX</p>
+<p>En este caso, el número XX correspondería al ID del flujo que estoy enviando el audio hacia los parlantes (<strong>alsa_output.pci-0000_00_14.2.analog-stereo</strong>), si quisiera enviar la salida hacia la salida HDMI debería usar <strong>alsa_output.pci-0000_01_05.1.hdmi-stereo</strong>.
+  8. Comenzamos a reproducir el audio desde el celular.
+  9. Antes de desconectar el bluetooth debemos eliminar el flujo de lo contrario comenzará a alimentarse desde micrófono y finalmente se acoplará.  </p>
+<p>pactl unload-module XX</p>
+<p>donde XX es el ID que nos dio al crear el flujo. </p>
+<p>En caso que no escuchemos el audio, se debe abrir pavucontrol:  </p>
+<ol>
+<li>En la pestaña Reproducción seleccionar Mostrar: Flujos virtuales</li>
+<li>Quitar el silencio (ícono de parlante con una X).</li>
+</ol>
+    </article>
+
+    <hr>
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+		<div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="./tags">
+                                <span class="">
+                                    Tags
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                                <span class=""> - </span>
+                        </li>
+                        <li>
+                            <a href="./categories">
+                                <span class="">
+                                    Categorías
+                                </span>
+                            </a>
+                        </li>
+		   </ul>
+<!--<ul class="list-inline text-center">
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-flickr fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+		    </ul> -->
+                    <p class="copyright text-muted">Blog powered by <a href="http://getpelican.com">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="./theme/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="./theme/js/bootstrap.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="./theme/js/clean-blog.min.js"></script>
+
+</body>
+
+</html>

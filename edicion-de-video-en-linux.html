@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+            <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Gotencool's blog</title>
+
+            <link href="http://blog.gotencool.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Full Atom Feed" />
+            <link href="http://blog.gotencool.com/feeds/misc.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Categories Atom Feed" />
+
+        <!-- Bootstrap Core CSS -->
+        <link href="./theme/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="./theme/css/clean-blog.min.css" rel="stylesheet">
+
+        <!-- Code highlight color scheme -->
+            <link href="./theme/css/code_blocks/darkly.css" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+
+
+        <meta name="tags" contents="Linux" />
+        <meta name="tags" contents="Fedora" />
+
+
+			<meta property="og:locale" content="es">
+		<meta property="og:site_name" content="Gotencool's blog">
+
+	<meta property="og:type" content="article">
+	<meta property="article:author" content="">
+	<meta property="og:url" content="./edicion-de-video-en-linux.html">
+	<meta property="og:title" content="Edición de video en Linux">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="./">
+	<meta property="article:published_time" content="2008-01-29 00:00:00-03:00">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="./">Gotencool's blog</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+    <header class="intro-header" style="background-image: url('./theme/images/grua.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>Edición de video en Linux</h1>
+                        <span class="meta">Posted on mar 29 enero 2008
+                        </span>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <!-- Post Content -->
+    <article>
+        <p>Sin duda alguna esta ha sido la tarea que más dolores de cabeza me ha dado. La edición de video en Linux tiene mucho camino que recorrer antes de poder entregar una amplia gama de opciones, es una deuda que se está comenzando a saldar. Si vemos herramientas para editar imágenes a nivel profesional podemos nombrar fácilmente unas 10 si es edición de audio encontramos unas 6 opciones.  </p>
+<p>Para edición de video encontramos a dos potentes herramientas:  </p>
+<ul>
+<li>
+<p>Cinelerra: es sin duda la mejor herramienta, permite crear un clúster para rederizar. Posee todas la opciones de edición no lineal que puedes necesitar. <a href="http://cinelerra.org/">Existen dos forks</a>.  </p>
+</li>
+<li>
+<p>LiVES (LiVES is a Video Editing System): es un poco más simple que Cinelerra pero se vuelve ineficiente al manejar muchos ficheros de video. Más info en su <a href="http://lives.sourceforge.net/">sitio</a>.  </p>
+</li>
+</ul>
+<p>Finalmente no puedo dejar fuera a <a href="http://www.pitivi.org/">Pitivi,</a> una herramienta básica pero que cumple con la misión que le fue encomendad.  </p>
+<p>Adicionalmente les puedo contar que la instalación de estos programas en Fedora 8 requiere algunos trucos si es que usas los repositorios <a href="http://rpm.livna.org/rlowiki/">Livna</a>, <a href="http://atrpms.net/">ATrpms</a> y <a href="http://freshrpms.net/">Freshrpms</a> al mismo tiempo (se sabe que son muy incompatibles entre ellos).  </p>
+<p>LiVES:  </p>
+<ol>
+<li>Necesitamos <a href="http://downloads.sourceforge.net/lives/lives-0.9.8.6-2.fc8.i386.rpm?modtime=1199010995&amp;big_mirror=0">bajar el rpm</a> desde el sitio oficial</li>
+<li>yum install lives.x.x.rpm</li>
+</ol>
+<p>Cinelerra:  </p>
+<ol>
+<li><a href="http://kwizart.free.fr/fedora/kwizart-release-8.noarch.rpm">Bajamos este rpm</a> para agregar un repositorio que facilita mucho las cosas</li>
+<li>yum install cinelerra --disablerepo=freshrpms --enablerepo=kwizart</li>
+</ol>
+<p>Pitivi:</p>
+<ol>
+<li>yum install pitivi</li>
+</ol>
+    </article>
+
+    <hr>
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+		<div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="./tags">
+                                <span class="">
+                                    Tags
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                                <span class=""> - </span>
+                        </li>
+                        <li>
+                            <a href="./categories">
+                                <span class="">
+                                    Categorías
+                                </span>
+                            </a>
+                        </li>
+		   </ul>
+<!--<ul class="list-inline text-center">
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-flickr fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+		    </ul> -->
+                    <p class="copyright text-muted">Blog powered by <a href="http://getpelican.com">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="./theme/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="./theme/js/bootstrap.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="./theme/js/clean-blog.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+            <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Gotencool's blog</title>
+
+            <link href="http://blog.gotencool.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Full Atom Feed" />
+            <link href="http://blog.gotencool.com/feeds/misc.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Categories Atom Feed" />
+
+        <!-- Bootstrap Core CSS -->
+        <link href="./theme/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="./theme/css/clean-blog.min.css" rel="stylesheet">
+
+        <!-- Code highlight color scheme -->
+            <link href="./theme/css/code_blocks/darkly.css" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+
+
+        <meta name="tags" contents="arduino" />
+        <meta name="tags" contents="fotografía" />
+
+
+			<meta property="og:locale" content="es">
+		<meta property="og:site_name" content="Gotencool's blog">
+
+	<meta property="og:type" content="article">
+	<meta property="article:author" content="">
+	<meta property="og:url" content="./disparar-una-camara-canon-eos-desde-un-arduino.html">
+	<meta property="og:title" content="Disparar una cámara Canon EOS desde un Arduino">
+	<meta property="og:description" content="">
+	<meta property="og:image" content=".//theme/images/placa.jpg">
+	<meta property="article:published_time" content="2011-06-30 00:00:00-04:00">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="./">Gotencool's blog</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+        <header class="intro-header" style="background-image: url('/theme/images/placa.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>Disparar una cámara Canon EOS desde un Arduino</h1>
+                        <span class="meta">Posted on jue 30 junio 2011
+                        </span>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <!-- Post Content -->
+    <article>
+        <p>Hace ya un tiempo enseñé <a href="http://blog.gotencool.com/2010/04/cable-para-canon-arduino.html">cómo hacer un cable para disparar una Canon EOS remotamente</a>. El cable podría ser adosado a un interruptor, pulsador o similares. Esta vez conectaré el mismo cable a un Arduino, de esta forma podremos disparar la cámara bajo las condiciones que nos podamos imaginar: cambios de luz, ruidos, movimiento, temperatura, vibraciones, etc.<br>
+Para poder hacer las conexiones, necesitaremos:  </p>
+<ul>
+<li>el cable de disparo remoto (<a href="http://blog.gotencool.com/2010/04/cable-para-canon-arduino.html">entrada previa</a>)</li>
+<li>dos transistores PN2222</li>
+<li>dos pines digitales del arduino</li>
+</ul>
+<p>Realizaremos las conexiones como aparecen en el esquema:  </p>
+<p><a href="images/-IPPMdowARygTgv0k680U4IAAAAAAAAAzwgd1IFBXB2Ros1600conexion+canon_bb.png"><img alt="" src="images/-IPPMdowARygTgv0k680U4IAAAAAAAAAzwgd1IFBXB2Ros320conexion+canon_bb.png"></a></p>
+<p>Una vez hecho ésto podemos realizar algunas pruebas usando el siguiente código:  </p>
+<div class="highlight"><pre><span></span><span class="cm">/* Disparar Canon EOS</span>
+<span class="cm">via cable remoto</span>
+<span class="cm">*/</span><span class="w"></span>
+const<span class="w"> </span>int<span class="w"> </span>f_pin<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">6</span><span class="err">;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span>pin<span class="w"> </span>para<span class="w"> </span>enfoque<span class="w"></span>
+const<span class="w"> </span>int<span class="w"> </span>s_pin<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">7</span><span class="err">;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span>pin<span class="w"> </span>para<span class="w"> </span>disparo<span class="w"></span>
+
+<span class="cm">/* Recordar que la EOS no disparara si esta</span>
+<span class="cm">en enfoque automatico y no esta enfocada</span>
+<span class="cm">correctamente.</span>
+
+<span class="cm">Si se desea disparar a cualquier costo, se</span>
+<span class="cm">debe definir enfoque manual.</span>
+<span class="cm">*/</span><span class="w"></span>
+void<span class="w"> </span>setup<span class="o">()</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">  </span><span class="o">//</span>defino<span class="w"> </span>los<span class="w"> </span>pines<span class="w"> </span>como<span class="w"> </span>salidas<span class="w"></span>
+<span class="w">  </span>pinMode<span class="o">(</span>focusPin<span class="o">,</span><span class="w"> </span>OUTPUT<span class="o">)</span><span class="err">;</span><span class="w"></span>
+<span class="w">  </span>pinMode<span class="o">(</span>shutterPin<span class="o">,</span><span class="w"> </span>OUTPUT<span class="o">)</span><span class="err">;</span><span class="w"></span>
+<span class="w">  </span><span class="o">//</span>dejo<span class="w"> </span>las<span class="w"> </span>salidas<span class="w"> </span>en<span class="w"> </span>LOW<span class="w"></span>
+<span class="w">  </span>digitalWrite<span class="o">(</span>focusPin<span class="o">,</span><span class="w"> </span>LOW<span class="o">)</span><span class="err">;</span><span class="w"></span>
+<span class="w">  </span>digitalWrite<span class="o">(</span>shutterPin<span class="o">,</span><span class="w"> </span>LOW<span class="o">)</span><span class="err">;</span><span class="w"></span>
+<span class="err">}</span><span class="w"></span>
+
+void<span class="w"> </span>loop<span class="o">()</span><span class="err">{</span><span class="w"></span>
+<span class="w">  </span><span class="cm">/* Este bloque tal cual como esta</span>
+<span class="cm">  actuaria como un intervalometro y</span>
+<span class="cm">  serviria para hacer time-lapses</span>
+<span class="cm">  */</span><span class="w"></span>
+<span class="w">  </span>digitalWrite<span class="o">(</span>focusPin<span class="o">,</span><span class="w"> </span>HIGH<span class="o">)</span><span class="err">;</span><span class="w"> </span><span class="o">//</span>enfoco<span class="w"></span>
+<span class="w">  </span><span class="cm">/* El delay es para que enfoque adecuadamente</span>
+<span class="cm">  Se debe ajustar segun la dificultad que haya</span>
+<span class="cm">  para enfocar*/</span><span class="w"></span>
+<span class="w">  </span>delay<span class="o">(</span><span class="m">2000</span><span class="o">)</span><span class="err">;</span><span class="w"></span>
+<span class="w">  </span>digitalWrite<span class="o">(</span>shutterPin<span class="o">,</span><span class="w"> </span>HIGH<span class="o">)</span><span class="err">;</span><span class="w"> </span><span class="o">//</span>disparo<span class="w"></span>
+<span class="w">  </span><span class="cm">/* Dejo un tiempo antes de terminar el proceso</span>
+<span class="cm">  Este valor debe ser adecuado segun el tiempo de</span>
+<span class="cm">  disparo. El tiempo de exposicion se define en la</span>
+<span class="cm">  camara. Este delay definira el tiempo de obturacion</span>
+<span class="cm">  en modo bulb.</span>
+<span class="cm">  */</span><span class="w"></span>
+<span class="w">  </span>delay<span class="o">(</span><span class="m">1000</span><span class="o">)</span><span class="err">;</span><span class="w"></span>
+<span class="w">  </span>digitalWrite<span class="o">(</span>shutterPin<span class="o">,</span><span class="w"> </span>LOW<span class="o">)</span><span class="err">;</span><span class="w"> </span><span class="o">//</span>dejo<span class="w"> </span>de<span class="w"> </span>enfocar<span class="w"></span>
+<span class="w">  </span>digitalWrite<span class="o">(</span>focusPin<span class="o">,</span><span class="w"> </span>LOW<span class="o">)</span><span class="err">;</span><span class="w"> </span><span class="o">//</span>dejo<span class="w"> </span>de<span class="w"> </span>disparar<span class="w"></span>
+<span class="w">  </span>delay<span class="o">(</span><span class="m">10000</span><span class="o">)</span><span class="err">;</span><span class="w"> </span><span class="o">//</span>espero<span class="w"> </span><span class="m">10</span><span class="w"> </span>segundos<span class="w"> </span>hasta<span class="w"> </span>sgte<span class="w"> </span>ciclo<span class="w"></span>
+<span class="err">}</span><span class="w"></span>
+</pre></div>
+
+
+<p>Ahora a jugar. </p>
+    </article>
+
+    <hr>
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+		<div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="./tags">
+                                <span class="">
+                                    Tags
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                                <span class=""> - </span>
+                        </li>
+                        <li>
+                            <a href="./categories">
+                                <span class="">
+                                    Categorías
+                                </span>
+                            </a>
+                        </li>
+		   </ul>
+<!--<ul class="list-inline text-center">
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-flickr fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+		    </ul> -->
+                    <p class="copyright text-muted">Blog powered by <a href="http://getpelican.com">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="./theme/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="./theme/js/bootstrap.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="./theme/js/clean-blog.min.js"></script>
+
+</body>
+
+</html>

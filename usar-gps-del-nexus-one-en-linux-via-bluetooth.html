@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+            <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Gotencool's blog</title>
+
+            <link href="http://blog.gotencool.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Full Atom Feed" />
+            <link href="http://blog.gotencool.com/feeds/misc.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Categories Atom Feed" />
+
+        <!-- Bootstrap Core CSS -->
+        <link href="./theme/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="./theme/css/clean-blog.min.css" rel="stylesheet">
+
+        <!-- Code highlight color scheme -->
+            <link href="./theme/css/code_blocks/darkly.css" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+
+
+        <meta name="tags" contents="Linux" />
+        <meta name="tags" contents="gps" />
+        <meta name="tags" contents="Nexus" />
+        <meta name="tags" contents="One" />
+        <meta name="tags" contents="Fedora" />
+        <meta name="tags" contents="android" />
+
+
+			<meta property="og:locale" content="es">
+		<meta property="og:site_name" content="Gotencool's blog">
+
+	<meta property="og:type" content="article">
+	<meta property="article:author" content="">
+	<meta property="og:url" content="./usar-gps-del-nexus-one-en-linux-via-bluetooth.html">
+	<meta property="og:title" content="Usar GPS del Nexus One en Linux vía bluetooth">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="./">
+	<meta property="article:published_time" content="2010-12-31 00:00:00-03:00">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="./">Gotencool's blog</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+    <header class="intro-header" style="background-image: url('./theme/images/grua.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>Usar GPS del Nexus One en Linux vía bluetooth</h1>
+                        <span class="meta">Posted on vie 31 diciembre 2010
+                        </span>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <!-- Post Content -->
+    <article>
+        <p><a href="http://blog.gotencool.com/2010/12/convertir-nexus-one-en-receptor-gps.html">Ya indiqué cómo convertir nuestro Nexus One en un GPS bluetooth estándar</a>. Ahora viene la parte de conectarlo a Linux.  </p>
+<p>Deberemos tener instaladas las dependencias para bluetooth y rfcomm, las pruebas se efectuaron en <a href="http://fedoraproject.org/">Fedora</a> 14 x86_64.  </p>
+<ol>
+<li>Luego deberemos dejar el N1 visible vía bluetooth</li>
+<li>En una consola como root debemos buscar el N1:  </li>
+</ol>
+<p>[root@caleuche ]# hcitool scan<br>
+Scanning ...<br>
+38:E7:D8:45:AE:63  Nexus One</p>
+<ol>
+<li>Buscamos el canal que emplea el N1 para serial:  </li>
+</ol>
+<p>[root@caleuche ]# sdptool browse 38:E7:D8:45:AE:63<br>
+...<br>
+Service Name: GPS<br>
+Service RecHandle: 0x10008<br>
+Service Class ID List:<br>
+UUID 128: 00001101-0000-1000-8000-00805f9b34fb<br>
+Protocol Descriptor List:<br>
+"L2CAP" (0x0100)<br>
+"RFCOMM" (0x0003)<br>
+Channel: <strong>29</strong></p>
+<ol>
+<li>Creamos el archivo /etc/bluetooth/rfcomm.conf con el siguiente contenido:  </li>
+</ol>
+<p>rfcomm0 {  </p>
+<p>bind no; </p>
+<p>device 38:E7:D8:45:AE:63;  </p>
+<h1>en channel colocamos el que nos arroja sdptools....</h1>
+<p>channel 29;<br>
+comment "GPS bluetooth";<br>
+}</p>
+<ol>
+<li>Finalmente realizamos la conexión, en caso que ya hayamos emparejado previamente no solicitará nada, en caso que sea la primera vez solicitará emparejar con PIN:  </li>
+</ol>
+<p>[root@caleuche ]# rfcomm connect 0<br>
+Connected /dev/rfcomm0 to 38:E7:D8:45:AE:60 on channel 29<br>
+Press CTRL-C for hangup</p>
+<ul>
+<li>Probamos que funcione, en N1 mostrará el widget en amarillo:  </li>
+</ul>
+<p>[root@caleuche eduardo]# cat &lt; /dev/rfcomm0<br>
+...<br>
+$GPGGA,214202.7,3334.863519,S,07035.229533,W,1,07,1.2,656.9,M,32.0,M,,<em>50<br>
+$GPVTG,287.4,T,285.0,M,0.0,N,0.0,K,A</em>25<br>
+$GPRMC,214202.7,A,3334.863519,S,07035.229533,W,0.0,,311210,,,A*45<br>
+...</p>
+<ul>
+<li>Ahora sólo nos queda utilizar este flujo con alguna herramienta, la forma simple es pasarlo al gpsd:  </li>
+</ul>
+<p>[root@caleuche ]# gpsd -N -b /dev/rfcomm0</p>
+<p>Con ésto lograremos que se levante un demonio en el puerto 2947.</p>
+<ul>
+<li>Podemos probar que funciona con xgps, tangogps y gpsdrive:  </li>
+</ul>
+<p><a href="images/_XwjmBjJAtPITR5PyVIW3ZIAAAAAAAAAvgeOD0Kj0SHros1600Pantallazo-xgps.png"><img alt="" src="images/_XwjmBjJAtPITR5PyVIW3ZIAAAAAAAAAvgeOD0Kj0SHros320Pantallazo-xgps.png"></a></p>
+<p><a href="images/_XwjmBjJAtPITR5Pz0v9zFIAAAAAAAAAvk_Hs1uKbofwss1600Pantallazo-tangoGPS-1.png"><img alt="" src="images/_XwjmBjJAtPITR5Pz0v9zFIAAAAAAAAAvk_Hs1uKbofwss320Pantallazo-tangoGPS-1.png"></a></p>
+<p><a href="images/_XwjmBjJAtPITR5P1ZY4GcIAAAAAAAAAvoIaM2ba5k7zIs1600Pantallazo-tangoGPS.png"><img alt="" src="images/_XwjmBjJAtPITR5P1ZY4GcIAAAAAAAAAvoIaM2ba5k7zIs320Pantallazo-tangoGPS.png"></a></p>
+<p><a href="images/_XwjmBjJAtPITR5P34NV1FIAAAAAAAAAvsxz4qPJAtsiQs1600Pantallazo-GpsDrive+v2.11.png"><img alt="" src="images/_XwjmBjJAtPITR5P34NV1FIAAAAAAAAAvsxz4qPJAtsiQs320Pantallazo-GpsDrive+v2.11.png"></a></p>
+    </article>
+
+    <hr>
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+		<div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="./tags">
+                                <span class="">
+                                    Tags
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                                <span class=""> - </span>
+                        </li>
+                        <li>
+                            <a href="./categories">
+                                <span class="">
+                                    Categorías
+                                </span>
+                            </a>
+                        </li>
+		   </ul>
+<!--<ul class="list-inline text-center">
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-flickr fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+		    </ul> -->
+                    <p class="copyright text-muted">Blog powered by <a href="http://getpelican.com">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="./theme/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="./theme/js/bootstrap.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="./theme/js/clean-blog.min.js"></script>
+
+</body>
+
+</html>

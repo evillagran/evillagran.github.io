@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+            <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Gotencool's blog</title>
+
+            <link href="http://blog.gotencool.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Full Atom Feed" />
+            <link href="http://blog.gotencool.com/feeds/misc.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Categories Atom Feed" />
+
+        <!-- Bootstrap Core CSS -->
+        <link href="./theme/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="./theme/css/clean-blog.min.css" rel="stylesheet">
+
+        <!-- Code highlight color scheme -->
+            <link href="./theme/css/code_blocks/darkly.css" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+
+
+        <meta name="tags" contents="Linux" />
+        <meta name="tags" contents="programación" />
+
+
+			<meta property="og:locale" content="es">
+		<meta property="og:site_name" content="Gotencool's blog">
+
+	<meta property="og:type" content="article">
+	<meta property="article:author" content="">
+	<meta property="og:url" content="./libglade-gtk-java-eclipse.html">
+	<meta property="og:title" content="LibGlade + GTK + Java + Eclipse">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="./">
+	<meta property="article:published_time" content="2008-03-05 00:00:00-03:00">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="./">Gotencool's blog</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+    <header class="intro-header" style="background-image: url('./theme/images/grua.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>LibGlade + GTK + Java + Eclipse</h1>
+                        <span class="meta">Posted on mié 05 marzo 2008
+                        </span>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <!-- Post Content -->
+    <article>
+        <p>Desde hace un tiempo que conozco libglade, una herramienta genial. Permite definir interfaces gráficas completas almacenándolas en un archivo XML.<br>
+Puedes crearlas en forma fácil con Glade 2 (Glade 3 no me funcionó) y gracias a que posee wrappers a casi cualquier lenguaje (C, C++, C#, Python, Java...)  </p>
+<p>Esto permite desarrollar la GUI con Glade y luego decidir que lenguaje usaremos. Además permite una integración visual con el entorno de escritorio.<br>
+En este caso haremos una GUI en Glade, el programa en Java con Eclipse y el motor para la GUI será GTK.  </p>
+<p>Necesitamos:  </p>
+<ul>
+<li>eclipse</li>
+<li>glib-java</li>
+<li>libgnome-java</li>
+<li>libglade-java</li>
+</ul>
+<p>Empecemos:<br>
+Creamos un proyecto en glade, hacemos una GUI simple para este caso<br>
+Código del archivo glade:</p>
+<div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; standalone=&quot;no&quot;?&gt;</span> <span class="c">&lt;!--*- mode: xml -*--&gt;</span>
+
+<span class="cp">&lt;!DOCTYPE glade-interface SYSTEM &quot;http://glade.gnome.org/glade-2.0.dtd&quot;&gt;</span>
+
+
+
+<span class="nt">&lt;glade-interface&gt;</span>
+
+
+
+<span class="nt">&lt;widget</span> <span class="na">class=</span><span class="s">&quot;GtkWindow&quot;</span> <span class="na">id=</span><span class="s">&quot;window1&quot;</span><span class="nt">&gt;</span>
+
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;visible&quot;</span><span class="nt">&gt;</span>True<span class="nt">&lt;/property&gt;</span>
+
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;title&quot;</span> <span class="na">translatable=</span><span class="s">&quot;yes&quot;</span><span class="nt">&gt;</span>window1<span class="nt">&lt;/property&gt;</span>
+
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;type&quot;</span><span class="nt">&gt;</span>GTK_WINDOW_TOPLEVEL<span class="nt">&lt;/property&gt;</span>
+
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;window_position&quot;</span><span class="nt">&gt;</span>GTK_WIN_POS_NONE<span class="nt">&lt;/property&gt;</span>
+
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;modal&quot;</span><span class="nt">&gt;</span>False<span class="nt">&lt;/property&gt;</span>
+
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;resizable&quot;</span><span class="nt">&gt;</span>True<span class="nt">&lt;/property&gt;</span>
+
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;destroy_with_parent&quot;</span><span class="nt">&gt;</span>False<span class="nt">&lt;/property&gt;</span>
+
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;decorated&quot;</span><span class="nt">&gt;</span>True<span class="nt">&lt;/property&gt;</span>
+
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;skip_taskbar_hint&quot;</span><span class="nt">&gt;</span>False<span class="nt">&lt;/property&gt;</span>
+
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;skip_pager_hint&quot;</span><span class="nt">&gt;</span>False<span class="nt">&lt;/property&gt;</span>
+
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;type_hint&quot;</span><span class="nt">&gt;</span>GDK_WINDOW_TYPE_HINT_NORMAL<span class="nt">&lt;/property&gt;</span>
+
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;gravity&quot;</span><span class="nt">&gt;</span>GDK_GRAVITY_NORTH_WEST<span class="nt">&lt;/property&gt;</span>
+
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;focus_on_map&quot;</span><span class="nt">&gt;</span>True<span class="nt">&lt;/property&gt;</span>
+
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;urgency_hint&quot;</span><span class="nt">&gt;</span>False<span class="nt">&lt;/property&gt;</span>
+
+  <span class="nt">&lt;signal</span> <span class="na">name=</span><span class="s">&quot;remove&quot;</span> <span class="na">handler=</span><span class="s">&quot;on_window1_destroy&quot;</span> <span class="na">last_modification_time=</span><span class="s">&quot;Thu, 06 Mar 2008 01:24:56 GMT&quot;</span><span class="nt">/&gt;</span>
+
+
+
+  <span class="nt">&lt;child&gt;</span>
+
+    <span class="nt">&lt;widget</span> <span class="na">class=</span><span class="s">&quot;GtkHBox&quot;</span> <span class="na">id=</span><span class="s">&quot;hbox1&quot;</span><span class="nt">&gt;</span>
+
+      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;visible&quot;</span><span class="nt">&gt;</span>True<span class="nt">&lt;/property&gt;</span>
+
+      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;homogeneous&quot;</span><span class="nt">&gt;</span>False<span class="nt">&lt;/property&gt;</span>
+
+      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;spacing&quot;</span><span class="nt">&gt;</span>0<span class="nt">&lt;/property&gt;</span>
+
+
+
+      <span class="nt">&lt;child&gt;</span>
+
+<span class="nt">&lt;widget</span> <span class="na">class=</span><span class="s">&quot;GtkButton&quot;</span> <span class="na">id=</span><span class="s">&quot;button1&quot;</span><span class="nt">&gt;</span>
+
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;visible&quot;</span><span class="nt">&gt;</span>True<span class="nt">&lt;/property&gt;</span>
+
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;can_focus&quot;</span><span class="nt">&gt;</span>True<span class="nt">&lt;/property&gt;</span>
+
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;label&quot;</span> <span class="na">translatable=</span><span class="s">&quot;yes&quot;</span><span class="nt">&gt;</span>button1<span class="nt">&lt;/property&gt;</span>
+
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;use_underline&quot;</span><span class="nt">&gt;</span>True<span class="nt">&lt;/property&gt;</span>
+
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;relief&quot;</span><span class="nt">&gt;</span>GTK_RELIEF_NORMAL<span class="nt">&lt;/property&gt;</span>
+
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;focus_on_click&quot;</span><span class="nt">&gt;</span>True<span class="nt">&lt;/property&gt;</span>
+
+<span class="nt">&lt;/widget&gt;</span>
+
+<span class="nt">&lt;packing&gt;</span>
+
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;padding&quot;</span><span class="nt">&gt;</span>0<span class="nt">&lt;/property&gt;</span>
+
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;expand&quot;</span><span class="nt">&gt;</span>False<span class="nt">&lt;/property&gt;</span>
+
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;fill&quot;</span><span class="nt">&gt;</span>False<span class="nt">&lt;/property&gt;</span>
+
+<span class="nt">&lt;/packing&gt;</span>
+
+      <span class="nt">&lt;/child&gt;</span>
+
+
+
+      <span class="nt">&lt;child&gt;</span>
+
+<span class="nt">&lt;widget</span> <span class="na">class=</span><span class="s">&quot;GtkButton&quot;</span> <span class="na">id=</span><span class="s">&quot;button2&quot;</span><span class="nt">&gt;</span>
+
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;visible&quot;</span><span class="nt">&gt;</span>True<span class="nt">&lt;/property&gt;</span>
+
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;can_focus&quot;</span><span class="nt">&gt;</span>True<span class="nt">&lt;/property&gt;</span>
+
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;label&quot;</span> <span class="na">translatable=</span><span class="s">&quot;yes&quot;</span><span class="nt">&gt;</span>button2<span class="nt">&lt;/property&gt;</span>
+
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;use_underline&quot;</span><span class="nt">&gt;</span>True<span class="nt">&lt;/property&gt;</span>
+
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;relief&quot;</span><span class="nt">&gt;</span>GTK_RELIEF_NORMAL<span class="nt">&lt;/property&gt;</span>
+
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;focus_on_click&quot;</span><span class="nt">&gt;</span>True<span class="nt">&lt;/property&gt;</span>
+
+<span class="nt">&lt;/widget&gt;</span>
+
+<span class="nt">&lt;packing&gt;</span>
+
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;padding&quot;</span><span class="nt">&gt;</span>0<span class="nt">&lt;/property&gt;</span>
+
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;expand&quot;</span><span class="nt">&gt;</span>False<span class="nt">&lt;/property&gt;</span>
+
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;fill&quot;</span><span class="nt">&gt;</span>False<span class="nt">&lt;/property&gt;</span>
+
+<span class="nt">&lt;/packing&gt;</span>
+
+      <span class="nt">&lt;/child&gt;</span>
+
+
+
+      <span class="nt">&lt;child&gt;</span>
+
+<span class="nt">&lt;widget</span> <span class="na">class=</span><span class="s">&quot;GtkButton&quot;</span> <span class="na">id=</span><span class="s">&quot;button3&quot;</span><span class="nt">&gt;</span>
+
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;visible&quot;</span><span class="nt">&gt;</span>True<span class="nt">&lt;/property&gt;</span>
+
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;can_focus&quot;</span><span class="nt">&gt;</span>True<span class="nt">&lt;/property&gt;</span>
+
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;label&quot;</span> <span class="na">translatable=</span><span class="s">&quot;yes&quot;</span><span class="nt">&gt;</span>button3<span class="nt">&lt;/property&gt;</span>
+
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;use_underline&quot;</span><span class="nt">&gt;</span>True<span class="nt">&lt;/property&gt;</span>
+
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;relief&quot;</span><span class="nt">&gt;</span>GTK_RELIEF_NORMAL<span class="nt">&lt;/property&gt;</span>
+
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;focus_on_click&quot;</span><span class="nt">&gt;</span>True<span class="nt">&lt;/property&gt;</span>
+
+<span class="nt">&lt;/widget&gt;</span>
+
+<span class="nt">&lt;packing&gt;</span>
+
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;padding&quot;</span><span class="nt">&gt;</span>0<span class="nt">&lt;/property&gt;</span>
+
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;expand&quot;</span><span class="nt">&gt;</span>False<span class="nt">&lt;/property&gt;</span>
+
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;fill&quot;</span><span class="nt">&gt;</span>False<span class="nt">&lt;/property&gt;</span>
+
+<span class="nt">&lt;/packing&gt;</span>
+
+      <span class="nt">&lt;/child&gt;</span>
+
+    <span class="nt">&lt;/widget&gt;</span>
+
+  <span class="nt">&lt;/child&gt;</span>
+
+<span class="nt">&lt;/widget&gt;</span>
+
+
+
+<span class="nt">&lt;/glade-interface&gt;</span>
+</pre></div>
+
+
+<p>Luego creamos un proyecto en eclipse, en la ficha de librerías agregamos los siguentes jar:  </p>
+<ul>
+<li>/usr/share/java/gladexx.jar</li>
+<li>/usr/share/java/glibxx.jar</li>
+<li>/usr/share/java/gnomexx.jar</li>
+<li>/usr/share/java/gtkxx.jar</li>
+</ul>
+<p>Finalmente creamos una clase y agregamos el enlace al archivo XML<br>
+Código java para la clase:  </p>
+<div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">org</span><span class="o">.</span><span class="n">GUI</span><span class="o">.</span><span class="n">prueba</span><span class="p">;</span>
+
+
+
+<span class="kn">import</span> <span class="nn">java.io.FileNotFoundException</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.gnu.glade.GladeXMLException</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.gnu.glade.LibGlade</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.gnu.gtk.Gtk</span><span class="p">;</span>
+
+
+
+<span class="n">public</span> <span class="k">class</span> <span class="nc">ventana</span> <span class="p">{</span>
+
+
+
+<span class="o">/**</span>
+
+<span class="o">*</span> <span class="nd">@param</span> <span class="n">args</span>
+
+<span class="o">*/</span>
+
+
+
+<span class="n">LibGlade</span> <span class="n">glade</span><span class="p">;</span>
+
+
+
+<span class="n">public</span> <span class="n">ventana</span><span class="p">()</span> <span class="n">throws</span> <span class="n">GladeXMLException</span><span class="p">,</span> <span class="n">FileNotFoundException</span><span class="p">,</span> <span class="n">IOException</span><span class="p">{</span>
+
+<span class="n">glade</span> <span class="o">=</span> <span class="n">new</span> <span class="n">LibGlade</span><span class="p">(</span><span class="s2">&quot;data/gui_xml.glade&quot;</span><span class="p">,</span> <span class="n">this</span><span class="p">);</span>
+
+<span class="p">}</span>
+
+
+
+<span class="n">public</span> <span class="n">void</span> <span class="n">on_window1_destroy</span><span class="p">(){</span>
+
+<span class="n">System</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="p">}</span>
+
+
+
+<span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">main</span><span class="p">(</span><span class="n">String</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+
+<span class="n">ventana</span> <span class="n">s</span><span class="p">;</span>
+
+<span class="n">Gtk</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
+
+<span class="k">try</span><span class="p">{</span>
+
+<span class="n">s</span><span class="o">=</span><span class="n">new</span> <span class="n">ventana</span><span class="p">();</span>
+
+<span class="p">}</span>
+
+<span class="n">catch</span> <span class="p">(</span><span class="ne">Exception</span> <span class="n">e</span><span class="p">){</span>
+
+<span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;Esta cosa se cayó&quot;</span><span class="p">);</span>
+
+<span class="p">}</span>
+
+<span class="n">Gtk</span><span class="o">.</span><span class="n">main</span><span class="p">();</span>
+
+<span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+    </article>
+
+    <hr>
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+		<div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="./tags">
+                                <span class="">
+                                    Tags
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                                <span class=""> - </span>
+                        </li>
+                        <li>
+                            <a href="./categories">
+                                <span class="">
+                                    Categorías
+                                </span>
+                            </a>
+                        </li>
+		   </ul>
+<!--<ul class="list-inline text-center">
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-flickr fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+		    </ul> -->
+                    <p class="copyright text-muted">Blog powered by <a href="http://getpelican.com">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="./theme/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="./theme/js/bootstrap.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="./theme/js/clean-blog.min.js"></script>
+
+</body>
+
+</html>

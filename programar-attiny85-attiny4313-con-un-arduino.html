@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+            <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Gotencool's blog</title>
+
+            <link href="http://blog.gotencool.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Full Atom Feed" />
+            <link href="http://blog.gotencool.com/feeds/misc.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Categories Atom Feed" />
+
+        <!-- Bootstrap Core CSS -->
+        <link href="./theme/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="./theme/css/clean-blog.min.css" rel="stylesheet">
+
+        <!-- Code highlight color scheme -->
+            <link href="./theme/css/code_blocks/darkly.css" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+
+
+        <meta name="tags" contents="arduino" />
+
+
+			<meta property="og:locale" content="es">
+		<meta property="og:site_name" content="Gotencool's blog">
+
+	<meta property="og:type" content="article">
+	<meta property="article:author" content="">
+	<meta property="og:url" content="./programar-attiny85-attiny4313-con-un-arduino.html">
+	<meta property="og:title" content="Programar ATtiny85 / ATtiny4313 con un arduino">
+	<meta property="og:description" content="">
+	<meta property="og:image" content=".//theme/images/arduino.jpg">
+	<meta property="article:published_time" content="2012-07-28 00:00:00-04:00">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="./">Gotencool's blog</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+        <header class="intro-header" style="background-image: url('/theme/images/arduino.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>Programar ATtiny85 / ATtiny4313 con un arduino</h1>
+                        <span class="meta">Posted on sáb 28 julio 2012
+                        </span>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <!-- Post Content -->
+    <article>
+        <p>Los ATtiny son microcontroladores <a href="http://es.wikipedia.org/wiki/AVR">AVR</a> (basado en <a href="http://es.wikipedia.org/wiki/RISC">RISC</a>) de 8-bits, fabricados por Atmel. Entre sus características se encuentran:  </p>
+<ul>
+<li>capacidad flash de 512B a 16kB.</li>
+<li>SRAM de 32 a 512 bytes. </li>
+<li>reloj integrado, hasta 20Mhz con reloj externo.</li>
+<li>de 6 a 28 pines.</li>
+<li>bajo consumo, opera entre 1 y 5.5 volt.</li>
+<li>capacidad <a href="http://es.wikipedia.org/wiki/I2C">I2C</a>/<a href="http://es.wikipedia.org/wiki/Serial_Peripheral_Interface">SPI</a></li>
+</ul>
+<p>Si bien son algo limitados en cuanto a capacidad de programa y cantidad de pines, son suficiente para algunas aplicaciones básicas en que un aparato como un <a href="http://arduino.cc/">Arduino</a> es excesivo.  </p>
+<p>En este caso veremos cómo cargar programas al <a href="http://www.atmel.com/devices/ATTINY85.aspx">ATtiny85</a> y <a href="http://www.atmel.com/devices/ATTINY4313.aspx">ATtiny4313</a> empleando un Arduino como ISP.  </p>
+<h3>Preparar el IDE</h3>
+<ol>
+<li>Bajamos los "cores" para los ATtiny desde <a href="http://code.google.com/p/arduino-tiny/">arduino-tiny</a>.</li>
+<li>Creamos la carpeta hardware dentro de la carpeta de sketchbook, luego copiamos dentro de ella el contenido del archivo descargado en el paso anterior.</li>
+<li>Abrimos el IDE Arduino y en Tools -&gt; Board veremos las ATtiny</li>
+</ol>
+<h3>Preparar el Arduino como ISP</h3>
+<ol>
+<li>Conectamos el Arduino al computador.</li>
+<li>Abrimos el IDE de Arduino.</li>
+<li>Abrimos el sketch Arduino ISP (File -&gt; Examples -&gt; ArduinoISP)</li>
+<li>Seleccionamos la placa arduino que corresponda (Tools -&gt; Board -&gt; XXX).</li>
+<li>Buscamos en el código la función heartbeat(), reemplazamos la instrucción delay(40) por delay(20).</li>
+<li>Cargamos el sketch al Arduino (File -&gt; Upload).</li>
+</ol>
+<h3>Preparar conexiones para cargar programa</h3>
+<table>
+<thead>
+<tr>
+<th>1. Una vez tenemos el Arduino como ISP, conectamos los cables de esta forma:  Pin Arduino</th>
+<th>Pin ATtiny85</th>
+<th>Pin ATtiny4313</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>13</td>
+<td>7 (SCL/SCK)</td>
+<td>19 (SCL/SCK)</td>
+</tr>
+<tr>
+<td>12</td>
+<td>6 (MISO)</td>
+<td>18 (MISO)</td>
+</tr>
+<tr>
+<td>11</td>
+<td>5 (MOSI)</td>
+<td>17 (MOSI)</td>
+</tr>
+<tr>
+<td>10</td>
+<td>1 (RESET)</td>
+<td>1 (RESET)</td>
+</tr>
+<tr>
+<td>5V</td>
+<td>8 (VCC)</td>
+<td>20 (VCC)</td>
+</tr>
+<tr>
+<td>Gnd</td>
+<td>4 (GND)</td>
+<td>10 (GND)</td>
+</tr>
+</tbody>
+</table>
+<h2><a href="images/-h9D1bPNGatUUBQlOlkJ1TIAAAAAAAACVwS5uVZHmC2Uos160085_1.png"><img alt="" src="images/-h9D1bPNGatUUBQlOlkJ1TIAAAAAAAACVwS5uVZHmC2Uos32085_1.png"></a></h2>
+<p><strong>ATtiny85, conexiones para programar</strong>  </p>
+<h2><a href="images/-uV3HlqsQf-0UBQydQiaU0IAAAAAAAACWo-cRD-sPpdP0s16004313_1.png"><img alt="" src="images/-uV3HlqsQf-0UBQydQiaU0IAAAAAAAACWo-cRD-sPpdP0s3204313_1.png"></a></h2>
+<p><strong>ATtiny4313, conexiones para programar</strong><br>
+  2. Abrimos el IDE Arduino
+  3. Abrimos el sketch de parpadeo de led (File -&gt; Examples -&gt; Basics -&gt; Blink). Se debe dejar tal cual para ATtini4313, pero hay que cambiar el número de PIN de 13 a 0 para ATtiny85
+  4. Cambiamos la placa para seleccionar la adecuada a nuestro ATtiny (Tools -&gt; Board -&gt; ATtinyXXXXX)
+  5. Cambiamos el programador (Tools -&gt; Programmer -&gt; Arduino as ISP)
+  6. Subimos el programa al ATtiny (File -&gt; Upload). Es normal que aparezcan alguno mensajes.</p>
+<h3>Uso del ATtiny en forma normal</h3>
+<p>Una vez que hemos cargado el programa al ATtiny podemos probarlo haciendo la circuitería adecuada. En este caso, haremos parpadear un led. El Arduino sólo funciona como fuente de poder:  </p>
+<h2><a href="images/-I-iP5p58xroUBQlPGuWo9IAAAAAAAACV4h0wxJUS3D_4s160085_2.png"><img alt="" src="images/-I-iP5p58xroUBQlPGuWo9IAAAAAAAACV4h0wxJUS3D_4s32085_2.png"></a></h2>
+<p><strong>ATtiny85 funcionando, arduino solo como fuente de poder</strong>  </p>
+<h2><a href="images/-606tWpoqpAAUBQydz1hj1IAAAAAAAACWwOHeMus6MLeUs16004313_2.png"><img alt="" src="images/-606tWpoqpAAUBQydz1hj1IAAAAAAAACWwOHeMus6MLeUs3204313_2.png"></a></h2>
+<p><strong>ATtiny4313 funcionando, arduino solo como fuente de poder</strong>  </p>
+    </article>
+
+    <hr>
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+		<div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="./tags">
+                                <span class="">
+                                    Tags
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                                <span class=""> - </span>
+                        </li>
+                        <li>
+                            <a href="./categories">
+                                <span class="">
+                                    Categorías
+                                </span>
+                            </a>
+                        </li>
+		   </ul>
+<!--<ul class="list-inline text-center">
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-flickr fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+		    </ul> -->
+                    <p class="copyright text-muted">Blog powered by <a href="http://getpelican.com">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="./theme/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="./theme/js/bootstrap.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="./theme/js/clean-blog.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+            <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Gotencool's blog</title>
+
+            <link href="http://blog.gotencool.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Full Atom Feed" />
+            <link href="http://blog.gotencool.com/feeds/misc.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Categories Atom Feed" />
+
+        <!-- Bootstrap Core CSS -->
+        <link href="./theme/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="./theme/css/clean-blog.min.css" rel="stylesheet">
+
+        <!-- Code highlight color scheme -->
+            <link href="./theme/css/code_blocks/darkly.css" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+
+
+        <meta name="tags" contents="Linux" />
+        <meta name="tags" contents="Nexus" />
+        <meta name="tags" contents="One" />
+        <meta name="tags" contents="Fedora" />
+        <meta name="tags" contents="android" />
+
+
+			<meta property="og:locale" content="es">
+		<meta property="og:site_name" content="Gotencool's blog">
+
+	<meta property="og:type" content="article">
+	<meta property="article:author" content="">
+	<meta property="og:url" content="./android-debug-bridge-adb-en-fedora-updated.html">
+	<meta property="og:title" content="Android Debug Bridge (ADB) en Fedora - Updated">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="./">
+	<meta property="article:published_time" content="2011-02-23 00:00:00-03:00">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="./">Gotencool's blog</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+    <header class="intro-header" style="background-image: url('./theme/images/grua.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>Android Debug Bridge (ADB) en Fedora - Updated</h1>
+                        <span class="meta">Posted on mié 23 febrero 2011
+                        </span>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <!-- Post Content -->
+    <article>
+        <p><a href="images/-KDHWQyZSyFwTWRnAOHoB6IAAAAAAAAAxojZgjC6aJmPIs160083.jpg"><img alt="" src="images/-KDHWQyZSyFwTWRnAOHoB6IAAAAAAAAAxojZgjC6aJmPIs20083.jpg"></a></p>
+<p>Si tenemos un teléfono con <a href="http://www.android.com/">Android</a> y somos algo curioso es probable que deseemos en algún momento usar el ADB para jugar.<br>
+Para poder usarlo debemos tener instalado el <a href="http://developer.android.com/sdk/index.html">SDK de Android</a> con Platform tools y luego activar el modo debug en el teléfono. Para activar el modo debug debemos ir a <strong>Ajustes -&gt; Aplicaciones -&gt; Desarrollo</strong> y marcamos <strong>Depuración USB</strong>.  </p>
+<p><a href="images/-yXuNrs0dWD8TWRmu2ADy1IAAAAAAAAAxk_5ncE8hNVp0s1600Pantallazo-HT069P900168253A2.png"><img alt="" src="images/-yXuNrs0dWD8TWRmu2ADy1IAAAAAAAAAxk_5ncE8hNVp0s200Pantallazo-HT069P900168253A2.png"></a></p>
+<p>Conectando el teléfono vía USB podremos ejecutar como root en una termnal:  </p>
+<p>/path_hasta_sdk/platform-tools/adb devices<br>
+List of devices attached <br>
+HT069P900168 device</p>
+<p>Si ejecutamos el mismo comando como usuario normal deberíamos obtener:  </p>
+<p>/path_hasta_sdk/platform-tools/adb devices<br>
+List of devices attached <br>
+????????????  no permissions</p>
+<p>Los pasos siguientes son para lograr que el ADB pueda usarse con cualquier usuario del sistema.  </p>
+<ol>
+<li>Primero debemos identificar el teléfono, para ello ejecutamos un lsusb (acá destaco con rojo el idVendor):  </li>
+</ol>
+<p>Bus 002 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub<br>
+Bus 001 Device 009: ID <strong>18d1</strong>:4e12 Google Inc. Nexus One Phone (Debug)<br>
+Bus 001 Device 003: ID 0bda:0158 Realtek Semiconductor Corp. USB 2.0 multicard reader</p>
+<ol>
+<li>Creamos el archivo /etc/udev/rules.d/51-android.rules con el siguiente contenido (Debemos usar el idVendor, en rojo, que nos arroje el paso anterior y en OWNER el nombre del usuario que usará adb).  </li>
+</ol>
+<p>~~SUBSYSTEMS=="usb", ATTRS{idVendor}=="<strong>18d1</strong>", MODE="0666"~~<br>
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="<strong>18d1</strong>", SYMLINK+="android_adb", OWNER="username"</p>
+<ol>
+<li>Cambiamos permisos:  </li>
+</ol>
+<p>chmod a+r /etc/udev/rules.d/51-android.rules</p>
+<ol>
+<li>Recargamos las reglas de UDEV:  </li>
+</ol>
+<p>udevadm control --reload-rules</p>
+<ol>
+<li>Reconectamos el teléfono y volvemos a probar</li>
+</ol>
+<p>Ahora que ya tenemos acceso completo al ADB podemos comenzar a jugar con algunos comandos básicos:  </p>
+<ul>
+<li>Instalar un programa (archivo .apk)  </li>
+</ul>
+<p>./adb install Archivo.apk<br>
+822 KB/s (40063 bytes in 0.047s)<br>
+pkg: /data/local/tmp/Archivo.apk</p>
+<ul>
+<li>Acceder a la consola y ejecutar comandos directos  </li>
+</ul>
+<p>./adb shell</p>
+<ul>
+<li>Reiniciar el dispositivo  </li>
+</ul>
+<p>./adb reboot</p>
+<ul>
+<li>Reiniciar el dispositivo en el bootloader  </li>
+</ul>
+<p>./adb reboot-bootloader</p>
+<ul>
+<li>Colocar un archivo/carpeta en el dispositivo  </li>
+</ul>
+<p>./adb push origen destino</p>
+<ul>
+<li>Extraer un archivo/carpeta desde el dispositivo  </li>
+</ul>
+<p>./adb pull origen destino</p>
+    </article>
+
+    <hr>
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+		<div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="./tags">
+                                <span class="">
+                                    Tags
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                                <span class=""> - </span>
+                        </li>
+                        <li>
+                            <a href="./categories">
+                                <span class="">
+                                    Categorías
+                                </span>
+                            </a>
+                        </li>
+		   </ul>
+<!--<ul class="list-inline text-center">
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-flickr fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+		    </ul> -->
+                    <p class="copyright text-muted">Blog powered by <a href="http://getpelican.com">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="./theme/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="./theme/js/bootstrap.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="./theme/js/clean-blog.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+            <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Gotencool's blog</title>
+
+            <link href="http://blog.gotencool.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Full Atom Feed" />
+            <link href="http://blog.gotencool.com/feeds/misc.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Categories Atom Feed" />
+
+        <!-- Bootstrap Core CSS -->
+        <link href="./theme/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="./theme/css/clean-blog.min.css" rel="stylesheet">
+
+        <!-- Code highlight color scheme -->
+            <link href="./theme/css/code_blocks/darkly.css" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+
+
+        <meta name="tags" contents="Linux" />
+        <meta name="tags" contents="Fedora" />
+        <meta name="tags" contents="grub2" />
+
+
+			<meta property="og:locale" content="es">
+		<meta property="og:site_name" content="Gotencool's blog">
+
+	<meta property="og:type" content="article">
+	<meta property="article:author" content="">
+	<meta property="og:url" content="./fedora-16-y-grub2.html">
+	<meta property="og:title" content="Fedora 16 y Grub2">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="./">
+	<meta property="article:published_time" content="2011-11-08 00:00:00-03:00">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="./">Gotencool's blog</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+    <header class="intro-header" style="background-image: url('./theme/images/grua.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>Fedora 16 y Grub2</h1>
+                        <span class="meta">Posted on mar 08 noviembre 2011
+                        </span>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <!-- Post Content -->
+    <article>
+        <p>Hoy se liberó Fedora 16 (Verne), el que incorpora Grub2 por defecto. Esta nueva versión cambia la forma en que se configura, ya que la configuración queda dividida en varios archivos:  </p>
+<ul>
+<li>/etc/default/grub: contiene parámetros generales</li>
+<li>/etc/grub.d/*: contiene script para elementos específicos</li>
+</ul>
+<p>La modificación de cualquiera de éstos deberá ser acompañada por la ejecución del siguiente comando para que sus efectos sean visibles:  </p>
+<p>grub2-mkconfig -o /boot/grub2/grub.cfg </p>
+<p>/etc/default/grub<br>
+Este archivo define las siguientes opciones:  </p>
+<ul>
+<li><strong>GRUB_CMDLINE_LINUX</strong><br>
+Contiene los parámetros adicionales que se agregarán a la línea del kernel, como por ejemplo GRUB_CMDLINE_LINUX="quiet rhgb".</li>
+<li><strong>GRUB_DISABLE_RECOVERY</strong><br>
+Define si se debe crear una entrada "Recovery" para cada kernel encontrado. GRUB_DISABLE_RECOVERY="true" eliminará la creación de entradas "Recovery".</li>
+<li><strong>GRUB_DISTRIBUTOR</strong><br>
+Define el nombre de la distribución a mostrar en las entradas. Por ejemplo GRUB_DISTRIBUTOR="Fedora"</li>
+<li><strong>GRUB_TIMEOUT</strong><br>
+Define el tiempo, en segundos, de espera antes de iniciar la entrada por defecto. Para 5 segundos será GRUB_TIMEOUT=5.</li>
+<li><strong>GRUB_GFXMODE</strong><br>
+Define la resolución de Grub2 en modo gráfico. Por ejemplo GRUB_GFXMODE="1280x800" define resolución 1280x800 y GRUB_GFXMODE="1280x800x32" define resolución 1280x800 con 32 bits de profundidad de color.</li>
+<li><strong>GRUB_TERMINAL</strong><br>
+Define el modo del Grub. Los valores son console y gfxterm (modo gráfico). </li>
+<li><strong>GRUB_DEFAULT</strong><br>
+Indica que entrada será la por defecto. GRUB_DEFAULT=0 indica que será la primera entrada encontrada.</li>
+</ul>
+<p>Activar el modo gráfico<br>
+Para activar el modo gráfico (gfxterm) se deben realizar los siguientes pasos:  </p>
+<ol>
+<li>Crear una fuente:  </li>
+</ol>
+<p>grub2-mkfont -o /boot/grub2/unifont.pf2 path_a_fuente.ttf</p>
+<p>Si deseamos cambiar el tamaño, por ejemplo 18:  </p>
+<p>grub2-mkfont -o /boot/grub2/unifont.pf2 path_a_fuente.ttf -s 18</p>
+<ol>
+<li>Modificar /etc/default/grub y dejar las variables así:</li>
+</ol>
+<p>GRUB_GFXMODE="resolucion preferida"<br>
+GRUB_TERMINAL="gfxterm"</p>
+<ol>
+<li>Ejecutar grub2-mkconfig -o /boot/grub2/grub.cfg</li>
+</ol>
+<p>Agregar imagen de fondo<br>
+Grub2 acepta agregar una imagen de fondo en formato jpg, png y tga. Para agregar una imagen de fondo debemos:  </p>
+<ol>
+<li>Activar el modo gráfico</li>
+<li>Seleccionar una imagen en resolución adecuada y copiarla a /boot/grub2/</li>
+<li>
+<p>Editar el archivo /etc/grub.d/41_custom, en este caso se usa insmod jpeg pero puede ser insmod png o insmod tga según el formato de la imagen. El archivo debería queda así:  </p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+</pre></div>
+</td></tr></table>
+
+<p>cat &lt;&lt;EOF
+if [ -f  \$prefix/custom.cfg ]; then
+  source \$prefix/custom.cfg;
+fi
+insmod jpeg
+background_image /grub2/fondo.jpg
+EOF</p>
+</li>
+<li>
+<p>Ejecutar grub2-mkconfig -o /boot/grub2/grub.cfg</p>
+</li>
+</ol>
+<p>Cambiar color de letras<br>
+Una vez que hemos logrado cargar el fondo, deberemos ajustar el color de las letras para que se vean bien. Para ello debemos conocer los colores posibles:  </p>
+<ul>
+<li>white</li>
+<li>blue</li>
+<li>magenta</li>
+<li>cyan</li>
+<li>light-gray</li>
+<li>yellow</li>
+<li>red</li>
+<li>light-magenta</li>
+<li>dark-gray</li>
+<li>green</li>
+<li>light-blue</li>
+<li>light-red</li>
+<li>black</li>
+<li>light-cyan</li>
+<li>light-green</li>
+<li>brown</li>
+</ul>
+<p>Para configurar el color debemos:  </p>
+<ol>
+<li>modificar el archivo /etc/grub.d/41_custom y agregar la línea set color_normal=letra/fondo antes de la última línea (EOF). Si se deja el color de fondo en black, será interpretado como transparente y es el adecuado para cuando se tiene imagen de fondo.</li>
+<li>Ejecutar grub2-mkconfig -o /boot/grub2/grub.cfg</li>
+</ol>
+    </article>
+
+    <hr>
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+		<div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="./tags">
+                                <span class="">
+                                    Tags
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                                <span class=""> - </span>
+                        </li>
+                        <li>
+                            <a href="./categories">
+                                <span class="">
+                                    Categorías
+                                </span>
+                            </a>
+                        </li>
+		   </ul>
+<!--<ul class="list-inline text-center">
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-flickr fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+		    </ul> -->
+                    <p class="copyright text-muted">Blog powered by <a href="http://getpelican.com">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="./theme/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="./theme/js/bootstrap.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="./theme/js/clean-blog.min.js"></script>
+
+</body>
+
+</html>

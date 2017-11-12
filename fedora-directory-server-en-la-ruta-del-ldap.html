@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+            <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Gotencool's blog</title>
+
+            <link href="http://blog.gotencool.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Full Atom Feed" />
+            <link href="http://blog.gotencool.com/feeds/misc.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Categories Atom Feed" />
+
+        <!-- Bootstrap Core CSS -->
+        <link href="./theme/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="./theme/css/clean-blog.min.css" rel="stylesheet">
+
+        <!-- Code highlight color scheme -->
+            <link href="./theme/css/code_blocks/darkly.css" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+
+
+        <meta name="tags" contents="Linux" />
+        <meta name="tags" contents="Fedora" />
+
+
+			<meta property="og:locale" content="es">
+		<meta property="og:site_name" content="Gotencool's blog">
+
+	<meta property="og:type" content="article">
+	<meta property="article:author" content="">
+	<meta property="og:url" content="./fedora-directory-server-en-la-ruta-del-ldap.html">
+	<meta property="og:title" content="Fedora Directory Server, en la ruta del LDAP">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="./">
+	<meta property="article:published_time" content="2008-01-24 00:00:00-03:00">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="./">Gotencool's blog</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+    <header class="intro-header" style="background-image: url('./theme/images/grua.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>Fedora Directory Server, en la ruta del LDAP</h1>
+                        <span class="meta">Posted on jue 24 enero 2008
+                        </span>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <!-- Post Content -->
+    <article>
+        <p>Hace unos días, cuando estaba sin portátil, empecé a meter mano a <a href="http://es.wikipedia.org/wiki/LDAP">LDAP</a> y cómo crear un sistema centralizado de autenticación (un de los tantos usos de LDAP). Luego de entender como funciona LDAP fue un largo camino el crear una estructura de directorios que me permitiera poder autenticar varias máquinas virtuales) contra un servidor central, tal cual como se hace en <a href="http://www.diinf.usach.cl/">DIINF.</a><br>
+Realmente fue un parto hacerlo con <a href="http://www.openldap.org/">OpenLDAP</a> y todo vía consola, además el tema de los permisos de acceso a los datos es ultra sensible y se parece mucho a las políticas de Iptable.  </p>
+<p>Ahora me tocó probar una alternativa un poco más elaborada, centrada principalmente en el ámbito empresarial o PyME. Se trata de <a href="http://directory.fedoraproject.org/">Fedora Directory Server</a>, hijo de un producto adquirido por Red Hat a Netscape y liberado bajo <a href="http://www.gnu.org/licenses/licenses.html#GPL">GPL.</a><br>
+La gran gracia de este sistema es que dice ser compatible con el sistema de directorios de M$ (como es de esperar no lo probamos) y posee una batería de herramientas y scripts que permiten configurar un sistema completo en menos de 15 minutos.  </p>
+<p>Posee una herramienta para administrar el directorio, corre con Java (funciona bien con <a href="http://icedtea.classpath.org/wiki//Main_Page">IcedTea</a>).<br>
+Para instalarlo debemos bajar los siguientes archivos para los repositorios necesarios:  </p>
+<p>cd /etc/yum.repos.d <br>
+wget <a href="http://directory.fedoraproject.org/sources/idmcommon.repo">http://directory.fedoraproject.org/sources/idmcommon.repo</a> <br>
+wget <a href="http://directory.fedoraproject.org/sources/dirsrv.repo">http://directory.fedoraproject.org/sources/dirsrv.repo</a>  </p>
+<p>Luego de esto, sólo debemos instalar, fedora-ds es un metapaquete que instala TODO, usaremos eso.<br>
+yum install fedora-ds  </p>
+<p>Luego de instalar se debe correr el script de configuración (posee otro para migrar desde un sistema existente).<br>
+setup-ds-admin.pl  </p>
+<p>Luego de completar la configuración se iniciarán automáticamente los servicios, es allí donde usaremos las herramientas de administración fedora-idm-console:  </p>
+<p><a href="images/_XwjmBjJAtPIR5kIAhOKZlIAAAAAAAAAIU3qTFN-Dcigks1600-hPantallazo-Fedora+Management+Console.png"><img alt="" src="images/_XwjmBjJAtPIR5kIAhOKZlIAAAAAAAAAIU3qTFN-Dcigks320Pantallazo-Fedora+Management+Console.png"></a>  </p>
+<p><a href="images/_XwjmBjJAtPIR5kHyxOKZjIAAAAAAAAAIE5V9sHvXw2P8s1600-hPantallazo-caleuche+-+Fedora+Directory+Server+-+caleuche.png"><img alt="" src="images/_XwjmBjJAtPIR5kHyxOKZjIAAAAAAAAAIE5V9sHvXw2P8s320Pantallazo-caleuche+-+Fedora+Directory+Server+-+caleuche.png"></a>  </p>
+<p>Lo que más me gustó es que permite administrar a los usuarios y grupos sin dificultades:  </p>
+<p><a href="images/_XwjmBjJAtPIR5kH8BOKZkIAAAAAAAAAIMdinfApIwRIAs1600-hPantallazo-Create+User.png"><img alt="" src="images/_XwjmBjJAtPIR5kH8BOKZkIAAAAAAAAAIMdinfApIwRIAs320Pantallazo-Create+User.png"></a>  </p>
+<p>Jueguen con las herramientas, pueden pillar <a href="https://www.redhat.com/docs/manuals/dir-server/">más documentación</a> muy completa en el <a href="https://www.redhat.com/docs/">sitio de documentación de Red Hat</a>.</p>
+    </article>
+
+    <hr>
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+		<div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="./tags">
+                                <span class="">
+                                    Tags
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                                <span class=""> - </span>
+                        </li>
+                        <li>
+                            <a href="./categories">
+                                <span class="">
+                                    Categorías
+                                </span>
+                            </a>
+                        </li>
+		   </ul>
+<!--<ul class="list-inline text-center">
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-flickr fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+		    </ul> -->
+                    <p class="copyright text-muted">Blog powered by <a href="http://getpelican.com">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="./theme/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="./theme/js/bootstrap.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="./theme/js/clean-blog.min.js"></script>
+
+</body>
+
+</html>

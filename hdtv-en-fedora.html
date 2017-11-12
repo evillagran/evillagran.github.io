@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+            <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Gotencool's blog</title>
+
+            <link href="http://blog.gotencool.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Full Atom Feed" />
+            <link href="http://blog.gotencool.com/feeds/misc.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Categories Atom Feed" />
+
+        <!-- Bootstrap Core CSS -->
+        <link href="./theme/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="./theme/css/clean-blog.min.css" rel="stylesheet">
+
+        <!-- Code highlight color scheme -->
+            <link href="./theme/css/code_blocks/darkly.css" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+
+
+        <meta name="tags" contents="Linux" />
+        <meta name="tags" contents="Fedora" />
+        <meta name="tags" contents="HDTV" />
+
+
+			<meta property="og:locale" content="es">
+		<meta property="og:site_name" content="Gotencool's blog">
+
+	<meta property="og:type" content="article">
+	<meta property="article:author" content="">
+	<meta property="og:url" content="./hdtv-en-fedora.html">
+	<meta property="og:title" content="HDTV en Fedora">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="./">
+	<meta property="article:published_time" content="2010-12-31 00:00:00-03:00">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="./">Gotencool's blog</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+    <header class="intro-header" style="background-image: url('./theme/images/grua.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>HDTV en Fedora</h1>
+                        <span class="meta">Posted on vie 31 diciembre 2010
+                        </span>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <!-- Post Content -->
+    <article>
+        <p>Me compré en Amazon un receptor de HDTV para la norma ISDB-T (SBTVD) por menos de 10000 pesos chilenos. El modelo es Geniatech/MyGica SBTVD Stick S870, el que busqué puesto el chipset está soportado en Linux.</p>
+<p>Al conectarlo a Fedora (13 y 14) es detectado automáticamente:</p>
+<p>[16022.754251] usb 1-2: USB disconnect, address 5<br>
+[16716.518109] usb 1-2: new high speed USB device using ehci_hcd and address 6<br>
+[16716.633582] usb 1-2: New USB device found, idVendor=10b8, idProduct=1fa0<br>
+[16716.633595] usb 1-2: New USB device strings: Mfr=1, Product=2, SerialNumber=3<br>
+[16716.633602] usb 1-2: Product: STK8096GP<br>
+[16716.633607] usb 1-2: Manufacturer: DiBcom<br>
+[16716.633612] usb 1-2: SerialNumber: 1<br>
+[16717.167006] dib0700: loaded with support for 15 different device-types<br>
+[16717.167276] dvb-usb: found a 'DiBcom STK8096GP reference design' in cold state, will try to load a firmware<br>
+[16717.189137] dvb-usb: downloading firmware from file 'dvb-usb-dib0700-1.20.fw'<br>
+[16717.650953] dib0700: firmware started successfully.<br>
+[16718.151965] dvb-usb: found a 'DiBcom STK8096GP reference design' in warm state.<br>
+[16718.151965] dvb-usb: will pass the complete MPEG2 transport stream to the software demuxer.<br>
+[16718.152429] DVB: registering new adapter (DiBcom STK8096GP reference design)<br>
+[16718.378548] DVB: registering adapter 0 frontend 0 (DiBcom 8000 ISDB-T)...<br>
+[16718.575856] DiB0090: successfully identified<br>
+[16718.611047] Registered IR keymap rc-dib0700-rc5<br>
+[16718.611635] input: IR-receiver inside an USB DVB receiver as /devices/pci0000:00/0000:00:12.2/usb1/1-2/rc/rc1/input15<br>
+[16718.611854] rc1: IR-receiver inside an USB DVB receiver as /devices/pci0000:00/0000:00:12.2/usb1/1-2/rc/rc1<br>
+[16718.614015] dvb-usb: schedule remote query interval to 50 msecs.<br>
+[16718.614015] dvb-usb: DiBcom STK8096GP reference design successfully initialized and connected.<br>
+[16718.614751] usbcore: registered new interface driver dvb_usb_dib0700</p>
+<p>He tratado todas las formas posibles de búsqueda automática de canales sin éxito. La forma que empleé hasta ahora es mediante VLC y sintonizando manualmente.</p>
+<p>Para ello debemos emplear la siguiente tabla:</p>
+<p><strong>CANAL13 </strong> | <br>
+<strong>533143</strong> KHZ<br>
+---|---  </p>
+<p><strong>CHV</strong> | <br>
+<strong>569143</strong> KHZ  </p>
+<p><strong>TVN </strong> | <strong>587143</strong> KHZ  </p>
+<p><strong>MEGA </strong> | <strong>551143</strong> KHZ  </p>
+<p><strong>La Red </strong> | <br>
+<strong>557143</strong> KHZ  </p>
+<p>Abrimos__ VLC y luego seleccionado la opción Abrir dispositivo de captura, cambiamos de Video for Linux 2 a DVB:</p>
+<p>Tipo: DVB-T</p>
+<p>Frecuencia del transpondedor/multiplex: Seleccionamos una de las antes mencionadas.  </p>
+<p><a href="images/_XwjmBjJAtPITR5cAuerVwIAAAAAAAAAv0232zzzXxIT4s1600movil.png"><img alt="" src="images/_XwjmBjJAtPITR5cAuerVwIAAAAAAAAAv0232zzzXxIT4s320movil.png"></a></p>
+    </article>
+
+    <hr>
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+		<div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="./tags">
+                                <span class="">
+                                    Tags
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                                <span class=""> - </span>
+                        </li>
+                        <li>
+                            <a href="./categories">
+                                <span class="">
+                                    Categorías
+                                </span>
+                            </a>
+                        </li>
+		   </ul>
+<!--<ul class="list-inline text-center">
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-flickr fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+		    </ul> -->
+                    <p class="copyright text-muted">Blog powered by <a href="http://getpelican.com">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="./theme/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="./theme/js/bootstrap.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="./theme/js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
