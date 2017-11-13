@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+            <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Gotencool's blog</title>
+
+            <link href="http://blog.gotencool.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Full Atom Feed" />
+            <link href="http://blog.gotencool.com/feeds/misc.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Categories Atom Feed" />
+
+        <!-- Bootstrap Core CSS -->
+        <link href="./theme/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="./theme/css/clean-blog.min.css" rel="stylesheet">
+
+        <!-- Code highlight color scheme -->
+            <link href="./theme/css/code_blocks/darkly.css" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+
+
+        <meta name="tags" contents="fedora" />
+        <meta name="tags" contents="gnupg" />
+        <meta name="tags" contents="yubikey" />
+
+
+			<meta property="og:locale" content="es">
+		<meta property="og:site_name" content="Gotencool's blog">
+
+	<meta property="og:type" content="article">
+	<meta property="article:author" content="">
+	<meta property="og:url" content="./configurar-una-yubikey-con-gnupg-en-fedora.html">
+	<meta property="og:title" content="Configurar una Yubikey con GnuPG en Fedora">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="./theme/images/ajedrez.jpg">
+	<meta property="article:published_time" content="2017-11-12 00:00:00-03:00">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="./">Gotencool's blog</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+        <header class="intro-header" style="background-image: url('theme/images/ajedrez.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>Configurar una Yubikey con GnuPG en Fedora</h1>
+                        <span class="meta">Posted on dom 12 noviembre 2017
+                        </span>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <div class="series">
+    <p>Este post es la parte 1 de la serie "Yubikey en Fedora":</p>
+    <ol class="parts">
+            <li class="active">
+                <a href='./configurar-una-yubikey-con-gnupg-en-fedora.html'>Configurar una Yubikey con GnuPG en Fedora</a>
+            </li>
+    </ol>
+    </div>
+    <!-- Post Content -->
+    <article>
+        <p>En esta serie veremos diversos elementos relacionados con GnuPG y Yubikey como Smartcard. Los post son específicos para Yubikey 4, pero podrían funcionar con Yubikey-Neo con algunas modificaciones.</p>
+<p>Estos ejemplos están probados en:
+- Fedora 26
+- GnuPG 2.2.1
+- Yubikey 4 (v2.1)</p>
+<h2>Verificar la Yubikey</h2>
+<p>Para los siguientes ejemplos se usará GnuPG2 ya que éste soporta llaves RSA de 4096. Comenzaremos verificando si se detecta la yubikey correctamente:</p>
+<div class="highlight"><pre><span></span>gpg2 --card-status
+</pre></div>
+
+
+<p>Deberíamos obtener una salida como la siguiente:</p>
+<div class="highlight"><pre><span></span><span class="n">Reader</span> <span class="p">...........</span><span class="o">:</span> <span class="n">Yubico</span> <span class="n">Yubikey</span> <span class="mi">4</span> <span class="n">OTP</span> <span class="n">U2F</span> <span class="n">CCID</span> <span class="mo">00</span> <span class="mo">00</span>
+<span class="n">Application</span> <span class="n">ID</span> <span class="p">...</span><span class="o">:</span> <span class="n">D2760X0XXXX10X0100060X2135710000</span>
+<span class="n">Version</span> <span class="p">..........</span><span class="o">:</span> <span class="mf">2.1</span>
+<span class="n">Manufacturer</span> <span class="p">.....</span><span class="o">:</span> <span class="n">Yubico</span>
+<span class="n">Serial</span> <span class="n">number</span> <span class="p">....</span><span class="o">:</span> <span class="mo">01211511</span>
+<span class="n">Name</span> <span class="n">of</span> <span class="nl">cardholder</span><span class="p">:</span> <span class="p">[</span><span class="n">no</span> <span class="n">establecido</span><span class="p">]</span>
+<span class="n">Language</span> <span class="n">prefs</span> <span class="p">...</span><span class="o">:</span> <span class="p">[</span><span class="n">no</span> <span class="n">establecido</span><span class="p">]</span>
+<span class="n">Sex</span> <span class="p">..............</span><span class="o">:</span> <span class="n">no</span> <span class="n">especificado</span>
+<span class="n">URL</span> <span class="n">of</span> <span class="n">public</span> <span class="nl">key</span> <span class="p">:</span> <span class="p">[</span><span class="n">no</span> <span class="n">establecido</span><span class="p">]</span>
+<span class="n">Login</span> <span class="n">data</span> <span class="p">.......</span><span class="o">:</span> <span class="p">[</span><span class="n">no</span> <span class="n">establecido</span><span class="p">]</span>
+<span class="n">Signature</span> <span class="n">PIN</span> <span class="p">....</span><span class="o">:</span> <span class="n">no</span> <span class="n">forzado</span>
+<span class="n">Key</span> <span class="n">attributes</span> <span class="p">...</span><span class="o">:</span> <span class="n">rsa2048</span> <span class="n">rsa2048</span> <span class="n">rsa2048</span>
+<span class="n">Max</span><span class="p">.</span> <span class="n">PIN</span> <span class="n">lengths</span> <span class="p">.</span><span class="o">:</span> <span class="mi">127</span> <span class="mi">127</span> <span class="mi">127</span>
+<span class="n">PIN</span> <span class="n">retry</span> <span class="nl">counter</span> <span class="p">:</span> <span class="mi">3</span> <span class="mi">0</span> <span class="mi">3</span>
+<span class="n">Signature</span> <span class="nl">counter</span> <span class="p">:</span> <span class="mi">0</span>
+<span class="n">Signature</span> <span class="n">key</span> <span class="p">....</span><span class="o">:</span> <span class="p">[</span><span class="n">none</span><span class="p">]</span>
+<span class="n">Encryption</span> <span class="n">key</span><span class="p">....</span><span class="o">:</span> <span class="p">[</span><span class="n">none</span><span class="p">]</span>
+<span class="n">Authentication</span> <span class="nl">key</span><span class="p">:</span> <span class="p">[</span><span class="n">none</span><span class="p">]</span>
+<span class="n">General</span> <span class="n">key</span> <span class="n">info</span><span class="p">..</span><span class="o">:</span> <span class="p">[</span><span class="n">none</span><span class="p">]</span>
+</pre></div>
+
+
+<p>En caso que no nos arroje algo así, deberemos probar en otro puerto USB o deteniendo el PCSC:</p>
+<div class="highlight"><pre><span></span>sudo systemctl stop pcscd
+</pre></div>
+
+
+<p>Luego intentar nuevamente con el primer comando.</p>
+<h2>Creación de la llave</h2>
+<p>Yubikey 4 soporta llaves RSA (2048, 4096) y ECC (p256, p384). Existen 2 formas de crear la llave:</p>
+<ul>
+<li>
+<p><strong>Crear la llave en la yubikey</strong>: es la forma más segura ya que la llave privada nunca deja el dispositivo USB. Se crea en ella y es imposible exportarla. Su contra está en que no existe forma de crear un respaldo.</p>
+</li>
+<li>
+<p><strong>Crear la llave en el computador y cargarla a la yubikey:</strong> este método es más flexible. Permite crear un respaldo de la llave privada o usar una llave ya creada previamente.</p>
+</li>
+</ul>
+<h3>Creación de la llave en el computador (o usar una llave existente)</h3>
+<p>En este método debemos contar con una llave RSA. Podemos usar una creada previamente o crear una nueva.</p>
+<h4>Creación de la llave</h4>
+<ol>
+<li>Iniciamos la creación de la llave <code>gpg2 --expert --full-gen-key</code></li>
+<li>
+<p>Seleccionamos el tipo de llave:</p>
+<div class="highlight"><pre><span></span>Por favor seleccione tipo de clave deseado:
+  (1) RSA y RSA (por defecto)
+  (2) DSA y ElGamal
+  (3) DSA (sólo firmar)
+  (4) RSA (sólo firmar)
+  (7) DSA (permite elegir capacidades)
+  (8) RSA (permite elegir capacidades)
+  (9) ECC and ECC
+ (10) ECC (sign only)
+ (11) ECC (set your own capabilities)
+ (13) Existing key
+</pre></div>
+
+
+<p>Debemos elegir <code>RSA y RSA</code></p>
+</li>
+<li>
+<p>Elegimos el tamaño de la llave y subllave (2048 o 4096)</p>
+</li>
+<li>Elegimos la duración de la llave. Por defecto 0, sin caducar.</li>
+<li>Ingresamos nombre y apellido para la llave</li>
+<li>Ingresamos el correo asociado a la llave</li>
+<li>Ingresamos un comentario opcional</li>
+<li>
+<p>Nos da la opción de agregar un clave para proteger la llave. Seguir los consejos para generar entropía. Al finalizar nos saldrá el resumen:</p>
+<div class="highlight"><pre><span></span>claves pública y secreta creadas y firmadas.
+
+pub   rsa2048 2017-11-13 [SC]
+      E13AFFD9469092542791CB2535285AFCE0ED7F45
+uid                      Juan Pérez &lt;jp@example.com&gt;
+sub   rsa2048 2017-11-13 [E]
+</pre></div>
+
+
+</li>
+<li>
+<p>Agregamos las subllave, para ello ingresamos al modo edición:</p>
+<div class="highlight"><pre><span></span>gpg2 --expert --edit-key jp@example.com
+</pre></div>
+
+
+</li>
+<li>
+<p>Ingresamos el comando <code>addkey</code></p>
+<p>Elegimos <code>RSA (sólo firmar)</code>, indicamos el tamaño y la duración.</p>
+</li>
+<li>
+<p>Ingresamos el comando <code>addkey</code></p>
+<p>Elegimos <code>RSA (permite elegir capacidades)</code>, debemos usar F, C, A para alternar la capacidad de la llave indicada en <code>Acciones permitidas actualmente:</code> hasta que quede sólo <code>Autentificación</code>. Una vez hecho, presionar S. Elegir tamaño y duración.</p>
+</li>
+<li>
+<p>Si necesitamos, podemos agregar otras identidades a la llave con el comando <code>adduid</code>. Nos solicitará nombre, apellido y correo.</p>
+</li>
+<li>
+<p>Guardamos los cambios con <code>save</code></p>
+</li>
+<li>
+<p>Exportamos las llaves con:</p>
+<div class="highlight"><pre><span></span>gpg2 --armor --export-secret-keys jp@example.com &gt; respaldo_secreto_gpg.key
+</pre></div>
+
+
+<p>Mantener dicho archivo bajo total cuidado.</p>
+</li>
+</ol>
+<h4>Pasar la llave GnuPG a la yubikey</h4>
+<ol>
+<li>Insertamos la yubikey en el USB y validamos si es detectada (paso ya indicamos arriba)</li>
+<li>
+<p>Entramos en modo edición</p>
+<div class="highlight"><pre><span></span>gpg2 --expert --edit-key jp@example.com
+...
+...
+sec  rsa2048/BA1D54E27D357BCD
+     ccreado: 2017-11-13  caduca: nunca       uso: SC  
+     confianza: absoluta      validez: absoluta
+ssb  rsa2048/F1C1D21AB68CC384
+     creado: 2017-11-13  caduca: nunca       uso: E   
+ssb  rsa2048/8A9A91B693E1E57E
+     creado: 2017-11-13  caduca: nunca       uso: S   
+ssb  rsa2048/C8C3802A62992F34
+     creado: 2017-11-13  caduca: nunca       uso: A
+</pre></div>
+
+
+</li>
+<li>
+<p>Ingresamos comando <code>key 1</code> y veremos que se selecciona la primera entrada ssb, quedando <code>ssb*</code> y que en este caso corresponde a <code>uso: E</code></p>
+</li>
+<li>Ejecutamos comando <code>keytocard</code>, debemos elegir la opción <code>Clave de cifrado</code>. Con ello se pará la subllave a la yubikey.</li>
+<li>Ingresamos comando <code>key 1</code> seguido de <code>key 2</code>. Deberá estar con <code>ssb*</code> solo la subllave que indica <code>uso: S</code></li>
+<li>Ejecutamos comando <code>keytocard</code>, debemos elegir <code>Clave de firmado</code></li>
+<li>Ingresamos comando <code>key 2</code> seguido de <code>key 3</code>. Deberá estar con <code>ssb*</code> solo la subllave que indica <code>uso: A</code></li>
+<li>Ejecutamos comando <code>keytocard</code></li>
+<li>Finalmente guardamos los cambios con <code>save</code></li>
+</ol>
+<p><em><strong>Debemos exportar la llave pública para poder usar la yubikey en otros computadores (Explicado más abajo).</strong></em></p>
+<h3>Creación de la llave en la yubikey</h3>
+<ol>
+<li>Insertamos la yubikey en el USB y validamos si es detectada (paso ya indicamos arriba)</li>
+<li>
+<p>Edición de smartcard</p>
+<div class="highlight"><pre><span></span>gpg2 --card-edit
+...
+...
+gpg/tarjeta&gt;
+</pre></div>
+
+
+</li>
+<li>
+<p>Pasamos al modo admin <code>gpg/tarjeta&gt; admin</code> e ingresamos el comando para generar la llave <code>generate</code></p>
+<p>Te consultará si quieres guardar una copia externa. Indica no (n) ya que ese respaldo no sirve.</p>
+<p>Te solicitará el PIN, por defecto en la yubikey <code>123456</code></p>
+</li>
+<li>
+<p>Elegir el tamaño de la llave de firmado. Por defecto es 2048 pero puedes ampliarla hasta 4096 (aplica también para los puntos 5 y 6)</p>
+<p>Te solicitará el PIN de admin, por defecto en la yubikey es <code>12345678</code></p>
+</li>
+<li>
+<p>Elegir el tamaño de la llave de cifrado</p>
+</li>
+<li>Elegir el tamaño de la llave de autenticación</li>
+<li>
+<p>Elegir la duración de la llave. Por defecto es 0. Las opciones son:</p>
+<div class="highlight"><pre><span></span>   0 = la clave nunca caduca
+&lt;n&gt;  = la clave caduca en n días
+&lt;n&gt;w = la clave caduca en n semanas
+&lt;n&gt;m = la clave caduca en n meses
+&lt;n&gt;y = la clave caduca en n años
+</pre></div>
+
+
+<p>Confirmamos la duración.</p>
+</li>
+<li>
+<p>Ingresamos el nombre y apellido para la llave</p>
+</li>
+<li>Ingresamos el correo asociado a la llave</li>
+<li>Podemos agregar algún comentario para la llave</li>
+<li>Validamos los datos en el resumen que se presenta y finalmente confirmamos</li>
+<li>Ingresamos nuevamente PIN de admin</li>
+</ol>
+<p>Con esto ya tendremos la yubikey con una llave RSA, la cual es accedida por GnuPG como si fuera un Smartcard.</p>
+<p><em><strong>Debemos exportar la llave pública para poder usar la yubikey en otros computadores (Explicado más abajo).</strong></em></p>
+<h3>Usar la yubikey en otro computador</h3>
+<p>Para poder usar la yubikey en otro equipo debemos contar con la parte pública (explicado arriba).</p>
+<ol>
+<li>
+<p>Importar la llave pública:</p>
+<div class="highlight"><pre><span></span><span class="n">gpg2</span> <span class="o">--</span><span class="kn">import</span> <span class="nn">archivo_llave_publica.gpg</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Insertar la yubikey y ejecutar <code>gpg2 --card-edit</code>, una vez en modo edición usamos el comando <code>fetch</code></p>
+</li>
+<li>Validamos que esté disponible la llave<div class="highlight"><pre><span></span>sec&gt;  rsa4096 2017-11-13 [SC] [caduca: 2019-11-13]
+      F789EB5B1A5F55DF7F89D2450B1E0D6865FDE183
+      Número de serie de la tarjeta = 0006 05213571
+uid           [  absoluta ] Juan Pérez &lt;juan@example.com&gt;
+ssb&gt;  rsa2048 2017-11-13 [A] [caduca: 2019-11-13]
+ssb&gt;  rsa2048 2017-11-13 [E] [caduca: 2019-11-13]
+</pre></div>
+
+
+</li>
+</ol>
+    </article>
+
+    <hr>
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+		<div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="./tags">
+                                <span class="">
+                                    Tags
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                                <span class=""> - </span>
+                        </li>
+                        <li>
+                            <a href="./categories">
+                                <span class="">
+                                    Categorías
+                                </span>
+                            </a>
+                        </li>
+		   </ul>
+<!--<ul class="list-inline text-center">
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-flickr fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+		    </ul> -->
+                    <p class="copyright text-muted">Blog powered by <a href="http://getpelican.com">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="./theme/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="./theme/js/bootstrap.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="./theme/js/clean-blog.min.js"></script>
+
+</body>
+
+</html>

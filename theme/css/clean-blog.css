@@ -157,7 +157,6 @@ hr.small {
   .intro-header .site-heading,
   .intro-header .post-heading,
   .intro-header .page-heading {
-    padding: 150px 0;
   }
 }
 .intro-header .site-heading,
@@ -397,4 +396,24 @@ img::-moz-selection {
 }
 body {
   webkit-tap-highlight-color: #0085a1;
+}
+
+.series{
+    font-size: smaller;
+}
+
+div.series {
+    padding: 15px;
+    background: #eee;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.series p{
+    margin: 0 0;
+    font-weight: bolder;
+}
+
+.series ol{
+    font-style: italic;
 }
