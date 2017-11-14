@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-        <meta charset="utf-8">
+            <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
@@ -11,6 +11,7 @@
         <title>Gotencool's blog</title>
 
             <link href="http://blog.gotencool.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Full Atom Feed" />
+            <link href="http://blog.gotencool.com/feeds/misc.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Categories Atom Feed" />
 
         <!-- Bootstrap Core CSS -->
         <link href="./theme/css/bootstrap.min.css" rel="stylesheet">
@@ -33,8 +34,24 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-		<meta property="og:locale" content="es">
+
+
+
+        <meta name="tags" contents="fedora" />
+        <meta name="tags" contents="gnupg" />
+        <meta name="tags" contents="yubikey" />
+
+
+			<meta property="og:locale" content="es">
 		<meta property="og:site_name" content="Gotencool's blog">
+
+	<meta property="og:type" content="article">
+	<meta property="article:author" content="">
+	<meta property="og:url" content="./configuraciones-adicionales-de-yubikey-como-smartcard.html">
+	<meta property="og:title" content="Configuraciones adicionales de Yubikey como Smartcard">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="./theme/images/ajedrez.jpg">
+	<meta property="article:published_time" content="2017-11-13 00:00:00-03:00">
 </head>
 
 <body>
@@ -65,15 +82,15 @@
     </nav>
 
     <!-- Page Header -->
-    <!-- Set your background image for this header on the line below. -->
-        <header class="intro-header" style="background-image: url('http://blog.gotencool.com/theme/images/desktop.jpg')">
+        <header class="intro-header" style="background-image: url('theme/images/ajedrez.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="page-heading">
-                        <h1>Gotencool's blog</h1>
-                        <hr class="small">
-                        <span class="subheading"></span>
+                    <div class="post-heading">
+                        <h1>Configuraciones adicionales de Yubikey como Smartcard</h1>
+                        <span class="meta">Posted on lun 13 noviembre 2017
+                        </span>
+                        
                     </div>
                 </div>
             </div>
@@ -84,126 +101,73 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="post-preview">
-            <a href="./recuperar-opcion-cerrar-la-sesion-en-fedora-18.html" rel="bookmark" title="Permalink to Recuperar opción "Cerrar la sesión" en Fedora 18">
-                <h2 class="post-title">
-                    Recuperar opción "Cerrar la sesión" en Fedora 18
-                </h2>
-            </a>
-            <p class="post-meta">jue 17 enero 2013
-            </p>
-                El martes salió la versión final de Fedora 18 'Spherical Cow', y para sorpresa mía el menú Usuario sólo muestra la opción "Cerrar la sesión" si hay más de un usuario creado o...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./ultimo-dia-laboral-del-2012.html" rel="bookmark" title="Permalink to Último día laboral del 2012!!!">
-                <h2 class="post-title">
-                    Último día laboral del 2012!!!
-                </h2>
-            </a>
-            <p class="post-meta">vie 28 diciembre 2012
-            </p>
-                Se acaba el año en el ámbito laboral, se viene el fin de semana y el lunes el feriado bancario así que ya no se trabaja hasta el 2 de enero de 2013. Espero que haya sido un año...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./android.html" rel="bookmark" title="Permalink to Android">
-                <h2 class="post-title">
-                    Android
-                </h2>
-            </a>
-            <p class="post-meta">mar 11 diciembre 2012
-            </p>
-                Android Originally uploaded by gotencool
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./cleo.html" rel="bookmark" title="Permalink to Cleo">
-                <h2 class="post-title">
-                    Cleo
-                </h2>
-            </a>
-            <p class="post-meta">mar 11 diciembre 2012
-            </p>
-                Cleo Cargado originalmente por gotencool Hace poco más de una semana que adoptamos a esta labradora que estaba perdida. Ahora hay que acostumbrarse a la rutina de sacarla a...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./configurar-yum-para-usar-un-proxy.html" rel="bookmark" title="Permalink to Configurar YUM para usar un proxy">
-                <h2 class="post-title">
-                    Configurar YUM para usar un proxy
-                </h2>
-            </a>
-            <p class="post-meta">mar 11 diciembre 2012
-            </p>
-                En ciertos casos, como por ejemplo en la oficina, estaremos detrás de un proxy. En estos casos debemos realizar una pequeña configuración para que YUM pueda alcanzar la red...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./proxy-con-autenticacion-en-gnome3.html" rel="bookmark" title="Permalink to Proxy con autenticación en GNOME3">
-                <h2 class="post-title">
-                    Proxy con autenticación en GNOME3
-                </h2>
-            </a>
-            <p class="post-meta">mar 11 diciembre 2012
-            </p>
-                Luego de varias semanas buscando cómo configurar la autenticación del proxy de GNOME3 he dado con la respuesta: En "Proxy para HTTP" debe colocarse...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./preupgrade.html" rel="bookmark" title="Permalink to preupgrade">
-                <h2 class="post-title">
-                    preupgrade
-                </h2>
-            </a>
-            <p class="post-meta">mié 24 octubre 2012
-            </p>
-                preupgrade Originally uploaded by gotencool Pasando el notebook de la oficina de Fedora 16 a 17 con Preupgrade. Preupgrade es una aplicación que nos permite pasar nuestro...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./que-no-te-estafen-en-linea.html" rel="bookmark" title="Permalink to Que no te estafen en línea">
-                <h2 class="post-title">
-                    Que no te estafen en línea
-                </h2>
-            </a>
-            <p class="post-meta">sáb 15 septiembre 2012
-            </p>
-                El phishing es uno de los métodos de estafa más común en internet. Consiste en engañar al usuario con el fin de obtener información bancaria que les permita realizar giros o...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./adios-bandido.html" rel="bookmark" title="Permalink to Adiós Bandido">
-                <h2 class="post-title">
-                    Adiós Bandido
-                </h2>
-            </a>
-            <p class="post-meta">mié 22 agosto 2012
-            </p>
-                Bandido Cargado originalmente por gotencool No hay cómo calmar el dolor de la muerte de una mascota que te ha acompañado por más de 10 años. Bandido, te extrañaré siempre.
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./crear-caracteres-para-lcd-16x2-en-arduino-actualizado.html" rel="bookmark" title="Permalink to Crear caracteres para LCD 16x2 en Arduino - Actualizado!">
-                <h2 class="post-title">
-                    Crear caracteres para LCD 16x2 en Arduino - Actualizado!
-                </h2>
-            </a>
-            <p class="post-meta">jue 09 agosto 2012
-            </p>
-                Hace ya un tiempo mostré como conectar un LCD 16x2 I2C al arduino, en esta oportunidad mostraré como crear caracteres especiales para ser mostrados en dichas pantallas. Cada...
-        </div>
-        <hr>
+    <div class="series">
+    <p>Este post es la parte 2 de la serie "Yubikey en Fedora":</p>
+    <ol class="parts">
+            <li >
+                <a href='./configurar-una-yubikey-con-gnupg-en-fedora.html'>Configurar una Yubikey con GnuPG en Fedora</a>
+            </li>
+            <li class="active">
+                <a href='./configuraciones-adicionales-de-yubikey-como-smartcard.html'>Configuraciones adicionales de Yubikey como Smartcard</a>
+            </li>
+    </ol>
+    </div>
+    <!-- Post Content -->
+    <article>
+        <p>Ya hemos visto como agregar una llave GnuPG a una Yubikey como smartcard. Ahora veremos como configurar algunos parámetros adicionales.</p>
+<h2>Cambiar el PIN de llave y el PIN de admin</h2>
+<p>Las Yubikey 4 traen de fábrica configurados dos PIN, uno para usar la llave (123456) y otro para las operaciones de administración (12345678). Éstos deben ser cambiados para que no se pueda usar la Yubikey sin autorización.</p>
+<h4>Cambio PIN de llave</h4>
+<p>Debemos ejecutar el comando <code>gpg2 --card-edit</code> para entrar al modo edición. Una vez en el modo edición, ejecutamos <code>passwd</code>. Se pedirá el PIN actual para luego ingresar y confirmar el nuevo PIN.</p>
+<h4>Cambio PIN de admin</h4>
+<p>Debemos ejecutar el comando <code>gpg2 --card-edit</code>. Una vez en el modo edición ejecutamos <code>admin</code> y luego <code>passwd</code>. Debemos elegir la opción <code>change Admin PIN</code>. Se pedirá el PIN de admin actual para luego ingresar y confirmar el nuevo PIN.</p>
+<h2>URL para descargar llave pública</h2>
+<p>En el post anterior indicamos que para usar la yubikey en otros equipos necesitamos importar la llave pública. Esto se facilita si dejamos la llave en algún servidor de llaves para recuperarla por red.</p>
+<ol>
+<li>
+<p>Listamos las llaves para obtener el hash:</p>
+<div class="highlight"><pre><span></span>gpg2 --list-secret-keys
+sec#  rsa2048 2017-11-13 [SC]
+      FB4C1101D775522102A6F3D4BA1D54E27D357BCD
+uid           [desconocida] Juan Pérez &lt;jp@example.com&gt;
+ssb&gt;  rsa2048 2017-11-13 [E]
+ssb&gt;  rsa2048 2017-11-13 [S]
+ssb&gt;  rsa2048 2017-11-13 [A]
+</pre></div>
 
-    <!-- Pager -->
-    <ul class="pager">
-        <li class="next">
-                <a href="./index.html">Newest Posts &rarr;</a>
-                <a href="./index3.html">Older Posts &rarr;</a>
-        </li>
-    </ul>
-    Page 2 / 32
+
+</li>
+<li>
+<p>Recuperamos los últimos 16 caracteres del hash hexadecimal, en este caso <code>BA1D54E27D357BCD</code>. Luego publicamos la llave en la web:</p>
+<div class="highlight"><pre><span></span>gpg2 --keyserver pgp.key-server.io --send-key BA1D54E27D357BCD
+</pre></div>
+
+
+</li>
+<li>
+<p>Luego determinamos la url donde estará la llave: <code>https://pgp.key-server.io/download/0xBA1D54E27D357BCD</code></p>
+</li>
+<li>
+<p>Insertamos la yubikey</p>
+</li>
+<li>
+<p>Ejecutamos el comando <code>gpg2 --card-edit</code>, luego ejecutamos <code>admin</code> y finalmente <code>url</code>. Colocamos la url que formamos en el punto 3. Nos solicitará el PIN de admin.</p>
+</li>
+<li>
+<p>Salimos con <code>quit</code></p>
+</li>
+</ol>
+<p>Ahora que la yubikey ya posee una url con la llave pública, bastará que la conectemos a otro equipo e ingresemos al modo edición <code>gpg2 --card-edit</code> y luego obtengamos la llave con <code>fetch</code>.</p>
+<div class="highlight"><pre><span></span>    gpg/tarjeta&gt; fetch
+    gpg: requesting key from &#39;https://pgp.key-server.io/download/0xBA1D54E27D357BCD&#39;
+    gpg: clave BA1D54E27D357BCD: clave pública &quot;Juan Pérez &lt;jp2@example.com&gt;&quot; importada
+    gpg: Cantidad total procesada: 1
+    gpg:               importadas: 1
+</pre></div>
+    </article>
+
     <hr>
+
             </div>
         </div>
     </div>

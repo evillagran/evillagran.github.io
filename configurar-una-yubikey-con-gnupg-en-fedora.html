@@ -107,15 +107,20 @@
             <li class="active">
                 <a href='./configurar-una-yubikey-con-gnupg-en-fedora.html'>Configurar una Yubikey con GnuPG en Fedora</a>
             </li>
+            <li >
+                <a href='./configuraciones-adicionales-de-yubikey-como-smartcard.html'>Configuraciones adicionales de Yubikey como Smartcard</a>
+            </li>
     </ol>
     </div>
     <!-- Post Content -->
     <article>
         <p>En esta serie veremos diversos elementos relacionados con GnuPG y Yubikey como Smartcard. Los post son específicos para Yubikey 4, pero podrían funcionar con Yubikey-Neo con algunas modificaciones.</p>
-<p>Estos ejemplos están probados en:
-- Fedora 26
-- GnuPG 2.2.1
-- Yubikey 4 (v2.1)</p>
+<p>Estos ejemplos están probados en:</p>
+<ul>
+<li>Fedora 26</li>
+<li>GnuPG 2.2.1</li>
+<li>Yubikey 4 (v2.1)</li>
+</ul>
 <h2>Verificar la Yubikey</h2>
 <p>Para los siguientes ejemplos se usará GnuPG2 ya que éste soporta llaves RSA de 4096. Comenzaremos verificando si se detecta la yubikey correctamente:</p>
 <div class="highlight"><pre><span></span>gpg2 --card-status
