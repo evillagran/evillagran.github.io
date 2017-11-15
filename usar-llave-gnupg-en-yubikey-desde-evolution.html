@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-        <meta charset="utf-8">
+            <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
@@ -11,6 +11,7 @@
         <title>Gotencool's blog</title>
 
             <link href="http://blog.gotencool.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Full Atom Feed" />
+            <link href="http://blog.gotencool.com/feeds/misc.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Categories Atom Feed" />
 
         <!-- Bootstrap Core CSS -->
         <link href="./theme/css/bootstrap.min.css" rel="stylesheet">
@@ -33,8 +34,24 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-		<meta property="og:locale" content="es">
+
+
+
+        <meta name="tags" contents="fedora" />
+        <meta name="tags" contents="gnupg" />
+        <meta name="tags" contents="yubikey" />
+
+
+			<meta property="og:locale" content="es">
 		<meta property="og:site_name" content="Gotencool's blog">
+
+	<meta property="og:type" content="article">
+	<meta property="article:author" content="">
+	<meta property="og:url" content="./usar-llave-gnupg-en-yubikey-desde-evolution.html">
+	<meta property="og:title" content="Usar llave GnuPG en Yubikey desde Evolution">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="./theme/images/ajedrez.jpg">
+	<meta property="article:published_time" content="2017-11-14 22:20:00-03:00">
 </head>
 
 <body>
@@ -65,15 +82,15 @@
     </nav>
 
     <!-- Page Header -->
-    <!-- Set your background image for this header on the line below. -->
-        <header class="intro-header" style="background-image: url('http://blog.gotencool.com/theme/images/desktop.jpg')">
+        <header class="intro-header" style="background-image: url('theme/images/ajedrez.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="page-heading">
-                        <h1>Gotencool's blog</h1>
-                        <hr class="small">
-                        <span class="subheading"></span>
+                    <div class="post-heading">
+                        <h1>Usar llave GnuPG en Yubikey desde Evolution</h1>
+                        <span class="meta">Posted on mar 14 noviembre 2017
+                        </span>
+                        
                     </div>
                 </div>
             </div>
@@ -84,126 +101,53 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="post-preview">
-            <a href="./una-forma-divertida-de-navegar-por-flickr.html" rel="bookmark" title="Permalink to Una forma divertida de navegar por Flickr">
-                <h2 class="post-title">
-                    Una forma divertida de navegar por Flickr
-                </h2>
-            </a>
-            <p class="post-meta">dom 11 enero 2009
-            </p>
-                Cuando te gusta la fotografía es seguro qaue visitas sitios como Flickr. Sabrás que es difícil poder encontrar fotografías sobre una temática en especial, pero con herramientas...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./atrocidades-en-la-franja-de-gaza.html" rel="bookmark" title="Permalink to Atrocidades en la Franja de Gaza">
-                <h2 class="post-title">
-                    Atrocidades en la Franja de Gaza
-                </h2>
-            </a>
-            <p class="post-meta">sáb 10 enero 2009
-            </p>
-                Ya hace más de una semana que Israel ha estado atacando posiciones al interior de la Franja de Gaza. Los israelíes se justifican señalando que están atacando asentamientos...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./espartaco-y-el-sol-bajo-el-mar.html" rel="bookmark" title="Permalink to Espartaco y el sol bajo el mar">
-                <h2 class="post-title">
-                    Espartaco y el sol bajo el mar
-                </h2>
-            </a>
-            <p class="post-meta">dom 28 diciembre 2008
-            </p>
-                Desde pequeño que deseaba poder ver esta serie completa. Espartaco y el Sol bajo el Mar (Les Mondes Engloutis - Los Mundos Absorbidos) es una serie Francesa que se emitió en TV...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./exiliado-por-lo-que-hago.html" rel="bookmark" title="Permalink to Exiliado por lo que hago">
-                <h2 class="post-title">
-                    Exiliado por lo que hago
-                </h2>
-            </a>
-            <p class="post-meta">jue 04 diciembre 2008
-            </p>
-                Si por lo menos el enlace a internet fuera bueno podría soportalo.
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./star-wars-clone-wars-2003.html" rel="bookmark" title="Permalink to Star Wars: Clone Wars (2003)">
-                <h2 class="post-title">
-                    Star Wars: Clone Wars (2003)
-                </h2>
-            </a>
-            <p class="post-meta">jue 27 noviembre 2008
-            </p>
-                | | ---|---|--- Hoy terminé de ver los 25 capítulos de la serie de TV Star War: Clone Wars transmitidas por Cartoon Network entre 2003 y 2005. Sin duda alguna es una...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./actividades-de-fin-de-semana.html" rel="bookmark" title="Permalink to Actividades de fin de semana">
-                <h2 class="post-title">
-                    Actividades de fin de semana
-                </h2>
-            </a>
-            <p class="post-meta">sáb 22 noviembre 2008
-            </p>
-                Con la llegada del verano, debemos realizar la religiosa mantención de nuestros equipos electro/digitales para que puedan superar esta estación de año. Debemos recordar limpiar...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./la-fuente-de-la-vida.html" rel="bookmark" title="Permalink to La Fuente de la Vida">
-                <h2 class="post-title">
-                    La Fuente de la Vida
-                </h2>
-            </a>
-            <p class="post-meta">sáb 22 noviembre 2008
-            </p>
-                La Fuente de la Vida (The Fountain, 2006), es una de las películas más sensacionales que he visto. Escrita y dirigida por Darren Aronofsky (Pi y Requiem for a Dream), narra...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./multiplicar-personas.html" rel="bookmark" title="Permalink to Multiplicar personas">
-                <h2 class="post-title">
-                    Multiplicar personas
-                </h2>
-            </a>
-            <p class="post-meta">sáb 22 noviembre 2008
-            </p>
-                Esta es una de las técnicas de foto montaje que más llaman la atención. A pesar de lo oscuro que pueda parecer, es una técnica que no toma mucho tiempo pulir y llevar a un...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./banner-en-espanol.html" rel="bookmark" title="Permalink to Banner en español.">
-                <h2 class="post-title">
-                    Banner en español.
-                </h2>
-            </a>
-            <p class="post-meta">jue 06 noviembre 2008
-            </p>
-                Nicu Buculei y Paolo Lenoni han generado el banner-contador que señala cuántos días faltan para el lanzamiento de Fedora 10. Yo me he tomado la libertad de traducirlos al...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./consejo-codificacion-de-archivos.html" rel="bookmark" title="Permalink to Consejo: Codificación de archivos">
-                <h2 class="post-title">
-                    Consejo: Codificación de archivos
-                </h2>
-            </a>
-            <p class="post-meta">lun 27 octubre 2008
-            </p>
-                Procuren tener todos sus editores para utilizar una codificación determinada, además de cuidar que, quienes intercambian archivos fuentes con ustedes, posean la misma...
-        </div>
-        <hr>
+    <div class="series">
+    <p>Este post es la parte 3 de la serie "Yubikey en Fedora":</p>
+    <ol class="parts">
+            <li >
+                <a href='./configurar-una-yubikey-con-gnupg-en-fedora.html'>Configurar una Yubikey con GnuPG en Fedora</a>
+            </li>
+            <li >
+                <a href='./configuraciones-adicionales-de-yubikey-como-smartcard.html'>Configuraciones adicionales de Yubikey como Smartcard</a>
+            </li>
+            <li class="active">
+                <a href='./usar-llave-gnupg-en-yubikey-desde-evolution.html'>Usar llave GnuPG en Yubikey desde Evolution</a>
+            </li>
+    </ol>
+    </div>
+    <!-- Post Content -->
+    <article>
+        <p>Ya que tenemos la Yubikey lista, configuraremos el cliente de correo Evolution para usar la llave GPG que ella posee.</p>
+<ol>
+<li>
+<p>Identificamos el hash de la llave GPG a usar</p>
+<div class="highlight"><pre><span></span>gpg2 --list-secret-key
+sec#  rsa4096 2011-11-23 [SC]
+      95E30BC35BC1FB86E67B8F73F0DDFF1DD24CB499
+uid           [  absoluta ] Eduardo Andrés Villagrán Morales &lt;evillagr@fedoraproject.org&gt;
+</pre></div>
 
-    <!-- Pager -->
-    <ul class="pager">
-        <li class="next">
-                <a href="./index19.html">Newest Posts &rarr;</a>
-                <a href="./index21.html">Older Posts &rarr;</a>
-        </li>
-    </ul>
-    Page 20 / 32
+
+<p>En este caso el identificador serán los últimos 8 caracteres: <code>D24CB499</code></p>
+</li>
+<li>
+<p>Acceder a las <strong>Preferencias de Evolution</strong>
+    <img alt="" src="images/yubikey-evolution-pref.png"></p>
+</li>
+<li>Damos doble clic sobre la cuenta de correo que deseamos asociar con la llave GPG</li>
+<li>En el apartado <strong>Seguridad</strong> debemos indicar la llave a usar. Se ingresan los últimos 8 caracteres del hash
+    <img alt="" src="images/yubikey-evolution-seguridad.png"></li>
+</ol>
+<p>Ahora, cuando enviemos un correo podemos firmarlo.
+<img alt="" src="images/yubikey-evolution-firmar.png"></p>
+<p>Y cuando nos envíen un correo cifrado con nuestra llave pública, podremos descifrarlo.
+<img alt="" src="images/yubikey-evolution-valido.png"></p>
+<p>En ambos casos, se solicitará el PIN de llave para poder acceder a ella:
+<img alt="" src="images/yubikey-evolution-pin.png"></p>
+    </article>
+
     <hr>
+
             </div>
         </div>
     </div>
