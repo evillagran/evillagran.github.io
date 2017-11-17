@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-        <meta charset="utf-8">
+            <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
@@ -11,6 +11,7 @@
         <title>Gotencool's blog</title>
 
             <link href="http://blog.gotencool.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Full Atom Feed" />
+            <link href="http://blog.gotencool.com/feeds/misc.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Categories Atom Feed" />
 
         <!-- Bootstrap Core CSS -->
         <link href="./theme/css/bootstrap.min.css" rel="stylesheet">
@@ -33,8 +34,25 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-		<meta property="og:locale" content="es">
+
+
+
+        <meta name="tags" contents="fedora" />
+        <meta name="tags" contents="gnupg" />
+        <meta name="tags" contents="yubikey" />
+        <meta name="tags" contents="git" />
+
+
+			<meta property="og:locale" content="es">
 		<meta property="og:site_name" content="Gotencool's blog">
+
+	<meta property="og:type" content="article">
+	<meta property="article:author" content="">
+	<meta property="og:url" content="./usar-yubikey-para-ssh.html">
+	<meta property="og:title" content="Usar Yubikey para SSH">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="./theme/images/ajedrez.jpg">
+	<meta property="article:published_time" content="2017-11-16 22:20:00-03:00">
 </head>
 
 <body>
@@ -65,15 +83,15 @@
     </nav>
 
     <!-- Page Header -->
-    <!-- Set your background image for this header on the line below. -->
-        <header class="intro-header" style="background-image: url('http://blog.gotencool.com/theme/images/desktop.jpg')">
+        <header class="intro-header" style="background-image: url('theme/images/ajedrez.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="page-heading">
-                        <h1>Gotencool's blog</h1>
-                        <hr class="small">
-                        <span class="subheading"></span>
+                    <div class="post-heading">
+                        <h1>Usar Yubikey para SSH</h1>
+                        <span class="meta">Posted on jue 16 noviembre 2017
+                        </span>
+                        
                     </div>
                 </div>
             </div>
@@ -84,126 +102,125 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="post-preview">
-            <a href="./pink-floyd.html" rel="bookmark" title="Permalink to Pink Floyd">
-                <h2 class="post-title">
-                    Pink Floyd
-                </h2>
-            </a>
-            <p class="post-meta">lun 02 febrero 2009
-            </p>
-                No hay nada como recostarse a oscuras y escuchar un temaso de Pink Floyd a todo lo que den tus parlantes. No importa que los vidrios vibren y que tus vecinos reclamen. El solo...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./arenas-del-tiempo.html" rel="bookmark" title="Permalink to Arenas del tiempo">
-                <h2 class="post-title">
-                    Arenas del tiempo
-                </h2>
-            </a>
-            <p class="post-meta">dom 01 febrero 2009
-            </p>
-                Quienes se atreven a perturbar las arenas de tiempo para buscar en su pasado sólo encuentran dolor y nunca logran perdonar. Quienes dejan las arenas tranquilas sólo viven el...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./una-forma-divertida-de-navegar-por-flickr.html" rel="bookmark" title="Permalink to Una forma divertida de navegar por Flickr">
-                <h2 class="post-title">
-                    Una forma divertida de navegar por Flickr
-                </h2>
-            </a>
-            <p class="post-meta">dom 11 enero 2009
-            </p>
-                Cuando te gusta la fotografía es seguro qaue visitas sitios como Flickr. Sabrás que es difícil poder encontrar fotografías sobre una temática en especial, pero con herramientas...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./atrocidades-en-la-franja-de-gaza.html" rel="bookmark" title="Permalink to Atrocidades en la Franja de Gaza">
-                <h2 class="post-title">
-                    Atrocidades en la Franja de Gaza
-                </h2>
-            </a>
-            <p class="post-meta">sáb 10 enero 2009
-            </p>
-                Ya hace más de una semana que Israel ha estado atacando posiciones al interior de la Franja de Gaza. Los israelíes se justifican señalando que están atacando asentamientos...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./espartaco-y-el-sol-bajo-el-mar.html" rel="bookmark" title="Permalink to Espartaco y el sol bajo el mar">
-                <h2 class="post-title">
-                    Espartaco y el sol bajo el mar
-                </h2>
-            </a>
-            <p class="post-meta">dom 28 diciembre 2008
-            </p>
-                Desde pequeño que deseaba poder ver esta serie completa. Espartaco y el Sol bajo el Mar (Les Mondes Engloutis - Los Mundos Absorbidos) es una serie Francesa que se emitió en TV...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./exiliado-por-lo-que-hago.html" rel="bookmark" title="Permalink to Exiliado por lo que hago">
-                <h2 class="post-title">
-                    Exiliado por lo que hago
-                </h2>
-            </a>
-            <p class="post-meta">jue 04 diciembre 2008
-            </p>
-                Si por lo menos el enlace a internet fuera bueno podría soportalo.
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./star-wars-clone-wars-2003.html" rel="bookmark" title="Permalink to Star Wars: Clone Wars (2003)">
-                <h2 class="post-title">
-                    Star Wars: Clone Wars (2003)
-                </h2>
-            </a>
-            <p class="post-meta">jue 27 noviembre 2008
-            </p>
-                | | ---|---|--- Hoy terminé de ver los 25 capítulos de la serie de TV Star War: Clone Wars transmitidas por Cartoon Network entre 2003 y 2005. Sin duda alguna es una...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./actividades-de-fin-de-semana.html" rel="bookmark" title="Permalink to Actividades de fin de semana">
-                <h2 class="post-title">
-                    Actividades de fin de semana
-                </h2>
-            </a>
-            <p class="post-meta">sáb 22 noviembre 2008
-            </p>
-                Con la llegada del verano, debemos realizar la religiosa mantención de nuestros equipos electro/digitales para que puedan superar esta estación de año. Debemos recordar limpiar...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./la-fuente-de-la-vida.html" rel="bookmark" title="Permalink to La Fuente de la Vida">
-                <h2 class="post-title">
-                    La Fuente de la Vida
-                </h2>
-            </a>
-            <p class="post-meta">sáb 22 noviembre 2008
-            </p>
-                La Fuente de la Vida (The Fountain, 2006), es una de las películas más sensacionales que he visto. Escrita y dirigida por Darren Aronofsky (Pi y Requiem for a Dream), narra...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./multiplicar-personas.html" rel="bookmark" title="Permalink to Multiplicar personas">
-                <h2 class="post-title">
-                    Multiplicar personas
-                </h2>
-            </a>
-            <p class="post-meta">sáb 22 noviembre 2008
-            </p>
-                Esta es una de las técnicas de foto montaje que más llaman la atención. A pesar de lo oscuro que pueda parecer, es una técnica que no toma mucho tiempo pulir y llevar a un...
-        </div>
-        <hr>
+    <div class="series">
+    <p>Este post es la parte 5 de la serie "Yubikey en Fedora":</p>
+    <ol class="parts">
+            <li >
+                <a href='./configurar-una-yubikey-con-gnupg-en-fedora.html'>Configurar una Yubikey con GnuPG en Fedora</a>
+            </li>
+            <li >
+                <a href='./configuraciones-adicionales-de-yubikey-como-smartcard.html'>Configuraciones adicionales de Yubikey como Smartcard</a>
+            </li>
+            <li >
+                <a href='./usar-llave-gnupg-en-yubikey-desde-evolution.html'>Usar llave GnuPG en Yubikey desde Evolution</a>
+            </li>
+            <li >
+                <a href='./usar-yubikey-con-git.html'>Usar Yubikey con git</a>
+            </li>
+            <li class="active">
+                <a href='./usar-yubikey-para-ssh.html'>Usar Yubikey para SSH</a>
+            </li>
+    </ol>
+    </div>
+    <!-- Post Content -->
+    <article>
+        <p>En este post veremos cómo usar la yubikey que tenemos configurada con una llave GPG para iniciar sesión vía SSH.</p>
+<h3>Preparando el sistema</h3>
+<ol>
+<li>
+<p>Preparar gpg-agent para que soporte ssh. Debemos crear el archivo <code>$HOME/.gnupg/gpg-agent.conf</code> con el siguiente contenido:</p>
+<div class="highlight"><pre><span></span>enable-ssh-support
+pinentry-program /usr/bin/pinentry
+default-cache-ttl 600
+default-cache-ttl-ssh 1800
+</pre></div>
 
-    <!-- Pager -->
-    <ul class="pager">
-        <li class="next">
-                <a href="./index19.html">Newest Posts &rarr;</a>
-                <a href="./index21.html">Older Posts &rarr;</a>
-        </li>
-    </ul>
-    Page 20 / 32
+
+</li>
+<li>
+<p>Matamos el proceso <code>gpg-agent</code> actual:</p>
+<div class="highlight"><pre><span></span>pkill gpg-agent
+</pre></div>
+
+
+</li>
+<li>
+<p>Levantamos un proceso <code>gpg-agent</code> en forma manual:</p>
+<div class="highlight"><pre><span></span>gpg-agent --daemon
+SSH_AUTH_SOCK=/run/user/1000/gnupg/S.gpg-agent.ssh; export SSH_AUTH_SOCK;
+</pre></div>
+
+
+</li>
+<li>
+<p>Agregamos la línea de arriba <code>SSH_...</code> en el archivo <code>$HOME/.bashrc</code> deberá quedar así:</p>
+<div class="highlight"><pre><span></span>...
+# User specific aliases and functions
+SSH_AUTH_SOCK=/run/user/1000/gnupg/S.gpg-agent.ssh; export SSH_AUTH_SOCK;
+...
+</pre></div>
+
+
+</li>
+<li>
+<p>Deberemos cerrar todas las terminales para que el cambio se refleje.</p>
+</li>
+</ol>
+<h3>Obteniendo la llave pública para SSH</h3>
+<p>Ahora que gpg-agent tiene soporte para SSH debemos extraer la llave pública para SSH.</p>
+<ol>
+<li>Insertamos la yubikey</li>
+<li>
+<p>Ejecutamos el siguiente comando:</p>
+<div class="highlight"><pre><span></span>ssh-add -L
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDFeOlAC7lKQrpuWcN20u0vd2UE3
+r3eKF1Odj6cPY3dy2NCZWE4NiwqOe0sgckfeBYrGvCg57FI3SK905J7IeJWb6xYB6
+kK+1YZVJIoijGzle785oXXMo5lPUfInaLtV+386tlNYlMEPESEH5TZjOIL7/mXG0B
+984Ks/H6KqgYotNmg0Rl+vcvDIC+vkvMucVZY3gqXfRVaP5DJ0M5E9mWXeq4yx+Wy
+p56NlTFfD8uQVzMKmj187ipFE2LjCWAmWdVyVwc/d8U2THKooijC97ZwQZolPsd+m
+slJEJOACtNR/guUQQS+RTsJNqLskFpHX8r0pigVIMX+AGQMSc68+5jn 
+cardno:000605213571
+</pre></div>
+
+
+<p>Si los pasos anteriores funcionan, al final de la llave verán el <code>cardno</code>.</p>
+</li>
+<li>
+<p>Exportamos la llave</p>
+<div class="highlight"><pre><span></span>ssh-add -L &gt; export.pub
+</pre></div>
+
+
+</li>
+<li>
+<p>Copiamos la llave a la máquina destino (en este caso será localhost)</p>
+<div class="highlight"><pre><span></span>ssh-copy-id -f -i export.pub foo@localhost
+</pre></div>
+
+
+<p>Colocamos la contraseña e indicará que se copió una llave:</p>
+<div class="highlight"><pre><span></span>Number of key(s) added: 1
+
+Now try logging into the machine, with:   &quot;ssh &#39;foo@localhost&#39;&quot;
+and check to make sure that only the key(s) you wanted were added
+</pre></div>
+
+
+</li>
+<li>
+<p>Validamos la conexión</p>
+<div class="highlight"><pre><span></span>ssh foo@localhost
+</pre></div>
+
+
+<p>No nos debería pedir la contraseña e ingresar directamente (este punto depende de la configuración del servidor)</p>
+</li>
+</ol>
+<p>Si al iniciar la conexión no tenemos la yubikey conectada y el servidor permite login con clave, podremos pasar a ese método en forma transparente.</p>
+    </article>
+
     <hr>
+
             </div>
         </div>
     </div>
