@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-        <meta charset="utf-8">
+            <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
@@ -11,6 +11,7 @@
         <title>Gotencool's blog</title>
 
             <link href="http://blog.gotencool.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Full Atom Feed" />
+            <link href="http://blog.gotencool.com/feeds/misc.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Categories Atom Feed" />
 
         <!-- Bootstrap Core CSS -->
         <link href="./theme/css/bootstrap.min.css" rel="stylesheet">
@@ -33,8 +34,26 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-		<meta property="og:locale" content="es">
+
+
+
+        <meta name="tags" contents="fedora" />
+        <meta name="tags" contents="gnupg" />
+        <meta name="tags" contents="yubikey" />
+        <meta name="tags" contents="git" />
+        <meta name="tags" contents="libreoffice" />
+
+
+			<meta property="og:locale" content="es">
 		<meta property="og:site_name" content="Gotencool's blog">
+
+	<meta property="og:type" content="article">
+	<meta property="article:author" content="">
+	<meta property="og:url" content="./libreoffice-54-permite-firmar-con-gnupg.html">
+	<meta property="og:title" content="LibreOffice 5.4 permite firmar con GnuPG">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="./theme/images/luces.jpg">
+	<meta property="article:published_time" content="2017-11-19 22:00:00-03:00">
 </head>
 
 <body>
@@ -65,15 +84,15 @@
     </nav>
 
     <!-- Page Header -->
-    <!-- Set your background image for this header on the line below. -->
-        <header class="intro-header" style="background-image: url('http://blog.gotencool.com/theme/images/desktop.jpg')">
+        <header class="intro-header" style="background-image: url('theme/images/luces.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="page-heading">
-                        <h1>Gotencool's blog</h1>
-                        <hr class="small">
-                        <span class="subheading"></span>
+                    <div class="post-heading">
+                        <h1>LibreOffice 5.4 permite firmar con GnuPG</h1>
+                        <span class="meta">Posted on dom 19 noviembre 2017
+                        </span>
+                        
                     </div>
                 </div>
             </div>
@@ -84,126 +103,30 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="post-preview">
-            <a href="./canon-t1i-revalado-de-raw-en-fedora.html" rel="bookmark" title="Permalink to Canon T1i: Revalado de RAW en Fedora">
-                <h2 class="post-title">
-                    Canon T1i: Revalado de RAW en Fedora
-                </h2>
-            </a>
-            <p class="post-meta">lun 28 diciembre 2009
-            </p>
-                Actualmente hay dos aplicaciones gráficas para revelar archivos RAW en Fedora: ufraw y rawstudio. Antes de seguir, los archivos RAW son el equivalente al negativo de la...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./mi-nuevo-juguetito.html" rel="bookmark" title="Permalink to Mi nuevo juguetito">
-                <h2 class="post-title">
-                    Mi nuevo juguetito
-                </h2>
-            </a>
-            <p class="post-meta">dom 20 diciembre 2009
-            </p>
-                Mi nuevo juguetito Cargado originalmente por gotencool Por fin llegó mi nueva cámara fotográfica. Se trata de una Canon EOS T1i, mi primer cámara reflex por lo que supone...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./iniciando-una-nueva-etapa.html" rel="bookmark" title="Permalink to Iniciando una nueva etapa">
-                <h2 class="post-title">
-                    Iniciando una nueva etapa
-                </h2>
-            </a>
-            <p class="post-meta">vie 18 diciembre 2009
-            </p>
-                Dicen que los cambios son siempre buenos, esperemos que sea así. Cuando se ha vivido una etapa y hemos llegado al fin de ésta debemos para un momento y pensar en lo vivido,...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./los-perros-en-la-fotografia.html" rel="bookmark" title="Permalink to Los perros en la fotografía">
-                <h2 class="post-title">
-                    Los perros en la fotografía
-                </h2>
-            </a>
-            <p class="post-meta">mar 24 noviembre 2009
-            </p>
-                It's Monday. Cargado originalmente por Shelby Mustang GT Es increíble la cantidad de perros en situaciones chistosas que pueden encontrar en Flickr, pareciera que están...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./he-vuelto-aunque-sea-a-puro-quejarme.html" rel="bookmark" title="Permalink to He vuelto, aunque sea a puro quejarme">
-                <h2 class="post-title">
-                    He vuelto, aunque sea a puro quejarme
-                </h2>
-            </a>
-            <p class="post-meta">mar 17 noviembre 2009
-            </p>
-                Un par de meses sin postear y lo que único que tengo en mente para escribir son quejas sobre mil y un asuntos. Partiré quejándome de lo complicadas que son las minas, es...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./fiscalizacion-de-la-evasion-en-transantiago.html" rel="bookmark" title="Permalink to Fiscalización de la evasión en Transantiago">
-                <h2 class="post-title">
-                    Fiscalización de la evasión en Transantiago
-                </h2>
-            </a>
-            <p class="post-meta">sáb 05 septiembre 2009
-            </p>
-                Hasta ahora uno de los puntos que complican al administrador financiero del Transatiago, a parte del financiamiento, es la alta evasión de pago del pasaje. Como medida...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./se-les-habra-olvidado-algo.html" rel="bookmark" title="Permalink to Se les habrá olvidado algo?">
-                <h2 class="post-title">
-                    Se les habrá olvidado algo?
-                </h2>
-            </a>
-            <p class="post-meta">sáb 05 septiembre 2009
-            </p>
-                Cada vez que llueve sobre Santiago, se repiten las escenas de calles anegadas por unas pocas gotas de agua. Las autoridades saben perfectamente que calles y avenidas son....
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./transantiago-for-dummies.html" rel="bookmark" title="Permalink to Transantiago for dummies??">
-                <h2 class="post-title">
-                    Transantiago for dummies??
-                </h2>
-            </a>
-            <p class="post-meta">sáb 05 septiembre 2009
-            </p>
-                Con el último comercial del Transantiago me quedan dos dudas, para quién está dirigido el comercial informativo en que se emplean personajes de 31 minutos para transmitir la...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./este-pelao-rq-deberia-ser-un.html" rel="bookmark" title="Permalink to Este pelao RQ debería ser un...">
-                <h2 class="post-title">
-                    Este pelao RQ debería ser un...
-                </h2>
-            </a>
-            <p class="post-meta">vie 28 agosto 2009
-            </p>
-                Proceso para: kill -9 $(pidof pelao_rq) kill -9 pidof pelao_rq killall pelao_rq pidof pelao_rq | xargs kill Archivo para: cat /dev/zero > pelao_rq.exe cat /dev/random >...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./la-frase-del-dia.html" rel="bookmark" title="Permalink to La frase del día">
-                <h2 class="post-title">
-                    La frase del día
-                </h2>
-            </a>
-            <p class="post-meta">mié 26 agosto 2009
-            </p>
-                _"Imagina a 50 simios en una sala tratando de hacer democracia" _
-        </div>
-        <hr>
+    <!-- Post Content -->
+    <article>
+        <p>Hace ya unos días que se lanzó Fedora 27. Entre sus novedades está LibreOffice 5.4, el cual ahora permite firmar los documentos usando una llave GnuPG.</p>
+<ol>
+<li>
+<p>Creamos un documento en LibreOffice (Writer, Calc, Draw, etc) y lo guardamos</p>
+</li>
+<li>
+<p>En el menú <strong>Archivo</strong> seleccionamos <strong>Firmas digitales -&gt; Firmas digitales...</strong></p>
+</li>
+<li>
+<p>Presionamos <strong>Firmar el documento...</strong>. Nos mostrará llaves GPG y certificados digitales. Seleccionamos la llave adecuada y le damos clic al botón <strong>Aceptar</strong>.
+    <img alt="" src="images/yubikey-libreoffice-1.png"></p>
+</li>
+<li>
+<p>Luego de ello veremos que el documento ya posee la firma
+    <img alt="" src="images/yubikey-libreoffice-3.png"></p>
+<p><img alt="" src="images/yubikey-libreoffice-2.png"></p>
+</li>
+</ol>
+    </article>
 
-    <!-- Pager -->
-    <ul class="pager">
-        <li class="next">
-                <a href="./index14.html">Newest Posts &rarr;</a>
-                <a href="./index16.html">Older Posts &rarr;</a>
-        </li>
-    </ul>
-    Page 15 / 32
     <hr>
+
             </div>
         </div>
     </div>

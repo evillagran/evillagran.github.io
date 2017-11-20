@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Gotencool's blog - fedora</title><link rel="alternate" href="http://blog.gotencool.com/"></link><link rel="self" href="http://blog.gotencool.com/feeds/fedora.tag.atom.xml"></link><id>http://blog.gotencool.com/</id><updated>2017-11-16T22:20:00-03:00</updated><entry><title>Usar Yubikey para SSH</title><link href="http://blog.gotencool.com/usar-yubikey-para-ssh.html" rel="alternate"></link><published>2017-11-16T22:20:00-03:00</published><author><name>Eduardo Villagrán Morales</name></author><id>tag:blog.gotencool.com,2017-11-16:/usar-yubikey-para-ssh.html/</id><summary type="html">&lt;p&gt;En este post veremos cómo usar la yubikey que tenemos configurada con una llave GPG para iniciar sesión vía SSH.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Gotencool's blog - fedora</title><link rel="alternate" href="http://blog.gotencool.com/"></link><link rel="self" href="http://blog.gotencool.com/feeds/fedora.tag.atom.xml"></link><id>http://blog.gotencool.com/</id><updated>2017-11-19T22:00:00-03:00</updated><entry><title>LibreOffice 5.4 permite firmar con GnuPG</title><link href="http://blog.gotencool.com/libreoffice-54-permite-firmar-con-gnupg.html" rel="alternate"></link><published>2017-11-19T22:00:00-03:00</published><author><name>Eduardo Villagrán Morales</name></author><id>tag:blog.gotencool.com,2017-11-19:/libreoffice-54-permite-firmar-con-gnupg.html/</id><summary type="html">&lt;p&gt;Hace ya unos días que se lanzó Fedora 27. Entre sus novedades está LibreOffice 5.4, el cual ahora permite firmar los documentos usando una llave GnuPG.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Creamos un documento en LibreOffice (Writer, Calc, Draw, etc) y lo guardamos&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;En el menú &lt;strong&gt;Archivo&lt;/strong&gt; seleccionamos &lt;strong&gt;Firmas digitales -&amp;gt; Firmas digitales...&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Presionamos &lt;strong&gt;Firmar …&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;</summary><category term="fedora"></category><category term="gnupg"></category><category term="yubikey"></category><category term="git"></category><category term="libreoffice"></category></entry><entry><title>Usar Yubikey para SSH</title><link href="http://blog.gotencool.com/usar-yubikey-para-ssh.html" rel="alternate"></link><published>2017-11-16T22:20:00-03:00</published><author><name>Eduardo Villagrán Morales</name></author><id>tag:blog.gotencool.com,2017-11-16:/usar-yubikey-para-ssh.html/</id><summary type="html">&lt;p&gt;En este post veremos cómo usar la yubikey que tenemos configurada con una llave GPG para iniciar sesión vía SSH.&lt;/p&gt;
 &lt;h3&gt;Preparando el sistema&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;
