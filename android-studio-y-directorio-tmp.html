@@ -2,15 +2,16 @@
 <html lang="es">
 
 <head>
-        <meta charset="utf-8">
+            <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Gotencool's blog - Authors</title>
+        <title>Gotencool's blog</title>
 
             <link href="http://blog.gotencool.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Full Atom Feed" />
+            <link href="http://blog.gotencool.com/feeds/misc.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Categories Atom Feed" />
 
         <!-- Bootstrap Core CSS -->
         <link href="./theme/css/bootstrap.min.css" rel="stylesheet">
@@ -33,8 +34,22 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-		<meta property="og:locale" content="es">
+
+
+
+        <meta name="tags" contents="android" />
+
+
+			<meta property="og:locale" content="es">
 		<meta property="og:site_name" content="Gotencool's blog">
+
+	<meta property="og:type" content="article">
+	<meta property="article:author" content="">
+	<meta property="og:url" content="./android-studio-y-directorio-tmp.html">
+	<meta property="og:title" content="Android Studio y directorio tmp">
+	<meta property="og:description" content="">
+	<meta property="og:image" content=".//theme/images/calle.jpg">
+	<meta property="article:published_time" content="2018-01-16 10:00:00-03:00">
 </head>
 
 <body>
@@ -65,12 +80,15 @@
     </nav>
 
     <!-- Page Header -->
-        <header class="intro-header" style="background-image: url('http://blog.gotencool.com/theme/images/desktop.jpg')">
+        <header class="intro-header" style="background-image: url('/theme/images/calle.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
-                        <h1>Articles by </h1>
+                        <h1>Android Studio y directorio tmp</h1>
+                        <span class="meta">Posted on mar 16 enero 2018
+                        </span>
+                        
                     </div>
                 </div>
             </div>
@@ -81,14 +99,19 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="post-preview">
-            <a href="./author/eduardo-villagran-morales.html" rel="bookmark">
-                <h2 class="post-title">
-                    Eduardo Villagrán Morales (316)
-                </h2>
-            </a>
-        </div>
-        <hr>
+    <!-- Post Content -->
+    <article>
+        <p>Luego de mucho tiempo volví a instalar Android Studio en Fedora. Durante el proceso de instalación me apareció un mensaje indicando que el espacio del dispositivo estaba lleno. Eso se debe a que por defecto Android Studio intenta descargar el SDK y otros elementos en <code>/tmp</code>, pero desde hace ya bastante tiempo <code>/tmp</code> es de tipo <code>tmpfs</code> (al menos en Fedora).</p>
+<p>Para evitar lo anterior, debemos indicar a Android Studio que emplee <code>/var/tmp</code> como directorio temporal. Para ello debemos modificar el archivo <code>studio.sh</code> de Android Studio y agregar la siguiente línea al comienzo:</p>
+<div class="highlight"><pre><span></span>export _JAVA_OPTIONS=-Djava.io.tmpdir=/var/tmp
+</pre></div>
+
+
+<p>Con eso ya podrás completar la instalación sin dificultades.</p>
+    </article>
+
+    <hr>
+
             </div>
         </div>
     </div>
