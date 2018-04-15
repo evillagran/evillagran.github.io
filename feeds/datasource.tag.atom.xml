@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Gotencool's blog - datasource</title><link rel="alternate" href="http://blog.gotencool.com/"></link><link rel="self" href="http://blog.gotencool.com/feeds/datasource.tag.atom.xml"></link><id>http://blog.gotencool.com/</id><updated>2018-04-15T22:20:00-03:00</updated><entry><title>Configurar datasource en Tomcat</title><link href="http://blog.gotencool.com/configurar-datasource-en-tomcat.html" rel="alternate"></link><published>2018-04-15T22:20:00-03:00</published><author><name>Eduardo Villagrán Morales</name></author><id>tag:blog.gotencool.com,2018-04-15:/configurar-datasource-en-tomcat.html/</id><summary type="html">&lt;p&gt;Esta es una mini receta para configurar un datasource visible a todos los contextos. Las instrucciones expuestas fueron probadas en Tomcat9 y &lt;code&gt;$CATALINA_HOME&lt;/code&gt; corresponde al path donde está instalado tomcat.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Debemos editar el archivo &lt;code&gt;$CATALINA_HOME/conf/server.xml&lt;/code&gt; y agregar el datasource como recurso global: &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;GlobalNamingResources&amp;gt;&lt;/span&gt;
+...
+    &lt;span class="nt"&gt;&amp;lt;Resource&lt;/span&gt;
+        &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;jdbc/unNombreRemote …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;&lt;/ol&gt;</summary><category term="tomcat"></category><category term="datasource"></category></entry></feed>

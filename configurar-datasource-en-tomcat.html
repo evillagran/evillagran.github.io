@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-        <meta charset="utf-8">
+            <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
@@ -11,6 +11,7 @@
         <title>Gotencool's blog</title>
 
             <link href="http://blog.gotencool.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Full Atom Feed" />
+            <link href="http://blog.gotencool.com/feeds/misc.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Categories Atom Feed" />
 
         <!-- Bootstrap Core CSS -->
         <link href="./theme/css/bootstrap.min.css" rel="stylesheet">
@@ -33,8 +34,23 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-		<meta property="og:locale" content="es">
+
+
+
+        <meta name="tags" contents="tomcat" />
+        <meta name="tags" contents="datasource" />
+
+
+			<meta property="og:locale" content="es">
 		<meta property="og:site_name" content="Gotencool's blog">
+
+	<meta property="og:type" content="article">
+	<meta property="article:author" content="">
+	<meta property="og:url" content="./configurar-datasource-en-tomcat.html">
+	<meta property="og:title" content="Configurar datasource en Tomcat">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="./theme/images/senal.jpg">
+	<meta property="article:published_time" content="2018-04-15 22:20:00-03:00">
 </head>
 
 <body>
@@ -65,15 +81,15 @@
     </nav>
 
     <!-- Page Header -->
-    <!-- Set your background image for this header on the line below. -->
-        <header class="intro-header" style="background-image: url('http://blog.gotencool.com/theme/images/desktop.jpg')">
+        <header class="intro-header" style="background-image: url('theme/images/senal.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="page-heading">
-                        <h1>Gotencool's blog</h1>
-                        <hr class="small">
-                        <span class="subheading"></span>
+                    <div class="post-heading">
+                        <h1>Configurar datasource en Tomcat</h1>
+                        <span class="meta">Posted on dom 15 abril 2018
+                        </span>
+                        
                     </div>
                 </div>
             </div>
@@ -84,126 +100,62 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="post-preview">
-            <a href="./apn-de-virgin-mobile-chile-para-internet.html" rel="bookmark" title="Permalink to APN de Virgin Mobile Chile para internet">
-                <h2 class="post-title">
-                    APN de Virgin Mobile Chile para internet
-                </h2>
-            </a>
-            <p class="post-meta">vie 11 mayo 2012
-            </p>
-                Desde hoy soy cliente de Virgin Mobile Chile, me porté desde Entel. El proceso fue fácil, si quieren cambiarse son unos simples pasos y de pueden usar el código 8udo5I4x para...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./internet-movil-de-entel-sin-el-molesto-proxy-android.html" rel="bookmark" title="Permalink to Internet móvil de Entel sin el molesto proxy (Android)">
-                <h2 class="post-title">
-                    Internet móvil de Entel sin el molesto proxy (Android)
-                </h2>
-            </a>
-            <p class="post-meta">mié 28 marzo 2012
-            </p>
-                No hay nada más molesto que pagar por un servicio y que te metan a la mala la forma en que debes usar ese servicio. Lo anterior está ocurriendo con el servicio Internet Móvil...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./arduino-lcd-via-i2c.html" rel="bookmark" title="Permalink to Arduino + LCD vía I2C">
-                <h2 class="post-title">
-                    Arduino + LCD vía I2C
-                </h2>
-            </a>
-            <p class="post-meta">vie 23 marzo 2012
-            </p>
-                Hace una semana me llegó un display LCD 16x2 con interfaz de conexión i2c, no había tenido oportunidad de probarlo hasta hace unos días. La gracia de este LCD está en la...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./las-aventuras-de-tintin-el-secreto-del-unicornio.html" rel="bookmark" title="Permalink to Las Aventuras de Tintín: El secreto del unicornio">
-                <h2 class="post-title">
-                    Las Aventuras de Tintín: El secreto del unicornio
-                </h2>
-            </a>
-            <p class="post-meta">mié 08 febrero 2012
-            </p>
-                Acabo de ver El Secreto del Unicornio, la primera de las películas de "Las Aventuras de Tintín" llevadas al cine. Antes ya había tenido el privilegio de leer varias de las...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./nook-simple-touch.html" rel="bookmark" title="Permalink to Nook Simple Touch">
-                <h2 class="post-title">
-                    Nook Simple Touch
-                </h2>
-            </a>
-            <p class="post-meta">sáb 21 enero 2012
-            </p>
-                Hace ya 2 semanas que tengo mi Nook Simple Touch (de Barnes & Noble), lo he estado usando desde entonces y ahora les comentaré mi experiencia con él. Primero, les detallaré los...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./chao-2011.html" rel="bookmark" title="Permalink to Chao 2011">
-                <h2 class="post-title">
-                    Chao 2011
-                </h2>
-            </a>
-            <p class="post-meta">sáb 31 diciembre 2011
-            </p>
-                Fuegos Artificiales Valpo II Cargado originalmente por JavierPsilocybin El 2011 fue un año que me trató bien, así que doy las gracias. En una de esas, la actitud patera me...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./fedora-16-y-grub2.html" rel="bookmark" title="Permalink to Fedora 16 y Grub2">
-                <h2 class="post-title">
-                    Fedora 16 y Grub2
-                </h2>
-            </a>
-            <p class="post-meta">mar 08 noviembre 2011
-            </p>
-                Hoy se liberó Fedora 16 (Verne), el que incorpora Grub2 por defecto. Esta nueva versión cambia la forma en que se configura, ya que la configuración queda dividida en varios...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./fedora-16-y-nvidia.html" rel="bookmark" title="Permalink to Fedora 16 y NVIDIA">
-                <h2 class="post-title">
-                    Fedora 16 y NVIDIA
-                </h2>
-            </a>
-            <p class="post-meta">mar 08 noviembre 2011
-            </p>
-                Si deseas instalar el controlador privativo de NVIDIA en Fedora 16 debes: Activar el repositorio RPM Fusion con las ramas free y nonfree Actualizar el kernel: yum update kernel...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./analogo.html" rel="bookmark" title="Permalink to Análogo">
-                <h2 class="post-title">
-                    Análogo
-                </h2>
-            </a>
-            <p class="post-meta">mié 05 octubre 2011
-            </p>
-                Análogo Cargado originalmente por gotencool Encontré estos rollos 35mm en mi pieza, hasta donde recuerdo uno de ellos contiene las fotografías de mi gira de estudio. Estos...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./fotos-de-hace-10-anos.html" rel="bookmark" title="Permalink to Fotos de hace +10 años">
-                <h2 class="post-title">
-                    Fotos de hace +10 años
-                </h2>
-            </a>
-            <p class="post-meta">mié 05 octubre 2011
-            </p>
-                Fotos de hace +10 años Cargado originalmente por gotencool Estas fotos son de mi gira de estudio, eso hace más de 10 años. Yo ya pensaba que el rollo estaba estropeado, pero no fue así.
-        </div>
-        <hr>
+    <!-- Post Content -->
+    <article>
+        <p>Esta es una mini receta para configurar un datasource visible a todos los contextos. Las instrucciones expuestas fueron probadas en Tomcat9 y <code>$CATALINA_HOME</code> corresponde al path donde está instalado tomcat.</p>
+<ol>
+<li>
+<p>Debemos editar el archivo <code>$CATALINA_HOME/conf/server.xml</code> y agregar el datasource como recurso global: </p>
+<div class="highlight"><pre><span></span><span class="nt">&lt;GlobalNamingResources&gt;</span>
+...
+    <span class="nt">&lt;Resource</span>
+        <span class="na">name=</span><span class="s">&quot;jdbc/unNombreRemote&quot;</span>
+            <span class="na">global=</span><span class="s">&quot;jdbc/unNombreRemote&quot;</span>
+            <span class="na">auth=</span><span class="s">&quot;Container&quot;</span>
+            <span class="na">type=</span><span class="s">&quot;javax.sql.DataSource&quot;</span>
+            <span class="na">driverClassName=</span><span class="s">&quot;oracle.jdbc.OracleDriver&quot;</span>
+            <span class="na">url=</span><span class="s">&quot;jdbc:oracle:thin:@localhost:1521:xe&quot;</span>
+            <span class="na">username=</span><span class="s">&quot;test&quot;</span>
+            <span class="na">password=</span><span class="s">&quot;test&quot;</span>
+            <span class="na">maxTotal=</span><span class="s">&quot;10&quot;</span>
+            <span class="na">maxIdle=</span><span class="s">&quot;5&quot;</span><span class="nt">/&gt;</span>
+...
+<span class="nt">&lt;/GlobalNamingResources&gt;</span>
+</pre></div>
 
-    <!-- Pager -->
-    <ul class="pager">
-        <li class="next">
-                <a href="./index3.html">Newest Posts &rarr;</a>
-                <a href="./index5.html">Older Posts &rarr;</a>
-        </li>
-    </ul>
-    Page 4 / 32
+
+</li>
+<li>
+<p>Luego debemos enlazar el recurso. Esto se puede hacer de dos formas:</p>
+<ul>
+<li>
+<p>Automáticamente para todos los contextos, editando el archivo <code>$CATALINA_HOME/conf/context.xml</code> y agregar dentro de <code>&lt;Context&gt; &lt;/Context&gt;</code></p>
+<div class="highlight"><pre><span></span>&lt;ResourceLink name=&quot;jdbc/miDatasource&quot; global=&quot;jdbc/unNombreRemote&quot; type=&quot;javax.sql.DataSource&quot;/&gt;
+</pre></div>
+
+
+</li>
+<li>
+<p>Declarando explícitamente el recurso en cada contexto de aplicación, creando/editando <code>META-INF/context.xml</code> en nuestro proyecto para que quede así:</p>
+<div class="highlight"><pre><span></span><span class="nt">&lt;Context&gt;</span>
+... 
+    <span class="nt">&lt;ResourceLink</span> <span class="na">name=</span><span class="s">&quot;jdbc/miDatasource&quot;</span> <span class="na">global=</span><span class="s">&quot;jdbc/unNombreRemote&quot;</span> <span class="na">type=</span><span class="s">&quot;javax.sql.DataSource&quot;</span><span class="nt">/&gt;</span>
+...
+<span class="nt">&lt;/Context&gt;</span>
+</pre></div>
+
+
+</li>
+</ul>
+</li>
+</ol>
+<p>Ahora ya podremos referenciar el datasource, por ejemplo dentro de la configuración de una aplicación spring:</p>
+<div class="highlight"><pre><span></span>spring.datasource.jndi-name=java:/comp/env/jdbc/miDatasource
+</pre></div>
+    </article>
+
     <hr>
+
             </div>
         </div>
     </div>
