@@ -10,8 +10,8 @@
 
         <title>Gotencool's blog</title>
 
-            <link href="https://home.gotencool.icu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Full Atom Feed" />
-            <link href="https://home.gotencool.icu/feeds/misc.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Categories Atom Feed" />
+            <link href="http://blog.gotencool.icu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Full Atom Feed" />
+            <link href="http://blog.gotencool.icu/feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Categories Atom Feed" />
 
         <!-- Bootstrap Core CSS -->
         <link href="./theme/css/bootstrap.min.css" rel="stylesheet">
@@ -23,9 +23,9 @@
             <link href="./theme/css/code_blocks/darkly.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -104,12 +104,12 @@
         <p><a href="images/32382854365903_4cfced9292_m.jpg"><img alt="" src="images/32382854365903_4cfced9292_m.jpg"></a></p>
 <p><strong><em>Puro, Chile, es tu cielo azulado,</em></strong>
     Hasta que las nubes grises cubren el cielo, nos llueve en forma torrencial durante días y el viento arranca techumbres.</p>
-<div class="highlight"><pre><span></span>_**Majestuosa es la blanca montaña,**_
-Hasta que despierta el volcán y mancha la nieve con sus cenizas.
+<div class="highlight"><pre><span></span><code><span class="n">_</span><span class="o">**</span><span class="n">Majestuosa</span> <span class="n">es</span> <span class="n">la</span> <span class="n">blanca</span> <span class="n">montaña</span><span class="p">,</span><span class="o">**</span><span class="n">_</span>
+<span class="n">Hasta</span> <span class="n">que</span> <span class="n">despierta</span> <span class="n">el</span> <span class="n">volcán</span> <span class="n">y</span> <span class="n">mancha</span> <span class="n">la</span> <span class="n">nieve</span> <span class="n">con</span> <span class="n">sus</span> <span class="n">cenizas</span><span class="p">.</span>
 
-_**Y ese mar que tranquilo te baña,**_
-Hasta que un gran sismo hace sus aguas golpeen las costas más allá de sus límite.
-</pre></div>
+<span class="n">_</span><span class="o">**</span><span class="n">Y</span> <span class="n">ese</span> <span class="n">mar</span> <span class="n">que</span> <span class="n">tranquilo</span> <span class="n">te</span> <span class="n">baña</span><span class="p">,</span><span class="o">**</span><span class="n">_</span>
+<span class="n">Hasta</span> <span class="n">que</span> <span class="n">un</span> <span class="n">gran</span> <span class="n">sismo</span> <span class="n">hace</span> <span class="n">sus</span> <span class="n">aguas</span> <span class="n">golpeen</span> <span class="n">las</span> <span class="n">costas</span> <span class="n">más</span> <span class="n">allá</span> <span class="n">de</span> <span class="n">sus</span> <span class="n">límite</span><span class="p">.</span>
+</code></pre></div>
 
 
 <p>Definitivamente vivimos en un país con actividad sísmica y volcánica constante, además de una variedad climática como en pocos lugares. Como tal, los chilenos debemos estar preparados para los golpes de la naturaleza, no es la primera vez que nos golpea y seguro no será la última.
@@ -198,6 +198,15 @@ Hasta que un gran sismo hace sus aguas golpeen las costas más allá de sus lím
     <!-- Custom Theme JavaScript -->
     <script src="./theme/js/clean-blog.min.js"></script>
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-4136473-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-4136473-1');
+</script>
 </body>
 
 </html>

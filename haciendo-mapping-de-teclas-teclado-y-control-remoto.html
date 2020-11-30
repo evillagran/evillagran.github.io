@@ -10,8 +10,8 @@
 
         <title>Gotencool's blog</title>
 
-            <link href="https://home.gotencool.icu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Full Atom Feed" />
-            <link href="https://home.gotencool.icu/feeds/misc.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Categories Atom Feed" />
+            <link href="http://blog.gotencool.icu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Full Atom Feed" />
+            <link href="http://blog.gotencool.icu/feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Categories Atom Feed" />
 
         <!-- Bootstrap Core CSS -->
         <link href="./theme/css/bootstrap.min.css" rel="stylesheet">
@@ -23,9 +23,9 @@
             <link href="./theme/css/code_blocks/darkly.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -114,19 +114,19 @@
 </li>
 </ol>
 <p>tail /var/log/messages -f</p>
-<div class="highlight"><pre><span></span>2. una vez que la consola deje de arrojar datos debemos presionar la tecla (del teclado o control remoto) que no hace nada. En la consola debería aparecer algo como ésto:
+<div class="highlight"><pre><span></span><code><span class="mi">2</span><span class="p">.</span> <span class="n">una</span> <span class="n">vez</span> <span class="n">que</span> <span class="n">la</span> <span class="n">consola</span> <span class="n">deje</span> <span class="n">de</span> <span class="n">arrojar</span> <span class="n">datos</span> <span class="n">debemos</span> <span class="n">presionar</span> <span class="n">la</span> <span class="n">tecla</span> <span class="p">(</span><span class="n">del</span> <span class="n">teclado</span> <span class="n">o</span> <span class="n">control</span> <span class="n">remoto</span><span class="p">)</span> <span class="n">que</span> <span class="k">no</span> <span class="n">hace</span> <span class="n">nada</span><span class="p">.</span> <span class="n">En</span> <span class="n">la</span> <span class="n">consola</span> <span class="n">debería</span> <span class="n">aparecer</span> <span class="n">algo</span> <span class="n">como</span> <span class="err">é</span><span class="n">sto</span><span class="p">:</span>
 
 
-            atkbd.c: Unknown key released (translated set 2, code 0x96 on isa0060/serio0).  
-    atkbd.c: Use &#39;setkeycodes e016 &#39; to make it known.
+            <span class="n">atkbd</span><span class="p">.</span><span class="k">c</span><span class="p">:</span> <span class="k">Unknown</span> <span class="k">key</span> <span class="n">released</span> <span class="p">(</span><span class="n">translated</span> <span class="k">set</span> <span class="mi">2</span><span class="p">,</span> <span class="n">code</span> <span class="mi">0</span><span class="n">x96</span> <span class="k">on</span> <span class="n">isa0060</span><span class="o">/</span><span class="n">serio0</span><span class="p">).</span>  
+    <span class="n">atkbd</span><span class="p">.</span><span class="k">c</span><span class="p">:</span> <span class="n">Use</span> <span class="s1">&#39;setkeycodes e016 &#39;</span> <span class="k">to</span> <span class="n">make</span> <span class="n">it</span> <span class="n">known</span><span class="p">.</span>
 
-3. Una vez que tenemos el raw scan code (e016 en el ejemplo) debemos asignarles un keycode libre. Para ello debemos ingresar en el archivo /etc/rc.local lo siguiente (e016 es el raw scan code y 150 es el keycode obtenido de pasar 16 de hexadecimal a decimal y sumando 128).
+<span class="mi">3</span><span class="p">.</span> <span class="n">Una</span> <span class="n">vez</span> <span class="n">que</span> <span class="n">tenemos</span> <span class="n">el</span> <span class="n">raw</span> <span class="n">scan</span> <span class="n">code</span> <span class="p">(</span><span class="n">e016</span> <span class="n">en</span> <span class="n">el</span> <span class="n">ejemplo</span><span class="p">)</span> <span class="n">debemos</span> <span class="n">asignarles</span> <span class="n">un</span> <span class="n">keycode</span> <span class="n">libre</span><span class="p">.</span> <span class="n">Para</span> <span class="n">ello</span> <span class="n">debemos</span> <span class="n">ingresar</span> <span class="n">en</span> <span class="n">el</span> <span class="n">archivo</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">rc</span><span class="p">.</span><span class="k">local</span> <span class="n">lo</span> <span class="n">siguiente</span> <span class="p">(</span><span class="n">e016</span> <span class="n">es</span> <span class="n">el</span> <span class="n">raw</span> <span class="n">scan</span> <span class="n">code</span> <span class="n">y</span> <span class="mi">150</span> <span class="n">es</span> <span class="n">el</span> <span class="n">keycode</span> <span class="n">obtenido</span> <span class="n">de</span> <span class="n">pasar</span> <span class="mi">16</span> <span class="n">de</span> <span class="n">hexadecimal</span> <span class="n">a</span> <span class="nb">decimal</span> <span class="n">y</span> <span class="n">sumando</span> <span class="mi">128</span><span class="p">).</span>
 
 
-            setkeycodes e016 150
+            <span class="n">setkeycodes</span> <span class="n">e016</span> <span class="mi">150</span>
 
-4. Esto permitirá que cada vez que el sistema bootee se asocie el keycode con el raw.
-</pre></div>
+<span class="mi">4</span><span class="p">.</span> <span class="n">Esto</span> <span class="n">permitirá</span> <span class="n">que</span> <span class="n">cada</span> <span class="n">vez</span> <span class="n">que</span> <span class="n">el</span> <span class="n">sistema</span> <span class="n">bootee</span> <span class="n">se</span> <span class="n">asocie</span> <span class="n">el</span> <span class="n">keycode</span> <span class="n">con</span> <span class="n">el</span> <span class="n">raw</span><span class="p">.</span>
+</code></pre></div>
 
 
 <ol>
@@ -135,8 +135,8 @@
 <ol>
 <li>
 <p>Ahora que las teclas ya son legibles para el sistema debemos asignarles alguna función. Necesitamos crear en nuestro home un archivo llamado .Xmodmap en que asociamos el keycode con una función. Tiene la siguiente forma  </p>
-<div class="highlight"><pre><span></span>    keycode 222 = XF86PowerOff
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">    keycode 222 = XF86PowerOff</span>
+</code></pre></div>
 
 
 <p>keycode 223 = XF86Sleep<br>
@@ -147,8 +147,8 @@ keycode 236 = XF86Mail</p>
 </li>
 <li>
 <p>Luego debemos hacer que se cargue este nuevo mapping, para ello debemos agregar ésta línea al fichero .xsession  </p>
-<div class="highlight"><pre><span></span>    /usr/bin/xmodmap $HOME/.Xmodmap
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">    /usr/bin/xmodmap $HOME/.Xmodmap</span>
+</code></pre></div>
 
 
 </li>
@@ -242,6 +242,15 @@ keycode 236 = XF86Mail</p>
     <!-- Custom Theme JavaScript -->
     <script src="./theme/js/clean-blog.min.js"></script>
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-4136473-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-4136473-1');
+</script>
 </body>
 
 </html>

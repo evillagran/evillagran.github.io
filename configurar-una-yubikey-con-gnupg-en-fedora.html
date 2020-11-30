@@ -10,8 +10,8 @@
 
         <title>Gotencool's blog</title>
 
-            <link href="https://home.gotencool.icu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Full Atom Feed" />
-            <link href="https://home.gotencool.icu/feeds/misc.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Categories Atom Feed" />
+            <link href="http://blog.gotencool.icu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Full Atom Feed" />
+            <link href="http://blog.gotencool.icu/feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Categories Atom Feed" />
 
         <!-- Bootstrap Core CSS -->
         <link href="./theme/css/bootstrap.min.css" rel="stylesheet">
@@ -23,9 +23,9 @@
             <link href="./theme/css/code_blocks/darkly.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -132,12 +132,12 @@
 </ul>
 <h2>Verificar la Yubikey</h2>
 <p>Para los siguientes ejemplos se usará GnuPG2 ya que éste soporta llaves RSA de 4096. Comenzaremos verificando si se detecta la yubikey correctamente:</p>
-<div class="highlight"><pre><span></span>gpg2 --card-status
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">gpg2 --card-status</span>
+</code></pre></div>
 
 
 <p>Deberíamos obtener una salida como la siguiente:</p>
-<div class="highlight"><pre><span></span><span class="n">Reader</span> <span class="p">...........</span><span class="o">:</span> <span class="n">Yubico</span> <span class="n">Yubikey</span> <span class="mi">4</span> <span class="n">OTP</span> <span class="n">U2F</span> <span class="n">CCID</span> <span class="mo">00</span> <span class="mo">00</span>
+<div class="highlight"><pre><span></span><code><span class="n">Reader</span> <span class="p">...........</span><span class="o">:</span> <span class="n">Yubico</span> <span class="n">Yubikey</span> <span class="mi">4</span> <span class="n">OTP</span> <span class="n">U2F</span> <span class="n">CCID</span> <span class="mo">00</span> <span class="mo">00</span>
 <span class="n">Application</span> <span class="n">ID</span> <span class="p">...</span><span class="o">:</span> <span class="n">D2760X0XXXX10X0100060X2135710000</span>
 <span class="n">Version</span> <span class="p">..........</span><span class="o">:</span> <span class="mf">2.1</span>
 <span class="n">Manufacturer</span> <span class="p">.....</span><span class="o">:</span> <span class="n">Yubico</span>
@@ -156,12 +156,12 @@
 <span class="n">Encryption</span> <span class="n">key</span><span class="p">....</span><span class="o">:</span> <span class="p">[</span><span class="n">none</span><span class="p">]</span>
 <span class="n">Authentication</span> <span class="nl">key</span><span class="p">:</span> <span class="p">[</span><span class="n">none</span><span class="p">]</span>
 <span class="n">General</span> <span class="n">key</span> <span class="n">info</span><span class="p">..</span><span class="o">:</span> <span class="p">[</span><span class="n">none</span><span class="p">]</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>En caso que no nos arroje algo así, deberemos probar en otro puerto USB o deteniendo el PCSC:</p>
-<div class="highlight"><pre><span></span>sudo systemctl stop pcscd
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">sudo systemctl stop pcscd</span>
+</code></pre></div>
 
 
 <p>Luego intentar nuevamente con el primer comando.</p>
@@ -182,18 +182,18 @@
 <li>Iniciamos la creación de la llave <code>gpg2 --expert --full-gen-key</code></li>
 <li>
 <p>Seleccionamos el tipo de llave:</p>
-<div class="highlight"><pre><span></span>Por favor seleccione tipo de clave deseado:
-  (1) RSA y RSA (por defecto)
-  (2) DSA y ElGamal
-  (3) DSA (sólo firmar)
-  (4) RSA (sólo firmar)
-  (7) DSA (permite elegir capacidades)
-  (8) RSA (permite elegir capacidades)
-  (9) ECC and ECC
- (10) ECC (sign only)
- (11) ECC (set your own capabilities)
- (13) Existing key
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">Por favor seleccione tipo de clave deseado:</span>
+<span class="err">  (1) RSA y RSA (por defecto)</span>
+<span class="err">  (2) DSA y ElGamal</span>
+<span class="err">  (3) DSA (sólo firmar)</span>
+<span class="err">  (4) RSA (sólo firmar)</span>
+<span class="err">  (7) DSA (permite elegir capacidades)</span>
+<span class="err">  (8) RSA (permite elegir capacidades)</span>
+<span class="err">  (9) ECC and ECC</span>
+<span class="err"> (10) ECC (sign only)</span>
+<span class="err"> (11) ECC (set your own capabilities)</span>
+<span class="err"> (13) Existing key</span>
+</code></pre></div>
 
 
 <p>Debemos elegir <code>RSA y RSA</code></p>
@@ -207,20 +207,20 @@
 <li>Ingresamos un comentario opcional</li>
 <li>
 <p>Nos da la opción de agregar un clave para proteger la llave. Seguir los consejos para generar entropía. Al finalizar nos saldrá el resumen:</p>
-<div class="highlight"><pre><span></span>claves pública y secreta creadas y firmadas.
+<div class="highlight"><pre><span></span><code><span class="n">claves</span><span class="w"> </span><span class="n">pública</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="n">secreta</span><span class="w"> </span><span class="n">creadas</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="n">firmadas</span><span class="p">.</span><span class="w"></span>
 
-pub   rsa2048 2017-11-13 [SC]
-      E13AFFD9469092542791CB2535285AFCE0ED7F45
-uid                      Juan Pérez &lt;jp@example.com&gt;
-sub   rsa2048 2017-11-13 [E]
-</pre></div>
+<span class="n">pub</span><span class="w">   </span><span class="n">rsa2048</span><span class="w"> </span><span class="mi">2017</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">13</span><span class="w"> </span><span class="o">[</span><span class="n">SC</span><span class="o">]</span><span class="w"></span>
+<span class="w">      </span><span class="n">E13AFFD9469092542791CB2535285AFCE0ED7F45</span><span class="w"></span>
+<span class="n">uid</span><span class="w">                      </span><span class="n">Juan</span><span class="w"> </span><span class="n">Pérez</span><span class="w"> </span><span class="o">&lt;</span><span class="n">jp</span><span class="nv">@example</span><span class="p">.</span><span class="n">com</span><span class="o">&gt;</span><span class="w"></span>
+<span class="n">sub</span><span class="w">   </span><span class="n">rsa2048</span><span class="w"> </span><span class="mi">2017</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">13</span><span class="w"> </span><span class="o">[</span><span class="n">E</span><span class="o">]</span><span class="w"></span>
+</code></pre></div>
 
 
 </li>
 <li>
 <p>Agregamos las subllave, para ello ingresamos al modo edición:</p>
-<div class="highlight"><pre><span></span>gpg2 --expert --edit-key jp@example.com
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">gpg2 --expert --edit-key jp@example.com</span>
+</code></pre></div>
 
 
 </li>
@@ -240,8 +240,8 @@ sub   rsa2048 2017-11-13 [E]
 </li>
 <li>
 <p>Exportamos las llaves con:</p>
-<div class="highlight"><pre><span></span>gpg2 --armor --export-secret-keys jp@example.com &gt; respaldo_secreto_gpg.key
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">gpg2 --armor --export-secret-keys jp@example.com &gt; respaldo_secreto_gpg.key</span>
+</code></pre></div>
 
 
 <p>Mantener dicho archivo bajo total cuidado.</p>
@@ -252,19 +252,19 @@ sub   rsa2048 2017-11-13 [E]
 <li>Insertamos la yubikey en el USB y validamos si es detectada (paso ya indicamos arriba)</li>
 <li>
 <p>Entramos en modo edición</p>
-<div class="highlight"><pre><span></span>gpg2 --expert --edit-key jp@example.com
-...
-...
-sec  rsa2048/BA1D54E27D357BCD
-     ccreado: 2017-11-13  caduca: nunca       uso: SC  
-     confianza: absoluta      validez: absoluta
-ssb  rsa2048/F1C1D21AB68CC384
-     creado: 2017-11-13  caduca: nunca       uso: E   
-ssb  rsa2048/8A9A91B693E1E57E
-     creado: 2017-11-13  caduca: nunca       uso: S   
-ssb  rsa2048/C8C3802A62992F34
-     creado: 2017-11-13  caduca: nunca       uso: A
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">gpg2 --expert --edit-key jp@example.com</span>
+<span class="err">...</span>
+<span class="err">...</span>
+<span class="err">sec  rsa2048/BA1D54E27D357BCD</span>
+<span class="err">     ccreado: 2017-11-13  caduca: nunca       uso: SC  </span>
+<span class="err">     confianza: absoluta      validez: absoluta</span>
+<span class="err">ssb  rsa2048/F1C1D21AB68CC384</span>
+<span class="err">     creado: 2017-11-13  caduca: nunca       uso: E   </span>
+<span class="err">ssb  rsa2048/8A9A91B693E1E57E</span>
+<span class="err">     creado: 2017-11-13  caduca: nunca       uso: S   </span>
+<span class="err">ssb  rsa2048/C8C3802A62992F34</span>
+<span class="err">     creado: 2017-11-13  caduca: nunca       uso: A</span>
+</code></pre></div>
 
 
 </li>
@@ -284,11 +284,11 @@ ssb  rsa2048/C8C3802A62992F34
 <li>Insertamos la yubikey en el USB y validamos si es detectada (paso ya indicamos arriba)</li>
 <li>
 <p>Edición de smartcard</p>
-<div class="highlight"><pre><span></span>gpg2 --card-edit
-...
-...
-gpg/tarjeta&gt;
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">gpg2 --card-edit</span>
+<span class="err">...</span>
+<span class="err">...</span>
+<span class="err">gpg/tarjeta&gt;</span>
+</code></pre></div>
 
 
 </li>
@@ -307,12 +307,12 @@ gpg/tarjeta&gt;
 <li>Elegir el tamaño de la llave de autenticación</li>
 <li>
 <p>Elegir la duración de la llave. Por defecto es 0. Las opciones son:</p>
-<div class="highlight"><pre><span></span>   0 = la clave nunca caduca
-&lt;n&gt;  = la clave caduca en n días
-&lt;n&gt;w = la clave caduca en n semanas
-&lt;n&gt;m = la clave caduca en n meses
-&lt;n&gt;y = la clave caduca en n años
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">   0 = la clave nunca caduca</span>
+<span class="err">&lt;n&gt;  = la clave caduca en n días</span>
+<span class="err">&lt;n&gt;w = la clave caduca en n semanas</span>
+<span class="err">&lt;n&gt;m = la clave caduca en n meses</span>
+<span class="err">&lt;n&gt;y = la clave caduca en n años</span>
+</code></pre></div>
 
 
 <p>Confirmamos la duración.</p>
@@ -332,21 +332,21 @@ gpg/tarjeta&gt;
 <ol>
 <li>
 <p>Importar la llave pública:</p>
-<div class="highlight"><pre><span></span><span class="n">gpg2</span> <span class="o">--</span><span class="kn">import</span> <span class="nn">archivo_llave_publica.gpg</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">gpg2</span> <span class="o">--</span><span class="kn">import</span> <span class="nn">archivo_llave_publica.gpg</span>
+</code></pre></div>
 
 
 </li>
 <li>
 <p>Insertar la yubikey y ejecutar <code>gpg2 --card-edit</code>, una vez en modo edición usamos el comando <code>fetch</code></p>
 </li>
-<li>Validamos que esté disponible la llave<div class="highlight"><pre><span></span>sec&gt;  rsa4096 2017-11-13 [SC] [caduca: 2019-11-13]
-      F789EB5B1A5F55DF7F89D2450B1E0D6865FDE183
-      Número de serie de la tarjeta = 0006 05213571
-uid           [  absoluta ] Juan Pérez &lt;juan@example.com&gt;
-ssb&gt;  rsa2048 2017-11-13 [A] [caduca: 2019-11-13]
-ssb&gt;  rsa2048 2017-11-13 [E] [caduca: 2019-11-13]
-</pre></div>
+<li>Validamos que esté disponible la llave<div class="highlight"><pre><span></span><code><span class="n">sec</span><span class="o">&gt;</span><span class="w">  </span><span class="n">rsa4096</span><span class="w"> </span><span class="mi">2017</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">13</span><span class="w"> </span><span class="o">[</span><span class="n">SC</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">caduca: 2019-11-13</span><span class="o">]</span><span class="w"></span>
+<span class="w">      </span><span class="n">F789EB5B1A5F55DF7F89D2450B1E0D6865FDE183</span><span class="w"></span>
+<span class="w">      </span><span class="n">Número</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">serie</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">la</span><span class="w"> </span><span class="n">tarjeta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0006</span><span class="w"> </span><span class="mi">05213571</span><span class="w"></span>
+<span class="n">uid</span><span class="w">           </span><span class="o">[</span><span class="n">  absoluta </span><span class="o">]</span><span class="w"> </span><span class="n">Juan</span><span class="w"> </span><span class="n">Pérez</span><span class="w"> </span><span class="o">&lt;</span><span class="n">juan</span><span class="nv">@example</span><span class="p">.</span><span class="n">com</span><span class="o">&gt;</span><span class="w"></span>
+<span class="n">ssb</span><span class="o">&gt;</span><span class="w">  </span><span class="n">rsa2048</span><span class="w"> </span><span class="mi">2017</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">13</span><span class="w"> </span><span class="o">[</span><span class="n">A</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">caduca: 2019-11-13</span><span class="o">]</span><span class="w"></span>
+<span class="n">ssb</span><span class="o">&gt;</span><span class="w">  </span><span class="n">rsa2048</span><span class="w"> </span><span class="mi">2017</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">13</span><span class="w"> </span><span class="o">[</span><span class="n">E</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">caduca: 2019-11-13</span><span class="o">]</span><span class="w"></span>
+</code></pre></div>
 
 
 </li>
@@ -435,6 +435,15 @@ ssb&gt;  rsa2048 2017-11-13 [E] [caduca: 2019-11-13]
     <!-- Custom Theme JavaScript -->
     <script src="./theme/js/clean-blog.min.js"></script>
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-4136473-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-4136473-1');
+</script>
 </body>
 
 </html>

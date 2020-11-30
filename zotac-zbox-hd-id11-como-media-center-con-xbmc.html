@@ -10,8 +10,8 @@
 
         <title>Gotencool's blog</title>
 
-            <link href="https://home.gotencool.icu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Full Atom Feed" />
-            <link href="https://home.gotencool.icu/feeds/misc.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Categories Atom Feed" />
+            <link href="http://blog.gotencool.icu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Full Atom Feed" />
+            <link href="http://blog.gotencool.icu/feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Categories Atom Feed" />
 
         <!-- Bootstrap Core CSS -->
         <link href="./theme/css/bootstrap.min.css" rel="stylesheet">
@@ -23,9 +23,9 @@
             <link href="./theme/css/code_blocks/darkly.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -133,8 +133,8 @@ Fedora 15<br>
 Luego de una fallida instalación de XBMC Live, instalé <a href="http://fedoraproject.org/">Fedora 15</a> vía Live USB. La instalación tomó unos 7 minutos, la actualización de los paquetes a la última versión una media hora. Instalamos XBMC.  </p>
 <p><strong>Audio sobre HDMI</strong><br>
 Luego instalé XBMC y me di cuenta que el audio no funcionaba a través de HDMI. La solución fue, tal como en mi notebook, cargar adecuadamente el módulo de audio, para ello creamos el archivo <code>/etc/modprobe.d/sound.conf</code> con el siguiente contenido:  </p>
-<div class="highlight"><pre><span></span>options snd-hda-intel enable_msi=0 probe_mask=0xffff,0xfff2
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">options snd-hda-intel enable_msi=0 probe_mask=0xffff,0xfff2</span>
+</code></pre></div>
 
 
 <p><strong>Reducir tiempo de booteo</strong><br>
@@ -158,17 +158,17 @@ chkconfig isdn off<br>
 chkconfig avahi-daemon off<br>
 chkconfig avahi-dnsconfd off</p>
 <p>Desactivamos SELinux, editamos el archivo <code>/etc/selinux/config</code> y dejamos así:  </p>
-<div class="highlight"><pre><span></span># This file controls the state of SELinux on the system.  
-# SELINUX= can take one of these three values:  
-# enforcing - SELinux security policy is enforced.  
-# permissive - SELinux prints warnings instead of enforcing.  
-# disabled - SELinux is fully disabled.  
-SELINUX=disabled  
-# SELINUXTYPE= type of policy in use. Possible values are:  
-# targeted - Only targeted network daemons are protected.  
-# strict - Full SELinux protection.  
-SELINUXTYPE=targeted
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err"># This file controls the state of SELinux on the system.  </span>
+<span class="err"># SELINUX= can take one of these three values:  </span>
+<span class="err"># enforcing - SELinux security policy is enforced.  </span>
+<span class="err"># permissive - SELinux prints warnings instead of enforcing.  </span>
+<span class="err"># disabled - SELinux is fully disabled.  </span>
+<span class="err">SELINUX=disabled  </span>
+<span class="err"># SELINUXTYPE= type of policy in use. Possible values are:  </span>
+<span class="err"># targeted - Only targeted network daemons are protected.  </span>
+<span class="err"># strict - Full SELinux protection.  </span>
+<span class="err">SELINUXTYPE=targeted</span>
+</code></pre></div>
 
 
 <p>Y finalmente, editamos <code>/boot/grub/grub.conf</code> y eliminamos rhgb desde la línea del kernel.  </p>
@@ -177,18 +177,18 @@ Antes de activar el autologin, debemos determinar si deseamos una sesión exclus
 Para lo primero, debemos en el panel de GDM antes de iniciar sesión seleccionar sesión xbmc. Luego modificar la configuración de gdm.<br>
 Para que tengamos acceso adicional al escritorio, hacemos acceso normal y agregamos el programa xbmc como programa de inicio. Luego se modifica el gdm.<br>
 Para modificar el archivo de configuración de GDM, editamos el archivo <code>/etc/custom.conf</code> <code>/etc/gdm/custom.conf</code> y lo dejamos así para autologin sin delay:  </p>
-<div class="highlight"><pre><span></span>[daemon]  
-AutomaticLoginEnable=true  
-AutomaticLogin=nombreusuario
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="n">daemon</span><span class="o">]</span><span class="w">  </span>
+<span class="n">AutomaticLoginEnable</span><span class="o">=</span><span class="k">true</span><span class="w">  </span>
+<span class="n">AutomaticLogin</span><span class="o">=</span><span class="n">nombreusuario</span><span class="w"></span>
+</code></pre></div>
 
 
 <p>O si deseamos cierto delay:  </p>
-<div class="highlight"><pre><span></span>[daemon]  
-TimedLoginEnable=true  
-TimedLogin=nombreusuario  
-TimedLoginDelay=5
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="n">daemon</span><span class="o">]</span><span class="w">  </span>
+<span class="n">TimedLoginEnable</span><span class="o">=</span><span class="k">true</span><span class="w">  </span>
+<span class="n">TimedLogin</span><span class="o">=</span><span class="n">nombreusuario</span><span class="w">  </span>
+<span class="n">TimedLoginDelay</span><span class="o">=</span><span class="mi">5</span><span class="w"></span>
+</code></pre></div>
     </article>
 
     <hr>
@@ -273,6 +273,15 @@ TimedLoginDelay=5
     <!-- Custom Theme JavaScript -->
     <script src="./theme/js/clean-blog.min.js"></script>
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-4136473-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-4136473-1');
+</script>
 </body>
 
 </html>

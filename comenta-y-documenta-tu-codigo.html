@@ -10,8 +10,8 @@
 
         <title>Gotencool's blog</title>
 
-            <link href="https://home.gotencool.icu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Full Atom Feed" />
-            <link href="https://home.gotencool.icu/feeds/misc.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Categories Atom Feed" />
+            <link href="http://blog.gotencool.icu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Full Atom Feed" />
+            <link href="http://blog.gotencool.icu/feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Categories Atom Feed" />
 
         <!-- Bootstrap Core CSS -->
         <link href="./theme/css/bootstrap.min.css" rel="stylesheet">
@@ -23,9 +23,9 @@
             <link href="./theme/css/code_blocks/darkly.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -104,34 +104,34 @@
         <p>Hace algunos años, en un ramo de la universidad, me exigían comentar el código fuente. a medida que comentaba el código me di cuenta que la única utilidad posible de ésto era que otro programados entendiera que hace o como lo hace viendo directamente el código y el comentario, algo muy limitado.<br>
 Fue en ese punto cuando conocí la documentación de código fuente, un elemento que lleva los comentarios un paso más allá. Consiste en emplear tags o docstring (dentro de un bloque o línea de comentario) para generar documentos que incluyen entro otros las clases, atributos, métodos, funciones y paquetes.  </p>
 <p>Python, mediante epydoc podemos emplear varias sintaxis para documentar el código, a continuación les dejo la sintaxis restructuredtext que es la ecolución de epytext. Permite exportar los documentos a html, pdf, latex.  </p>
-<div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">prueba</span>   
-    <span class="s1">&#39;&#39;&#39;Esta es una clase de prueba</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="n">prueba</span>   
+    <span class="s">&#39;&#39;&#39;Esta es una clase de prueba</span>
 
-<span class="s1">    Las clases de prueba se emplean para ejemplificar alguna cosa.</span>
+<span class="s">    Las clases de prueba se emplean para ejemplificar alguna cosa.</span>
 
-<span class="s1">    :ivar algo: Es una variable de la instancia</span>
-<span class="s1">    :type algo: bool</span>
+<span class="s">    :ivar algo: Es una variable de la instancia</span>
+<span class="s">    :type algo: bool</span>
 
-<span class="s1">    &#39;&#39;&#39;</span>
+<span class="s">    &#39;&#39;&#39;</span>
 
-    <span class="nx">def</span> <span class="nx">__init__</span><span class="p">(</span><span class="nx">self</span><span class="p">,</span> <span class="nx">entrada</span><span class="p">)</span><span class="o">:</span>
-        <span class="s1">&#39;&#39;&#39;Este es el constructor</span>
+    <span class="n">def</span> <span class="n">__init__</span>(<span class="nb">self</span>, <span class="n">entrada</span>):
+        <span class="s">&#39;&#39;&#39;Este es el constructor</span>
 
-<span class="s1">        :param entrada: Es un parámetro de entrada</span>
-<span class="s1">        :type entrada: str</span>
+<span class="s">        :param entrada: Es un parámetro de entrada</span>
+<span class="s">        :type entrada: str</span>
 
-<span class="s1">        &#39;&#39;&#39;</span>
-        <span class="nx">self</span><span class="p">.</span><span class="nx">algo</span> <span class="o">=</span> <span class="nx">entrada</span>
+<span class="s">        &#39;&#39;&#39;</span>
+        <span class="nb">self</span>.<span class="n">algo</span> = <span class="n">entrada</span>
 
-    <span class="nx">def</span> <span class="nx">funcionUno</span><span class="p">(</span><span class="nx">self</span><span class="p">)</span><span class="o">:</span>
-        <span class="s1">&#39;&#39;&#39;Este método hace algo</span>
+    <span class="n">def</span> <span class="n">funcionUno</span>(<span class="nb">self</span>):
+        <span class="s">&#39;&#39;&#39;Este método hace algo</span>
 
-<span class="s1">        :return: Retorna un hola</span>
-<span class="s1">        :rtype: str</span>
+<span class="s">        :return: Retorna un hola</span>
+<span class="s">        :rtype: str</span>
 
-<span class="s1">        &#39;&#39;&#39;</span>
-        <span class="k">return</span> <span class="s1">&#39;hola&#39;</span>
-</pre></div>
+<span class="s">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="s">&#39;hola&#39;</span>
+</code></pre></div>
 
 
 <p>Para generar la documentación debemos ejecutar el siguiente comando:  </p>
@@ -222,6 +222,15 @@ Actualmente existen herramientas que permiten documentar código en casi cualqui
     <!-- Custom Theme JavaScript -->
     <script src="./theme/js/clean-blog.min.js"></script>
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-4136473-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-4136473-1');
+</script>
 </body>
 
 </html>

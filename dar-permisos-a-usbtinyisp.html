@@ -10,8 +10,8 @@
 
         <title>Gotencool's blog</title>
 
-            <link href="https://home.gotencool.icu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Full Atom Feed" />
-            <link href="https://home.gotencool.icu/feeds/misc.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Categories Atom Feed" />
+            <link href="http://blog.gotencool.icu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Full Atom Feed" />
+            <link href="http://blog.gotencool.icu/feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Categories Atom Feed" />
 
         <!-- Bootstrap Core CSS -->
         <link href="./theme/css/bootstrap.min.css" rel="stylesheet">
@@ -23,9 +23,9 @@
             <link href="./theme/css/code_blocks/darkly.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -105,14 +105,14 @@
 El tema es que al conectarlo y tratar de programar un microcontrolador <a href="http://www.atmel.com/devices/attiny85.aspx">ATtiny85</a>, desde el IDE de Arduino, me arrojaba el siguiente mensaje:  </p>
 <p><a href="images/-cHdUKxaxdT0UnXJgaZXvgIAAAAAAAAEy0Nayp6ET8Nhos1600Captura+de+pantalla+de+2013-11-03+00:40:37.png"><img alt="" src="images/-cHdUKxaxdT0UnXJgaZXvgIAAAAAAAAEy0Nayp6ET8Nhos1600Captura+de+pantalla+de+2013-11-03+00:40:37.png"></a></p>
 <p>Para darle permisos, y poder usarlo como usuario normal, hay que agregar la siguiente regla udev:  </p>
-<div class="highlight"><pre><span></span>UBSYSTEM==&quot;usb&quot;, ATTR{idVendor}==&quot;1781&quot;, ATTR{idProduct}==&quot;0c9f&quot;, MODE=&quot;0666&quot;
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">UBSYSTEM==&quot;usb&quot;, ATTR{idVendor}==&quot;1781&quot;, ATTR{idProduct}==&quot;0c9f&quot;, MODE=&quot;0666&quot;</span>
+</code></pre></div>
 
 
 <p>Para ello, crearemos el archivo <code>/etc/udev/rules.d/99-usbtinyisp.rules</code> y agregaremos la línea anterior en él.<br>
 Luego deberemos reiniciar udev, como root:  </p>
-<div class="highlight"><pre><span></span>systemctl restart systemd-udevd.service
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">systemctl restart systemd-udevd.service</span>
+</code></pre></div>
 
 
 <p>Cerramos y reabrimos el IDE de Arduino, ya podremos usar el USBTinyISP.  </p>
@@ -201,6 +201,15 @@ Luego deberemos reiniciar udev, como root:  </p>
     <!-- Custom Theme JavaScript -->
     <script src="./theme/js/clean-blog.min.js"></script>
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-4136473-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-4136473-1');
+</script>
 </body>
 
 </html>

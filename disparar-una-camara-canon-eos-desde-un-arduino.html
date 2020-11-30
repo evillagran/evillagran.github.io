@@ -10,8 +10,8 @@
 
         <title>Gotencool's blog</title>
 
-            <link href="https://home.gotencool.icu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Full Atom Feed" />
-            <link href="https://home.gotencool.icu/feeds/misc.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Categories Atom Feed" />
+            <link href="http://blog.gotencool.icu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Full Atom Feed" />
+            <link href="http://blog.gotencool.icu/feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Categories Atom Feed" />
 
         <!-- Bootstrap Core CSS -->
         <link href="./theme/css/bootstrap.min.css" rel="stylesheet">
@@ -23,9 +23,9 @@
             <link href="./theme/css/code_blocks/darkly.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -112,7 +112,7 @@ Para poder hacer las conexiones, necesitaremos:  </p>
 <p>Realizaremos las conexiones como aparecen en el esquema:  </p>
 <p><a href="images/-IPPMdowARygTgv0k680U4IAAAAAAAAAzwgd1IFBXB2Ros1600conexion+canon_bb.png"><img alt="" src="images/-IPPMdowARygTgv0k680U4IAAAAAAAAAzwgd1IFBXB2Ros320conexion+canon_bb.png"></a></p>
 <p>Una vez hecho ésto podemos realizar algunas pruebas usando el siguiente código:  </p>
-<div class="highlight"><pre><span></span><span class="cm">/* Disparar Canon EOS</span>
+<div class="highlight"><pre><span></span><code><span class="cm">/* Disparar Canon EOS</span>
 <span class="cm">via cable remoto</span>
 <span class="cm">*/</span><span class="w"></span>
 const<span class="w"> </span>int<span class="w"> </span>f_pin<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">6</span><span class="err">;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span>pin<span class="w"> </span>para<span class="w"> </span>enfoque<span class="w"></span>
@@ -156,7 +156,7 @@ void<span class="w"> </span>loop<span class="o">()</span><span class="err">{</sp
 <span class="w">  </span>digitalWrite<span class="o">(</span>focusPin<span class="o">,</span><span class="w"> </span>LOW<span class="o">)</span><span class="err">;</span><span class="w"> </span><span class="o">//</span>dejo<span class="w"> </span>de<span class="w"> </span>disparar<span class="w"></span>
 <span class="w">  </span>delay<span class="o">(</span><span class="m">10000</span><span class="o">)</span><span class="err">;</span><span class="w"> </span><span class="o">//</span>espero<span class="w"> </span><span class="m">10</span><span class="w"> </span>segundos<span class="w"> </span>hasta<span class="w"> </span>sgte<span class="w"> </span>ciclo<span class="w"></span>
 <span class="err">}</span><span class="w"></span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Ahora a jugar. </p>
@@ -244,6 +244,15 @@ void<span class="w"> </span>loop<span class="o">()</span><span class="err">{</sp
     <!-- Custom Theme JavaScript -->
     <script src="./theme/js/clean-blog.min.js"></script>
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-4136473-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-4136473-1');
+</script>
 </body>
 
 </html>

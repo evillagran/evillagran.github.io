@@ -10,8 +10,8 @@
 
         <title>Gotencool's blog</title>
 
-            <link href="https://home.gotencool.icu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Full Atom Feed" />
-            <link href="https://home.gotencool.icu/feeds/misc.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Categories Atom Feed" />
+            <link href="http://blog.gotencool.icu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Full Atom Feed" />
+            <link href="http://blog.gotencool.icu/feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Categories Atom Feed" />
 
         <!-- Bootstrap Core CSS -->
         <link href="./theme/css/bootstrap.min.css" rel="stylesheet">
@@ -23,9 +23,9 @@
             <link href="./theme/css/code_blocks/darkly.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -129,36 +129,36 @@
 <ol>
 <li>
 <p>Preparar gpg-agent para que soporte ssh. Debemos crear el archivo <code>$HOME/.gnupg/gpg-agent.conf</code> con el siguiente contenido:</p>
-<div class="highlight"><pre><span></span>enable-ssh-support
-pinentry-program /usr/bin/pinentry
-default-cache-ttl 600
-default-cache-ttl-ssh 1800
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">enable-ssh-support</span>
+<span class="err">pinentry-program /usr/bin/pinentry</span>
+<span class="err">default-cache-ttl 600</span>
+<span class="err">default-cache-ttl-ssh 1800</span>
+</code></pre></div>
 
 
 </li>
 <li>
 <p>Matamos el proceso <code>gpg-agent</code> actual:</p>
-<div class="highlight"><pre><span></span>pkill gpg-agent
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">pkill gpg-agent</span>
+</code></pre></div>
 
 
 </li>
 <li>
 <p>Levantamos un proceso <code>gpg-agent</code> en forma manual:</p>
-<div class="highlight"><pre><span></span>gpg-agent --daemon
-SSH_AUTH_SOCK=/run/user/1000/gnupg/S.gpg-agent.ssh; export SSH_AUTH_SOCK;
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">gpg-agent --daemon</span>
+<span class="err">SSH_AUTH_SOCK=/run/user/1000/gnupg/S.gpg-agent.ssh; export SSH_AUTH_SOCK;</span>
+</code></pre></div>
 
 
 </li>
 <li>
 <p>Agregamos la línea de arriba <code>SSH_...</code> en el archivo <code>$HOME/.bashrc</code> deberá quedar así:</p>
-<div class="highlight"><pre><span></span>...
-# User specific aliases and functions
-SSH_AUTH_SOCK=/run/user/1000/gnupg/S.gpg-agent.ssh; export SSH_AUTH_SOCK;
-...
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">...</span>
+<span class="err"># User specific aliases and functions</span>
+<span class="err">SSH_AUTH_SOCK=/run/user/1000/gnupg/S.gpg-agent.ssh; export SSH_AUTH_SOCK;</span>
+<span class="err">...</span>
+</code></pre></div>
 
 
 </li>
@@ -172,45 +172,45 @@ SSH_AUTH_SOCK=/run/user/1000/gnupg/S.gpg-agent.ssh; export SSH_AUTH_SOCK;
 <li>Insertamos la yubikey</li>
 <li>
 <p>Ejecutamos el siguiente comando:</p>
-<div class="highlight"><pre><span></span>ssh-add -L
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDFeOlAC7lKQrpuWcN20u0vd2UE3
-r3eKF1Odj6cPY3dy2NCZWE4NiwqOe0sgckfeBYrGvCg57FI3SK905J7IeJWb6xYB6
-kK+1YZVJIoijGzle785oXXMo5lPUfInaLtV+386tlNYlMEPESEH5TZjOIL7/mXG0B
-984Ks/H6KqgYotNmg0Rl+vcvDIC+vkvMucVZY3gqXfRVaP5DJ0M5E9mWXeq4yx+Wy
-p56NlTFfD8uQVzMKmj187ipFE2LjCWAmWdVyVwc/d8U2THKooijC97ZwQZolPsd+m
-slJEJOACtNR/guUQQS+RTsJNqLskFpHX8r0pigVIMX+AGQMSc68+5jn 
-cardno:000605213571
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">ssh-add -L</span>
+<span class="err">ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDFeOlAC7lKQrpuWcN20u0vd2UE3</span>
+<span class="err">r3eKF1Odj6cPY3dy2NCZWE4NiwqOe0sgckfeBYrGvCg57FI3SK905J7IeJWb6xYB6</span>
+<span class="err">kK+1YZVJIoijGzle785oXXMo5lPUfInaLtV+386tlNYlMEPESEH5TZjOIL7/mXG0B</span>
+<span class="err">984Ks/H6KqgYotNmg0Rl+vcvDIC+vkvMucVZY3gqXfRVaP5DJ0M5E9mWXeq4yx+Wy</span>
+<span class="err">p56NlTFfD8uQVzMKmj187ipFE2LjCWAmWdVyVwc/d8U2THKooijC97ZwQZolPsd+m</span>
+<span class="err">slJEJOACtNR/guUQQS+RTsJNqLskFpHX8r0pigVIMX+AGQMSc68+5jn </span>
+<span class="c">cardno:000605213571</span>
+</code></pre></div>
 
 
 <p>Si los pasos anteriores funcionan, al final de la llave verán el <code>cardno</code>.</p>
 </li>
 <li>
 <p>Exportamos la llave</p>
-<div class="highlight"><pre><span></span>ssh-add -L &gt; export.pub
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">ssh-add -L &gt; export.pub</span>
+</code></pre></div>
 
 
 </li>
 <li>
 <p>Copiamos la llave a la máquina destino (en este caso será localhost)</p>
-<div class="highlight"><pre><span></span>ssh-copy-id -f -i export.pub foo@localhost
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">ssh-copy-id -f -i export.pub foo@localhost</span>
+</code></pre></div>
 
 
 <p>Colocamos la contraseña e indicará que se copió una llave:</p>
-<div class="highlight"><pre><span></span>Number of key(s) added: 1
+<div class="highlight"><pre><span></span><code><span class="n">Number</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="k">key</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="nl">added</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
 
-Now try logging into the machine, with:   &quot;ssh &#39;foo@localhost&#39;&quot;
-and check to make sure that only the key(s) you wanted were added
-</pre></div>
+<span class="n">Now</span><span class="w"> </span><span class="k">try</span><span class="w"> </span><span class="n">logging</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">machine</span><span class="p">,</span><span class="w"> </span><span class="k">with</span><span class="err">:</span><span class="w">   </span><span class="ss">&quot;ssh &#39;foo@localhost&#39;&quot;</span><span class="w"></span>
+<span class="ow">and</span><span class="w"> </span><span class="k">check</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">make</span><span class="w"> </span><span class="n">sure</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">key</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">wanted</span><span class="w"> </span><span class="n">were</span><span class="w"> </span><span class="n">added</span><span class="w"></span>
+</code></pre></div>
 
 
 </li>
 <li>
 <p>Validamos la conexión</p>
-<div class="highlight"><pre><span></span>ssh foo@localhost
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">ssh foo@localhost</span>
+</code></pre></div>
 
 
 <p>No nos debería pedir la contraseña e ingresar directamente (este punto depende de la configuración del servidor)</p>
@@ -301,6 +301,15 @@ and check to make sure that only the key(s) you wanted were added
     <!-- Custom Theme JavaScript -->
     <script src="./theme/js/clean-blog.min.js"></script>
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-4136473-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-4136473-1');
+</script>
 </body>
 
 </html>

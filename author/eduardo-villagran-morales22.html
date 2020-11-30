@@ -10,7 +10,7 @@
 
         <title>Gotencool's blog - Articles by Eduardo Villagrán Morales</title>
 
-            <link href="https://home.gotencool.icu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Full Atom Feed" />
+            <link href="http://blog.gotencool.icu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Full Atom Feed" />
 
         <!-- Bootstrap Core CSS -->
         <link href="../theme/css/bootstrap.min.css" rel="stylesheet">
@@ -22,9 +22,9 @@
             <link href="../theme/css/code_blocks/darkly.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -65,7 +65,7 @@
     </nav>
 
     <!-- Page Header -->
-        <header class="intro-header" style="background-image: url('https://blog.gotencool.icu/theme/images/desktop.jpg')">
+        <header class="intro-header" style="background-image: url('/theme/images/desktop.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -81,6 +81,28 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-preview">
+            <a href="../ssh-escuchando-en-mas-de-un-puerto.html" rel="bookmark" title="Permalink to SSH escuchando en más de un puerto">
+                <h2 class="post-title">
+                    SSH escuchando en más de un puerto
+                </h2>
+            </a>
+            <p class="post-meta">sáb 04 octubre 2008
+            </p>
+                Para lograr que SSH escuche más de un puerto debemos agregar al archivo de configuración (/etc/ssh/sshd_config) los puertos deseados. En el archivo encontraremos algo así: Port...
+        </div>
+        <hr>
+        <div class="post-preview">
+            <a href="../transmission-133.html" rel="bookmark" title="Permalink to Transmission 1.33">
+                <h2 class="post-title">
+                    Transmission 1.33
+                </h2>
+            </a>
+            <p class="post-meta">jue 25 septiembre 2008
+            </p>
+                Desde ya hace mucho que empleo transmission (0.8x en esas fechas) para bajar torrents. La gracia de este cliente es que es rápido y personalizable. En este release (1.33) me...
+        </div>
+        <hr>
         <div class="post-preview">
             <a href="../cortado-el-applet-java-que-reproduce-oggtheora.html" rel="bookmark" title="Permalink to Cortado, el applet Java que reproduce ogg/theora">
                 <h2 class="post-title">
@@ -167,28 +189,6 @@
             <p class="post-meta">mié 03 septiembre 2008
             </p>
                 Este tips es para quienes necesitan aplicar atributos de tamaño, color, estilo, etc. a una interfaz en PyGTK. Esto nos permite declarar el texto del gtk.Label como texto plano,...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="../virtualizando-con-kvm-en-fedora-9.html" rel="bookmark" title="Permalink to Virtualizando con KVM en Fedora 9">
-                <h2 class="post-title">
-                    Virtualizando con KVM en Fedora 9
-                </h2>
-            </a>
-            <p class="post-meta">mié 03 septiembre 2008
-            </p>
-                Nunca está de más poder crear máquinas virtuales en nuestro sistema, ya sea para hacer pruebas, levantar servidores o correr un sistema operativo alternativo. En este caso...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="../foto-blog.html" rel="bookmark" title="Permalink to Foto + blog">
-                <h2 class="post-title">
-                    Foto + blog
-                </h2>
-            </a>
-            <p class="post-meta">dom 31 agosto 2008
-            </p>
-                Foto + blog Cargado originalmente por gotencool Otra prueba, enviando entradas de blog desde Flickr mediante email
         </div>
         <hr>
 
@@ -281,6 +281,15 @@
     <!-- Custom Theme JavaScript -->
     <script src="../theme/js/clean-blog.min.js"></script>
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-4136473-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-4136473-1');
+</script>
 </body>
 
 </html>

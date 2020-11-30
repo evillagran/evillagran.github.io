@@ -10,8 +10,8 @@
 
         <title>Gotencool's blog</title>
 
-            <link href="https://home.gotencool.icu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Full Atom Feed" />
-            <link href="https://home.gotencool.icu/feeds/misc.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Categories Atom Feed" />
+            <link href="http://blog.gotencool.icu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Full Atom Feed" />
+            <link href="http://blog.gotencool.icu/feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Categories Atom Feed" />
 
         <!-- Bootstrap Core CSS -->
         <link href="./theme/css/bootstrap.min.css" rel="stylesheet">
@@ -23,9 +23,9 @@
             <link href="./theme/css/code_blocks/darkly.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -110,16 +110,16 @@ Lo que debemos hacer es escribir una regla UDEV que ejecute un comando ante la p
 <ol>
 <li>
 <p>Identifiquemos el disco removible USB.  </p>
-<div class="highlight"><pre><span></span>udevadm info -q env -n /dev/sdb  
-...  
-ID_FS_LABEL=iomega500  
-ID_FS_LABEL_ENC=iomega500  
-ID_FS_UUID=5a3d1689-de58-4673-bd91-c88f5e648b9d  
-ID_FS_UUID_ENC=5a3d1689-de58-4673-bd91-c88f5e648b9d  
-ID_FS_TYPE=xfs  
-ID_FS_USAGE=filesystem  
-...
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">udevadm info -q env -n /dev/sdb  </span>
+<span class="err">...  </span>
+<span class="err">ID_FS_LABEL=iomega500  </span>
+<span class="err">ID_FS_LABEL_ENC=iomega500  </span>
+<span class="err">ID_FS_UUID=5a3d1689-de58-4673-bd91-c88f5e648b9d  </span>
+<span class="err">ID_FS_UUID_ENC=5a3d1689-de58-4673-bd91-c88f5e648b9d  </span>
+<span class="err">ID_FS_TYPE=xfs  </span>
+<span class="err">ID_FS_USAGE=filesystem  </span>
+<span class="err">...</span>
+</code></pre></div>
 
 
 <p>Se aprecian algunas variables útiles.</p>
@@ -127,9 +127,9 @@ ID_FS_USAGE=filesystem
 <li>
 <p>Modificamos la regla <code>60-persistent-storage.rules</code> (en Fedora está en <code>/lib/udev/rules.d/60-persistent-storage.rules</code>).
      Creamos un archivo en <code>/etc/udev/rules.d/61-iomega.rules</code> con las siguientes líneas:  </p>
-<div class="highlight"><pre><span></span>SUBSYSTEMS==&quot;block&quot;, ENV{ID_FS_LABEL}==&quot;iomega500&quot;, RUN+=&quot;/bin/mkdir /media/iomega500&quot;
-SUBSYSTEMS==&quot;block&quot;, ENV{ID_FS_LABEL}==&quot;iomega500&quot;, RUN+=&quot;/bin/mount /dev/disk/by-label/iomega500 /media/iomega500&quot;
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">SUBSYSTEMS==&quot;block&quot;, ENV{ID_FS_LABEL}==&quot;iomega500&quot;, RUN+=&quot;/bin/mkdir /media/iomega500&quot;</span>
+<span class="err">SUBSYSTEMS==&quot;block&quot;, ENV{ID_FS_LABEL}==&quot;iomega500&quot;, RUN+=&quot;/bin/mount /dev/disk/by-label/iomega500 /media/iomega500&quot;</span>
+</code></pre></div>
 
 
 </li>
@@ -221,6 +221,15 @@ Estas reglas sólo se ejecutan cuando se detecta un disco con etiqueta iomega500
     <!-- Custom Theme JavaScript -->
     <script src="./theme/js/clean-blog.min.js"></script>
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-4136473-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-4136473-1');
+</script>
 </body>
 
 </html>
