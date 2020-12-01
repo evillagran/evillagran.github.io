@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-        <meta charset="utf-8">
+            <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
@@ -11,6 +11,7 @@
         <title>Gotencool's blog</title>
 
             <link href="http://blog.gotencool.icu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Full Atom Feed" />
+            <link href="http://blog.gotencool.icu/feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="Gotencool's blog Categories Atom Feed" />
 
         <!-- Bootstrap Core CSS -->
         <link href="./theme/css/bootstrap.min.css" rel="stylesheet">
@@ -33,8 +34,23 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-		<meta property="og:locale" content="es">
+
+
+
+        <meta name="tags" contents="fedora" />
+        <meta name="tags" contents="systemd" />
+
+
+			<meta property="og:locale" content="es">
 		<meta property="og:site_name" content="Gotencool's blog">
+
+	<meta property="og:type" content="article">
+	<meta property="article:author" content="">
+	<meta property="og:url" content="./dot-en-fedora-33.html">
+	<meta property="og:title" content="DoT en Fedora 33">
+	<meta property="og:description" content="">
+	<meta property="og:image" content=".//theme/images/senal.jpg">
+	<meta property="article:published_time" content="2020-12-01 00:00:00-03:00">
 </head>
 
 <body>
@@ -65,15 +81,15 @@
     </nav>
 
     <!-- Page Header -->
-    <!-- Set your background image for this header on the line below. -->
-        <header class="intro-header" style="background-image: url('/theme/images/desktop.jpg')">
+        <header class="intro-header" style="background-image: url('/theme/images/senal.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="page-heading">
-                        <h1>Gotencool's blog</h1>
-                        <hr class="small">
-                        <span class="subheading"></span>
+                    <div class="post-heading">
+                        <h1>DoT en Fedora 33</h1>
+                        <span class="meta">Posted on mar 01 diciembre 2020
+                        </span>
+                        
                     </div>
                 </div>
             </div>
@@ -84,125 +100,75 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="post-preview">
-            <a href="./dot-en-fedora-33.html" rel="bookmark" title="Permalink to DoT en Fedora 33">
-                <h2 class="post-title">
-                    DoT en Fedora 33
-                </h2>
-            </a>
-            <p class="post-meta">mar 01 diciembre 2020
-            </p>
-                DNS over TLS (DoT) es un protocolo que permite encapsular las solicitudes y respuestas de DNS sobre un canal TLS. Con ello se logra prevenir la manipulación o la escucha de las...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./fedora-como-alternativa-para-homeoffice.html" rel="bookmark" title="Permalink to Fedora como alternativa para homeoffice">
-                <h2 class="post-title">
-                    Fedora como alternativa para homeoffice
-                </h2>
-            </a>
-            <p class="post-meta">lun 06 julio 2020
-            </p>
-                A raíz del brote de covid-19 hemos tenido que adaptarnos a trabajar desde el nuestras casas. Para alguien que trabaja en informática no ha sido gran cosa, pero para quienes
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./configurar-datasource-en-tomcat.html" rel="bookmark" title="Permalink to Configurar datasource en Tomcat">
-                <h2 class="post-title">
-                    Configurar datasource en Tomcat
-                </h2>
-            </a>
-            <p class="post-meta">dom 15 abril 2018
-            </p>
-                Esta es una mini receta para configurar un datasource visible a todos los contextos. Las instrucciones expuestas fueron probadas en Tomcat9 y $CATALINA_HOME corresponde al path...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./android-studio-y-directorio-tmp.html" rel="bookmark" title="Permalink to Android Studio y directorio tmp">
-                <h2 class="post-title">
-                    Android Studio y directorio tmp
-                </h2>
-            </a>
-            <p class="post-meta">mar 16 enero 2018
-            </p>
-                Luego de mucho tiempo volví a instalar Android Studio en Fedora. Durante el proceso de instalación me apareció un mensaje indicando que el espacio del dispositivo estaba lleno....
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./libreoffice-54-permite-firmar-con-gnupg.html" rel="bookmark" title="Permalink to LibreOffice 5.4 permite firmar con GnuPG">
-                <h2 class="post-title">
-                    LibreOffice 5.4 permite firmar con GnuPG
-                </h2>
-            </a>
-            <p class="post-meta">dom 19 noviembre 2017
-            </p>
-                Hace ya unos días que se lanzó Fedora 27. Entre sus novedades está LibreOffice 5.4, el cual ahora permite firmar los documentos usando una llave GnuPG. Creamos un documento en...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./usar-yubikey-para-ssh.html" rel="bookmark" title="Permalink to Usar Yubikey para SSH">
-                <h2 class="post-title">
-                    Usar Yubikey para SSH
-                </h2>
-            </a>
-            <p class="post-meta">jue 16 noviembre 2017
-            </p>
-                En este post veremos cómo usar la yubikey que tenemos configurada con una llave GPG para iniciar sesión vía SSH. Preparando el sistema Preparar gpg-agent para que soporte ssh....
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./usar-yubikey-con-git.html" rel="bookmark" title="Permalink to Usar Yubikey con git">
-                <h2 class="post-title">
-                    Usar Yubikey con git
-                </h2>
-            </a>
-            <p class="post-meta">mié 15 noviembre 2017
-            </p>
-                Hoy veremos como usar GPG desde git para firmar los commits y tags. Lo que acá se detalla sirve para llaves GPG almacenadas en el disco como con las llaves GPG almacenadas en...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./usar-llave-gnupg-en-yubikey-desde-evolution.html" rel="bookmark" title="Permalink to Usar llave GnuPG en Yubikey desde Evolution">
-                <h2 class="post-title">
-                    Usar llave GnuPG en Yubikey desde Evolution
-                </h2>
-            </a>
-            <p class="post-meta">mar 14 noviembre 2017
-            </p>
-                Ya que tenemos la Yubikey lista, configuraremos el cliente de correo Evolution para usar la llave GPG que ella posee. Identificamos el hash de la llave GPG a usar gpg2...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./configuraciones-adicionales-de-yubikey-como-smartcard.html" rel="bookmark" title="Permalink to Configuraciones adicionales de Yubikey como Smartcard">
-                <h2 class="post-title">
-                    Configuraciones adicionales de Yubikey como Smartcard
-                </h2>
-            </a>
-            <p class="post-meta">lun 13 noviembre 2017
-            </p>
-                Ya hemos visto como agregar una llave GnuPG a una Yubikey como smartcard. Ahora veremos como configurar algunos parámetros adicionales. Cambiar el PIN de llave y el PIN de...
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="./configurar-una-yubikey-con-gnupg-en-fedora.html" rel="bookmark" title="Permalink to Configurar una Yubikey con GnuPG en Fedora">
-                <h2 class="post-title">
-                    Configurar una Yubikey con GnuPG en Fedora
-                </h2>
-            </a>
-            <p class="post-meta">dom 12 noviembre 2017
-            </p>
-                En esta serie veremos diversos elementos relacionados con GnuPG y Yubikey como Smartcard. Los post son específicos para Yubikey 4, pero podrían funcionar con Yubikey-Neo con...
-        </div>
-        <hr>
+    <!-- Post Content -->
+    <article>
+        <p>DNS over TLS (<strong>DoT</strong>) es un protocolo que permite encapsular las solicitudes y respuestas de <code>DNS</code> sobre un canal <code>TLS</code>. Con ello se logra prevenir la manipulación o la escucha de las mismas por terceras partes. En la actualidad hay varios proveedores de DNS público que proveen soporte para DoT, como Cloudflare, Google, Quad9 y otros.</p>
+<p>En Fedora 33 se emplea por defecto systemd-resolved, el cual posee soporte para DNS over TLS.</p>
+<ol>
+<li>
+<p>Editar el archivo /etc/systemd/resolved.conf</p>
+<div class="highlight"><pre><span></span><code><span class="k">[Resolve]</span>
+<span class="na">DNS</span><span class="o">=</span><span class="s">1.1.1.1</span>
+<span class="na">FallbackDNS</span><span class="o">=</span><span class="s">8.8.8.8 1.0.0.1 8.8.4.4 2001:4860:4860::8888 2606:4700:4700::1001</span>
+<span class="na">DNSSEC</span><span class="o">=</span><span class="s">yes</span>
+<span class="na">DNSOverTLS</span><span class="o">=</span><span class="s">yes</span>
+<span class="na">ReadEtcHosts</span><span class="o">=</span><span class="s">yes</span>
+</code></pre></div>
 
-    <!-- Pager -->
-    <ul class="pager">
-        <li class="next">
-                <a href="./index2.html">Older Posts &rarr;</a>
-        </li>
-    </ul>
-    Page 1 / 32
+
+<ul>
+<li><strong>DNS</strong>: acá debes colocar el valor del servidor DNS público con soporte DoT de tu preferencia.<ul>
+<li>Google: 8.8.8.8, 8.8.4.4</li>
+<li>Cloudflare: 1.1.1.1, 1.0.0.1 - 1.1.1.2, 1.0.0.2 (antimalware) - 1.1.1.3, 1.0.0.3 (antimalware + contenido familiar)</li>
+<li>Quad9: 9.9.9.9 </li>
+</ul>
+</li>
+<li><strong>FallbackDNS</strong>: una lista de servidores en caso de no contar con un servidor <code>DNS</code> informado por <code>NetworkManager</code> o en forma manual.</li>
+<li><strong>DNSSEC</strong>: activa DNSSEC en la resolución de nombres.</li>
+<li><strong>DNSOverTLS</strong>: acá le decimos que queremos usar <code>DoT</code>.</li>
+<li><strong>ReadEtcHosts</strong>: publica los valores registrados en <code>/etc/hosts</code> como resoluciones DNS locales.</li>
+</ul>
+</li>
+<li>
+<p>Reiniciar el servicio</p>
+<div class="highlight"><pre><span></span><code><span class="err">sudo systemctl restart systemd-resolved.service</span>
+</code></pre></div>
+
+
+</li>
+<li>
+<p>Validar la configuración</p>
+<ul>
+<li>
+<p>validación de parámetros, ejecutamos:</p>
+<div class="highlight"><pre><span></span><code><span class="err">resolvectl status</span>
+</code></pre></div>
+
+
+<p>obtendremos algo así:</p>
+<div class="highlight"><pre><span></span><code><span class="err">Global</span>
+<span class="err">    LLMNR setting: resolve             </span>
+<span class="err">MulticastDNS setting: no                  </span>
+<span class="err">  DNSOverTLS setting: yes                 </span>
+<span class="err">      DNSSEC setting: yes                 </span>
+<span class="err">    DNSSEC supported: yes                 </span>
+<span class="err">Fallback DNS Servers: 1.1.1.1             </span>
+<span class="err">                      8.8.8.8</span>
+</code></pre></div>
+
+
+</li>
+<li>
+<p>validación web, abrimos la url <a href="https://1.1.1.1/help">https://1.1.1.1/help</a> y nos dirá si tenemos DNS over TLS:</p>
+<p><img alt="" src="images/1.1.1.1.png"> </p>
+</li>
+</ul>
+</li>
+</ol>
+    </article>
+
     <hr>
+
             </div>
         </div>
     </div>
