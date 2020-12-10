@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Gotencool's blog - yubikey</title><link href="https://blog.gotencool.icu/" rel="alternate"></link><link href="https://blog.gotencool.icu/feeds/yubikey.tag.atom.xml" rel="self"></link><id>https://blog.gotencool.icu/</id><updated>2017-11-19T22:00:00-03:00</updated><entry><title>LibreOffice 5.4 permite firmar con GnuPG</title><link href="https://blog.gotencool.icu/libreoffice-54-permite-firmar-con-gnupg.html" rel="alternate"></link><published>2017-11-19T22:00:00-03:00</published><author><name>Eduardo Villagrán Morales</name></author><id>tag:blog.gotencool.icu,2017-11-19:/libreoffice-54-permite-firmar-con-gnupg.html/</id><summary type="html">&lt;p&gt;Hace ya unos días que se lanzó Fedora 27. Entre sus novedades está LibreOffice 5.4, el cual ahora permite firmar los documentos usando una llave GnuPG.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Creamos un documento en LibreOffice (Writer, Calc, Draw, etc) y lo guardamos&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;En el menú &lt;strong&gt;Archivo&lt;/strong&gt; seleccionamos &lt;strong&gt;Firmas digitales -&amp;gt; Firmas digitales...&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Presionamos &lt;strong&gt;Firmar …&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;</summary><category term="misc"></category><category term="fedora"></category><category term="gnupg"></category><category term="yubikey"></category><category term="git"></category><category term="libreoffice"></category></entry><entry><title>Usar Yubikey para SSH</title><link href="https://blog.gotencool.icu/usar-yubikey-para-ssh.html" rel="alternate"></link><published>2017-11-16T22:20:00-03:00</published><author><name>Eduardo Villagrán Morales</name></author><id>tag:blog.gotencool.icu,2017-11-16:/usar-yubikey-para-ssh.html/</id><summary type="html">&lt;p&gt;En este post veremos cómo usar la yubikey que tenemos configurada con una llave GPG para iniciar sesión vía SSH.&lt;/p&gt;
+&lt;h3&gt;Preparando el sistema&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Preparar gpg-agent para que soporte ssh. Debemos crear el archivo &lt;code&gt;$HOME/.gnupg/gpg-agent.conf&lt;/code&gt; con el siguiente contenido:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;enable-ssh-support&lt;/span&gt;
+&lt;span class="err"&gt;pinentry-program /usr/bin/pinentry&lt;/span&gt;
+&lt;span class="err"&gt;default-cache-ttl 600&lt;/span&gt;
+&lt;span class="err"&gt;default-cache-ttl-ssh 1800 …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;&lt;/ol&gt;</summary><category term="misc"></category><category term="fedora"></category><category term="gnupg"></category><category term="yubikey"></category><category term="git"></category></entry><entry><title>Usar Yubikey con git</title><link href="https://blog.gotencool.icu/usar-yubikey-con-git.html" rel="alternate"></link><published>2017-11-15T22:20:00-03:00</published><author><name>Eduardo Villagrán Morales</name></author><id>tag:blog.gotencool.icu,2017-11-15:/usar-yubikey-con-git.html/</id><summary type="html">&lt;p&gt;Hoy veremos como usar GPG desde git para firmar los commits y tags. Lo que acá se detalla sirve para llaves GPG almacenadas en el disco como con las llaves GPG almacenadas en una Yubikey.&lt;/p&gt;
+&lt;h3&gt;Definir la llave GPG a usar&lt;/h3&gt;
+&lt;p&gt;Debemos indicar a git qué llave GPG usar y …&lt;/p&gt;</summary><category term="misc"></category><category term="fedora"></category><category term="gnupg"></category><category term="yubikey"></category><category term="git"></category></entry><entry><title>Usar llave GnuPG en Yubikey desde Evolution</title><link href="https://blog.gotencool.icu/usar-llave-gnupg-en-yubikey-desde-evolution.html" rel="alternate"></link><published>2017-11-14T22:20:00-03:00</published><author><name>Eduardo Villagrán Morales</name></author><id>tag:blog.gotencool.icu,2017-11-14:/usar-llave-gnupg-en-yubikey-desde-evolution.html/</id><summary type="html">&lt;p&gt;Ya que tenemos la Yubikey lista, configuraremos el cliente de correo Evolution para usar la llave GPG que ella posee.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Identificamos el hash de la llave GPG a usar&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;gpg2&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;--list-secret-key&lt;/span&gt;
+&lt;span class="n"&gt;sec&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="n"&gt;rsa4096&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;2011&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;23&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;SC&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="mf"&gt;95E30&lt;/span&gt;&lt;span class="n"&gt;BC35BC1FB86E67B8F73F0DDFF1DD24CB499&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;uid&lt;/span&gt;&lt;span class="w"&gt;           &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;  absoluta &lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Eduardo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Andrés&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Villagrán&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Morales&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;evillagr&lt;/span&gt;&lt;span class="nv"&gt;@fedoraproject&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;org&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;En este …&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;</summary><category term="misc"></category><category term="fedora"></category><category term="gnupg"></category><category term="yubikey"></category></entry><entry><title>Configuraciones adicionales de Yubikey como Smartcard</title><link href="https://blog.gotencool.icu/configuraciones-adicionales-de-yubikey-como-smartcard.html" rel="alternate"></link><published>2017-11-13T00:00:00-03:00</published><author><name>Eduardo Villagrán Morales</name></author><id>tag:blog.gotencool.icu,2017-11-13:/configuraciones-adicionales-de-yubikey-como-smartcard.html/</id><summary type="html">&lt;p&gt;Ya hemos visto como agregar una llave GnuPG a una Yubikey como smartcard. Ahora veremos como configurar algunos parámetros adicionales.&lt;/p&gt;
+&lt;h2&gt;Cambiar el PIN de llave y el PIN de admin&lt;/h2&gt;
+&lt;p&gt;Las Yubikey 4 traen de fábrica configurados dos PIN, uno para usar la llave (123456) y otro para las operaciones …&lt;/p&gt;</summary><category term="misc"></category><category term="fedora"></category><category term="gnupg"></category><category term="yubikey"></category></entry><entry><title>Configurar una Yubikey con GnuPG en Fedora</title><link href="https://blog.gotencool.icu/configurar-una-yubikey-con-gnupg-en-fedora.html" rel="alternate"></link><published>2017-11-12T00:00:00-03:00</published><author><name>Eduardo Villagrán Morales</name></author><id>tag:blog.gotencool.icu,2017-11-12:/configurar-una-yubikey-con-gnupg-en-fedora.html/</id><summary type="html">&lt;p&gt;En esta serie veremos diversos elementos relacionados con GnuPG y Yubikey como Smartcard. Los post son específicos para Yubikey 4, pero podrían funcionar con Yubikey-Neo con algunas modificaciones.&lt;/p&gt;
+&lt;p&gt;Estos ejemplos están probados en:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Fedora 26&lt;/li&gt;
+&lt;li&gt;GnuPG 2.2.1&lt;/li&gt;
+&lt;li&gt;Yubikey 4 (v2.1)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Verificar la Yubikey&lt;/h2&gt;
+&lt;p&gt;Para los siguientes ejemplos …&lt;/p&gt;</summary><category term="misc"></category><category term="fedora"></category><category term="gnupg"></category><category term="yubikey"></category></entry></feed>

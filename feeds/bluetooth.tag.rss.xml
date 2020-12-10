@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Gotencool's blog - bluetooth</title><link>https://blog.gotencool.icu/</link><description></description><atom:link href="https://blog.gotencool.icu/feeds/bluetooth.tag.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 26 May 2012 00:00:00 -0400</lastBuildDate><item><title>Enviar audio desde Android a Fedora vía A2DP</title><link>https://blog.gotencool.icu/enviar-audio-desde-android-a-fedora-via-a2dp.html</link><description>&lt;p&gt;El escenario genérico podría ser el siguiente: tenemos un celular o reproductor de audio que soporta el perfil bluetooth &lt;a href="http://es.wikipedia.org/wiki/Perfil_Bluetooth#Advanced_Audio_Distribution_Profile_.28A2DP.29"&gt;A2DP&lt;/a&gt; y queremos enviar el audio hacia nuestro PC para usarlo como parlantes bluetooth.  &lt;/p&gt;
-&lt;p&gt;&lt;a href="images/-dNnyN4mU0qsT8D6KUi1OPIAAAAAAAABmkpk9DN7e1_mks1600a2dp.png"&gt;&lt;img alt="" src="images/-dNnyN4mU0qsT8D6KUi1OPIAAAAAAAABmkpk9DN7e1_mks1600a2dp.png"&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Lo primero que debemos hacer es contar con los paquetes adecuados:  &lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;pulseaudio-module-bluetooth&lt;/li&gt;
-&lt;li&gt;pavucontrol&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Estos pueden ser instalados …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Eduardo Villagrán Morales</dc:creator><pubDate>Sat, 26 May 2012 00:00:00 -0400</pubDate><guid>tag:blog.gotencool.icu,2012-05-26:/enviar-audio-desde-android-a-fedora-via-a2dp.html/</guid><category>misc</category><category>Linux</category><category>bluetooth</category><category>Nexus</category><category>One</category><category>Fedora</category><category>Música</category><category>android</category></item></channel></rss>

@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Gotencool's blog - wifi</title><link>https://blog.gotencool.icu/</link><description></description><atom:link href="https://blog.gotencool.icu/feeds/wifi.tag.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 21 Jun 2012 00:00:00 -0400</lastBuildDate><item><title>Solución a interrupción de funcionamiento en ath5k</title><link>https://blog.gotencool.icu/solucion-a-interrupcion-de-funcionamiento-en-ath5k.html</link><description>&lt;p&gt;Desde hace varios meses que he tenido problemas con el módulo wireless ath5k (Atheros con chipset AR5xxx), el que en forma aleatoria deja de funcionar y arroja los siguientes mensajes de log:  &lt;/p&gt;
-&lt;p&gt;...&lt;br&gt;
-[25803.450000] ath5k phy0: gain calibration timeout (2412MHz)&lt;br&gt;
-[25805.130000] ath5k phy0: gain calibration timeout (2412MHz)&lt;br&gt;
-[25806.800000 …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Eduardo Villagrán Morales</dc:creator><pubDate>Thu, 21 Jun 2012 00:00:00 -0400</pubDate><guid>tag:blog.gotencool.icu,2012-06-21:/solucion-a-interrupcion-de-funcionamiento-en-ath5k.html/</guid><category>misc</category><category>Linux</category><category>ath5k</category><category>Fedora</category><category>wifi</category></item></channel></rss>
